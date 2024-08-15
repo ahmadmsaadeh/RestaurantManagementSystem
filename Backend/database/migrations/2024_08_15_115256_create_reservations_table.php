@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->integer('ResID')->primary();
+            $table->integer('ResID')->primary()->autoIncrement();
             $table->integer('UserID');
             $table->date('Date');
             $table->time('Time');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('TimeExpectedToLeave');
 
 //            $table->foreign('UserID')->references('id')->on('users');
-            $table->foreign('TableID')->references('id')->on('tables');
+//            $table->foreign('TableID')->references('id')->on('tables');
         });
     }
 
