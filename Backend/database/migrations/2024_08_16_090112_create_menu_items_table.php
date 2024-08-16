@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
         });*/
         Schema::create('menu_items', function (Blueprint $table) {
-            $table->id('item_id');
+            $table->id('menu_item_id');
             $table->string('name_item');
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);

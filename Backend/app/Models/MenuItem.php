@@ -10,7 +10,7 @@ class MenuItem extends Model
     use HasFactory;
 
 
-    protected $primaryKey = 'item_id';
+    protected $primaryKey = 'menu_item_id';
 
     protected $fillable = [
         'name_item',
@@ -24,7 +24,9 @@ class MenuItem extends Model
     public function category()
     {
       //  return $this->belongsTo(Category::class);
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+       // return $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'category_id');
+
     }
 }
 
