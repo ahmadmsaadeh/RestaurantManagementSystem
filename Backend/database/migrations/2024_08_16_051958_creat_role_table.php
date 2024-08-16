@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tables', function (Blueprint $table) {
-            $table->integer('TableID')->primary()->autoIncrement();
-            $table->integer('NumberOfChairs');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->id('role_id');
+            $table->string('role_name');
+            $table->string('description')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tables');
+        Schema::dropIfExists('roles');
     }
 };
