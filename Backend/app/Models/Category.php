@@ -8,15 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'category_id';
 
     protected $fillable = [
-        'name',
+        'category_name',
     ];
 
     public function menuItems()
     {
        // return $this->hasMany(MenuItem::class);
-        return $this->hasMany(MenuItem::class, 'category_id', 'id');
+       // return $this->hasMany(MenuItem::class, 'category_id', 'id');
+        return $this->hasMany(MenuItem::class, 'category_id', 'category_id');
+
     }
 }
