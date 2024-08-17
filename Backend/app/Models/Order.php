@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'order_id';
     protected $fillable = [
-        'order_id',
+        
         'order_date',
         'order_time',
         'user_id',
@@ -18,25 +18,23 @@ class Order extends Model
         'total',
         'status',
     ];
-
-    public function Order_Item(){
-     
-        return $this->hasMany(Order_item::class, 'order_id', 'order_id');
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id','user_id');
     }
-    public function reservation(){
 
-      return $this->belongsTo(Reservation::class);
-
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class, 'reservation_id','ResID');
     }
-    public function feedback(){
 
-        return $this->hasMany(Feedback::class);
-
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id','order_id');
     }
-    public function user(){
 
-        return $this->belongsTo(User::class);
-
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'order_id','order_id');
     }
 }

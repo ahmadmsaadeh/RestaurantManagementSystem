@@ -24,16 +24,16 @@ class Reservation extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'UserID', 'user_id');
     }
 
     public function table()
     {
-        return $this->belongsTo(Table::class, 'TableID');
+        return $this->belongsTo(Table::class, 'TableID','TableID');
     }
 
     public function orders()
     {
-        return $this->hasMany(Order::class, 'reservation_id');
+        return $this->hasMany(Order::class, 'reservation_id','ResID');
     }
 }

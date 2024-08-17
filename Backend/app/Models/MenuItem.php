@@ -23,10 +23,19 @@ class MenuItem extends Model
 
     public function category()
     {
-      //  return $this->belongsTo(Category::class);
-       // return $this->belongsTo(Category::class, 'category_id', 'id');
+   
         return $this->belongsTo(Category::class, 'category_id', 'category_id');
 
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'menu_item_id', 'menu_item_id');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'menu_item_id','menu_item_id');
     }
 }
 
