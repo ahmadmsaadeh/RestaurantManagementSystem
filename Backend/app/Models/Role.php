@@ -14,6 +14,9 @@ class Role extends Model
      *
      * @var array<int, string>
      */
+    
+     protected $primaryKey = 'role_id';
+
     protected $fillable = [
         'role_name',
         'description',
@@ -23,6 +26,6 @@ class Role extends Model
      */
     public function users()
     {
-        return $this->hasMany(User::class, 'role_id');
+        return $this->hasMany(User::class, 'role_id','role_id');
     }
 }
