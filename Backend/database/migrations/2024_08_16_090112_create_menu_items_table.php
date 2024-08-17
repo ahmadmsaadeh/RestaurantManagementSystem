@@ -22,7 +22,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->boolean('availability')->default(true);
             $table->string('image')->nullable();
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('category_id')->constrained('categories', 'category_id')->onDelete('cascade');
             $table->timestamps();
         });
     }

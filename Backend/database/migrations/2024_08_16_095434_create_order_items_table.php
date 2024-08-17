@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('order_items', function (Blueprint $table) {
-            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-            $table->foreignId('menu_item_id')->constrained('menu_items')->onDelete('cascade');
+            $table->foreignId('order_id')->references('order_id')->on('orders')->onDelete('cascade');
+            $table->foreignId('menu_item_id')->references('menu_item_id')->on('menu_items')->onDelete('cascade');
             $table->primary(['order_id', 'menu_item_id']);
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('subtotal');

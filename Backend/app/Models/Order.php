@@ -20,8 +20,8 @@ class Order extends Model
     ];
 
     public function Order_Item(){
-
-        return $this->hasMany(Order_item::class);
+     
+        return $this->hasMany(Order_item::class, 'order_id', 'order_id');
 
     }
     public function reservation(){
