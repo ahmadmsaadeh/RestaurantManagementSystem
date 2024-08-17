@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id('order_id');
             $table->date('order_date');
             $table->time('order_time');
-            $table->foreignId('user_id')->nullable()->constrained('users');
-            $table->integer('reservation_id')->nullable();
-            $table->foreign('reservation_id')->references('ResID')->on('reservations')->onDelete('set null');
+            $table->foreignId('user_id')->nullable()->constrained('users', 'user_id'); // Reference the correct primary key in the users table
+            $table->foreignId('reservation_id')->nullable()->constrained('reservations', 'ResID')->onDelete('set null');
             $table->unsignedInteger('total');
             $table->string('status');
             $table->timestamps();
-
         });
+        
     }
     /**
      * Reverse the migrations.

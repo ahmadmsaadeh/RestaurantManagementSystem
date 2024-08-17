@@ -12,17 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->integer('ResID')->primary()->autoIncrement();
-            $table->integer('UserID');
+            $table->id('ResID'); // Primary key, auto-incremented
+            $table->unsignedBigInteger('UserID'); // Foreign key to users
+            $table->unsignedBigInteger('TableID'); // Foreign key to tables
             $table->date('Date');
             $table->time('Time');
             $table->integer('NumOfCustomers');
             $table->string('ReservationType');
-            $table->integer('TableID');
             $table->time('TimeExpectedToLeave');
-
-//            $table->foreign('UserID')->references('id')->on('users');
-//            $table->foreign('TableID')->references('id')->on('tables');
+        
+            // Define foreign key constraints
+            $table->foreign('UserID')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('TableID')->references('TableID')->on('tables')->onDelete('cascade');
         });
     }
 

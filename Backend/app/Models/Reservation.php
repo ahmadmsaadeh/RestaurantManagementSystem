@@ -22,13 +22,18 @@ class Reservation extends Model
     ];
 
 
-//    public function user()
-//    {
-//        return $this->belongsTo(Users::class, 'UserID');
-//    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-//    public function tables()
-//    {
-//        return $this->belongsTo(Tables::class, 'TableID');
-//    }
+    public function table()
+    {
+        return $this->belongsTo(Table::class, 'TableID');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'reservation_id');
+    }
 }
