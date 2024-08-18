@@ -9,7 +9,8 @@ Route::get('/user', function (Request $request) {
 
 require base_path('routes/order.php');
 
-require base_path('routes/auth.php');
+require base_path('routes/feedback.php');
+require base_path('routes/reports.php');
 require base_path('routes/user.php');
 require base_path('routes/role.php');
 
