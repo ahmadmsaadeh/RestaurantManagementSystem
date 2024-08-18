@@ -8,3 +8,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 require base_path('routes/order.php');
+
+require base_path('routes/auth.php');
+require base_path('routes/user.php');
+require base_path('routes/role.php');
+
