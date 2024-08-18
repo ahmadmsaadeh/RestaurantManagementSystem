@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('order_id');
-            $table->date('order_date');
-            $table->time('order_time');
+
+            $table->timestamp('order_date')->useCurrent(); // Sets default to current timestamp
+            $table->timestamp('order_time')->useCurrent(); // Sets default to current timestamp
+
             $table->foreignId('user_id')->nullable()->constrained('users', 'user_id'); // Reference the correct primary key in the users table
             $table->foreignId('reservation_id')->nullable()->constrained('reservations', 'ResID')->onDelete('set null');
-            $table->unsignedInteger('total');
-            $table->string('status');
+            $table->decimal('total', 10, 2)->nullable(); // Total with precision: 10 digits, 2 after the decimal point
+            $table->enum('status', ['Open', 'Served', 'Closed'])->default('Open');
             $table->timestamps();
         });
-        
+
     }
     /**
      * Reverse the migrations.
