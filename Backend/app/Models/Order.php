@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
     protected $primaryKey = 'order_id';
     protected $fillable = [
-        
-        'order_date',
-        'order_time',
+
         'user_id',
         'reservation_id',
         'total',
@@ -30,7 +29,7 @@ class Order extends Model
 
     public function orderItems()
     {
-        return $this->hasMany(OrderItem::class, 'order_id','order_id');
+        return $this->hasMany(Order_Item::class, 'order_id','order_id');
     }
 
     public function feedbacks()
