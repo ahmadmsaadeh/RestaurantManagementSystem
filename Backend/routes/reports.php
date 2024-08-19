@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @author Tala Yaseen
+ */
 use Illuminate\Support\Facades\Route;
 
 Route::get('/reports/sales-monthly', 'App\Http\Controllers\ReportController@getMonthlySales');
