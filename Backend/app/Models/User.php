@@ -16,6 +16,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'username',
         'email',
@@ -44,8 +46,6 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-
-     protected $primaryKey = 'user_id';
 
     protected function casts(): array
     {

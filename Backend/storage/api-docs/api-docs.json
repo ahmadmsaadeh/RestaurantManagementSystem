@@ -491,6 +491,963 @@
                     }
                 }
             }
+        },
+        "/reservations/{id}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservations for a specific user",
+                "description": "Retrieve all reservations for a user.",
+                "operationId": "b7e4764ba6df6342f57d83d48f81824a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}": {
+            "post": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Add a new reservation",
+                "description": "Allows users to add a new reservation.",
+                "operationId": "e6a68f82ca2c56b32e69447c0ac5011d",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "description": "Reservation time",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "time"
+                        }
+                    },
+                    {
+                        "name": "numOfCustomers",
+                        "in": "path",
+                        "description": "Number of customers",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "ReservationType",
+                        "in": "path",
+                        "description": "Type of reservation",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Reservation added"
+                    }
+                }
+            }
+        },
+        "/reservations/{reservationID}": {
+            "delete": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Delete a reservation",
+                "description": "Allows users to delete a reservation.",
+                "operationId": "9ed2605aabb14c761483129e5870d006",
+                "parameters": [
+                    {
+                        "name": "reservationID",
+                        "in": "path",
+                        "description": "Reservation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservation deleted"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Update a reservation",
+                "description": "Allows users to update an existing reservation.",
+                "operationId": "384a26ce36523200bc171e3e94631cc7",
+                "parameters": [
+                    {
+                        "name": "reservationID",
+                        "in": "path",
+                        "description": "Reservation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Reservation details to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "Date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "format": "time"
+                                    },
+                                    "numOfCustomers": {
+                                        "type": "integer"
+                                    },
+                                    "ReservationType": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reservation updated"
+                    }
+                }
+            }
+        },
+        "/reservations/date/{Date}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservations by date",
+                "description": "Retrieve reservations based on the date.",
+                "operationId": "1cee41396053eeac3a093736b4ed455f",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/reservations/date/{Date}/time/{time}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservations by date and time",
+                "description": "Retrieve reservations based on the date and time.",
+                "operationId": "6b47ea52fd490d0798f73c349be7d308",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "description": "Reservation time",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/reservations/id/{ReservationID}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservation by ID",
+                "description": "Retrieve a specific reservation by its ID.",
+                "operationId": "2d0092b8e20c96724b1408aed41ebe66",
+                "parameters": [
+                    {
+                        "name": "ReservationID",
+                        "in": "path",
+                        "description": "Reservation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservation retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get all user reservations",
+                "description": "Retrieve all reservations for all users (staff only).",
+                "operationId": "024c40d5fe3acdb9ea072fe870928dc5",
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations/{user_id}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get all reservations for a specific user",
+                "description": "Retrieve all reservations for a specific user (staff only).",
+                "operationId": "7635ce66daa4e952b87993e372b94e38",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations/date/{Date}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get reservations by date",
+                "description": "Retrieve reservations by date (staff only).",
+                "operationId": "1f79fb2c119a92ab9170b127d529c9f7",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations/date/{Date}/time/{time}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get reservations by date and time",
+                "description": "Retrieve reservations by date and time (staff only).",
+                "operationId": "a1b0b96596c675ab6708f8b2ef1db88b",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "description": "Reservation time",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/api/roles/{role_name}": {
+            "get": {
+                "tags": [
+                    "Role Management"
+                ],
+                "summary": "Get role by name",
+                "operationId": "f9d964c88b482db108e45bc83f320186",
+                "parameters": [
+                    {
+                        "name": "role_name",
+                        "in": "path",
+                        "description": "The name of the role to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Role retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "role_name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles": {
+            "get": {
+                "tags": [
+                    "Role Management"
+                ],
+                "summary": "Get all roles",
+                "operationId": "1811fddab2cec2e9cd45d508ee99b560",
+                "responses": {
+                    "200": {
+                        "description": "List of all roles"
+                    },
+                    "404": {
+                        "description": "No roles found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "No roles found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles/role/{role_id}": {
+            "get": {
+                "tags": [
+                    "Role Management"
+                ],
+                "summary": "Get role by ID",
+                "operationId": "a7411ff8813f469d3368a21bf145ed48",
+                "parameters": [
+                    {
+                        "name": "role_id",
+                        "in": "path",
+                        "description": "The ID of the role to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Role retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "role_name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles/create/role": {
+            "post": {
+                "tags": [
+                    "Role Management"
+                ],
+                "summary": "Create a new role",
+                "operationId": "a29ccf3471d01171432679dd93515514",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Administrator role with full permissions"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Role created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Role created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Role creation failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role could not be created"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles/update/{role_id}": {
+            "put": {
+                "tags": [
+                    "Role Management"
+                ],
+                "summary": "Update an existing role",
+                "operationId": "85c50f47c2c20104cc8c17c5d8dc82f7",
+                "parameters": [
+                    {
+                        "name": "role_id",
+                        "in": "path",
+                        "description": "The ID of the role to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string",
+                                        "example": "Admin"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Administrator role with full permissions"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Role updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Role updated successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Role update failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role could not be updated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles/delete/{role_id}": {
+            "delete": {
+                "tags": [
+                    "Role Management"
+                ],
+                "summary": "Delete a role",
+                "operationId": "c66414e2bb4da3c2bc7734b63b2ba71f",
+                "parameters": [
+                    {
+                        "name": "role_id",
+                        "in": "path",
+                        "description": "The ID of the role to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Role deleted successfully"
+                    },
+                    "404": {
+                        "description": "Role not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Get all users",
+                "operationId": "f2b69a142b3a47c79e32c352f5f0501c",
+                "responses": {
+                    "200": {
+                        "description": "List of all users"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Get user by id",
+                "operationId": "b0a4bd6db558e0572348745baa77de3f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the user to get it",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User got successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User got successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid user id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "users can update there information",
+                "operationId": "db52232ca95ee89b3c3ed421bf014cee",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the user to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "alaa"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "alaa.has@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "1212121212"
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "alaa"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "hasan"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User updated successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid user id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Delete a user account by ID",
+                "description": "This endpoint deletes a user account by its ID.",
+                "operationId": "613639bdf459b50ecdee7a5f5b34aaf5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the user to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid user id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/role/{role_id}": {
+            "get": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "get the user by role id for admin to see all staff or customers by id",
+                "operationId": "cc484c5216af145f94ad10812c654607",
+                "parameters": [
+                    {
+                        "name": "role_id",
+                        "in": "path",
+                        "description": "The ID of the role to be got",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User got successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User got successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid role id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -537,6 +1494,14 @@
     },
     "tags": [
         {
+            "name": "Role Management",
+            "description": "API Endpoints related to Role Management"
+        },
+        {
+            "name": "User Management",
+            "description": "API Endpoints related to User Management"
+        },
+        {
             "name": "Reports",
             "description": "Endpoints for generating various reports"
         },
@@ -547,6 +1512,11 @@
         {
             "name": "Orders",
             "description": "Orders"
+        },
+        {
+            "name": "Reservations",
+            "description": "Reservations"
+
         }
     ]
 }
