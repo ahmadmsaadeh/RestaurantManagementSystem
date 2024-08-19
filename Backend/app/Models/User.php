@@ -46,6 +46,9 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    
+     protected $primaryKey = 'user_id';
+
     protected function casts(): array
     {
         return [
@@ -56,6 +59,21 @@ class User extends Authenticatable
     }
     public function role()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class, 'role_id','role_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'UserID','user_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id','user_id');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'customer_id','user_id');
     }
 }
