@@ -8,6 +8,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
+use App\Models\Table;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
@@ -75,7 +79,7 @@ class ReservationController
 {
     /**
      * @OA\Get(
-     *     path="/reservations/{id}",
+     *     path="/api/reservations/{id}",
      *     tags={"Reservations"},
      *     summary="Get reservations for a specific user",
      *     description="Retrieve all reservations for a user.",
@@ -92,14 +96,24 @@ class ReservationController
      *     )
      * )
      */
-    public function getUserReservations($id = null)
+    public function getUserReservations($user_id): JsonResponse
     {
+        $user = User::find($user_id);
+        if (!$user) {
+            return response()->json(['error' => 'Invalid user id'], 404);
+        }
 
+        $reservations = $user->reservations;
+        if ($reservations->isEmpty()) {
+            return response()->json(['message' => 'Nothing get'], 404);
+        }else{
+            return response()->json($reservations, 200);
+        }
     }
 
     /**
      * @OA\Post(
-     *     path="/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}",
+     *     path="/api/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}",
      *     tags={"Reservations"},
      *     summary="Add a new reservation",
      *     description="Allows users to add a new reservation.",
@@ -146,12 +160,66 @@ class ReservationController
      */
     public function addReservation($user_id, $Date, $time, $numOfCustomers, $ReservationType)
     {
+        try {
+            $time = new \DateTime($time);
+            $newTime = clone $time;
 
+            if ($ReservationType === 'Drink') {
+                $newTime->add(new \DateInterval('PT1H'));
+            } else {
+                $newTime->add(new \DateInterval('PT2H'));
+            }
+
+            $timeExpectedToLeave = $newTime->format('H:i:s');
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+        $availableTables = $this->findAvailableTables($time, $ReservationType, $Date);
+        $tablesReserved = false;
+        $availableChairs = 0;
+
+        foreach ($availableTables as $table) {
+            if ($numOfCustomers <= $table->NumberOfChairs) {
+                Reservation::create([
+                    'UserID' => $user_id,
+                    'Date' => $Date,
+                    'Time' => $time,
+                    'NumOfCustomers' => $numOfCustomers,
+                    'ReservationType' => $ReservationType,
+                    'TableID' => $table->TableID,
+                    'TimeExpectedToLeave' => $timeExpectedToLeave,
+                ]);
+                $tablesReserved = true;
+                break;
+            }
+            $availableChairs += $table->NumberOfChairs;
+        }
+        if (!$tablesReserved && $availableChairs >= $numOfCustomers) {
+            $largestTable = $availableTables->last();
+            $chairsToReserve = $largestTable->NumberOfChairs;
+            Reservation::create([
+                'UserID' => $user_id,
+                'Date' => $Date,
+                'Time' => $time,
+                'NumOfCustomers' => $chairsToReserve,
+                'ReservationType' => $ReservationType,
+                'TableID' => $largestTable->TableID,
+                'TimeExpectedToLeave' => $timeExpectedToLeave,
+            ]);
+            $remainingCustomers = $numOfCustomers - $chairsToReserve;
+            if ($remainingCustomers > 0) {
+                return $this->addReservation($user_id, $Date, $time->format('H:i:s'), $remainingCustomers, $ReservationType);
+            }
+        } else {
+            return response()->json([
+                'error' => "No enough tables for this reservation (we can't serve more than $availableChairs customers at this time)"], 400);
+        }
+        return response()->json(['message' => 'Reservation created successfully'], 201);
     }
 
     /**
      * @OA\Patch(
-     *     path="/reservations/{reservationID}",
+     *     path="/api/reservations/{reservationID}",
      *     tags={"Reservations"},
      *     summary="Update a reservation",
      *     description="Allows users to update an existing reservation.",
@@ -180,12 +248,22 @@ class ReservationController
      */
     public function updateReservation(Request $request, $reservationID)
     {
+        $reservation = Reservation::find($reservationID);
+        if (!$reservation) {
+            return response()->json(['error' => 'Invalid reservation id'], 404);
+        }
 
+        $data = $request->all();
+
+        $reservation -> update($data);
+
+        //TODO: When the customer number updated for the reservation delete the reservation and create a new one.
+        return response()->json($reservation, 200);
     }
 
     /**
      * @OA\Delete(
-     *     path="/reservations/{reservationID}",
+     *     path="/api/reservations/{reservationID}",
      *     tags={"Reservations"},
      *     summary="Delete a reservation",
      *     description="Allows users to delete a reservation.",
@@ -204,12 +282,17 @@ class ReservationController
      */
     public function deleteReservation($reservationID)
     {
-
+        $reservation = Reservation::find($reservationID);
+        if (!$reservation) {
+            return response()->json(['error' => 'Invalid reservation id'], 404);
+        }
+        $reservation -> delete();
+        return response()->json(null, 204);
     }
 
     /**
      * @OA\Get(
-     *     path="/reservations/date/{Date}",
+     *     path="/api/reservations/date/{Date}",
      *     tags={"Reservations"},
      *     summary="Get reservations by date",
      *     description="Retrieve reservations based on the date.",
@@ -233,7 +316,7 @@ class ReservationController
 
     /**
      * @OA\Get(
-     *     path="/reservations/date/{Date}/time/{time}",
+     *     path="/api/reservations/date/{Date}/time/{time}",
      *     tags={"Reservations"},
      *     summary="Get reservations by date and time",
      *     description="Retrieve reservations based on the date and time.",
@@ -264,7 +347,7 @@ class ReservationController
 
     /**
      * @OA\Get(
-     *     path="/reservations/id/{ReservationID}",
+     *     path="/api/reservations/id/{ReservationID}",
      *     tags={"Reservations"},
      *     summary="Get reservation by ID",
      *     description="Retrieve a specific reservation by its ID.",
@@ -288,7 +371,7 @@ class ReservationController
 
     /**
      * @OA\Get(
-     *     path="/staff/reservations",
+     *     path="/api/staff/reservations",
      *     tags={"Reservations"},
      *     summary="Staff: Get all user reservations",
      *     description="Retrieve all reservations for all users (staff only).",
@@ -305,7 +388,7 @@ class ReservationController
 
     /**
      * @OA\Get(
-     *     path="/staff/reservations/{user_id}",
+     *     path="/api/staff/reservations/{user_id}",
      *     tags={"Reservations"},
      *     summary="Staff: Get all reservations for a specific user",
      *     description="Retrieve all reservations for a specific user (staff only).",
@@ -329,7 +412,7 @@ class ReservationController
 
     /**
      * @OA\Get(
-     *     path="/staff/reservations/date/{Date}",
+     *     path="/api/staff/reservations/date/{Date}",
      *     tags={"Reservations"},
      *     summary="Staff: Get reservations by date",
      *     description="Retrieve reservations by date (staff only).",
@@ -353,7 +436,7 @@ class ReservationController
 
     /**
      * @OA\Get(
-     *     path="/staff/reservations/date/{Date}/time/{time}",
+     *     path="/api/staff/reservations/date/{Date}/time/{time}",
      *     tags={"Reservations"},
      *     summary="Staff: Get reservations by date and time",
      *     description="Retrieve reservations by date and time (staff only).",
@@ -380,5 +463,46 @@ class ReservationController
     public function getAllReservationByTime($Date, $time)
     {
 
+    }
+
+    /**
+     * @param $time
+     * @param $ReservationType
+     * @param $Date
+     * @return JsonResponse
+     */
+    public function findAvailableTables($time, $ReservationType, $Date): JsonResponse
+    {
+        try {
+            $time = new \DateTime($time);
+            $newTime = clone $time;
+
+            if ($ReservationType === 'Drink') {
+                $newTime->add(new \DateInterval('PT1H'));
+            } else {
+                $newTime->add(new \DateInterval('PT2H'));
+            }
+
+            $timeExpectedToLeave = $newTime->format('H:i:s');
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+
+        $availableTables = Table::whereNotIn('TableID', function ($query) use ($Date, $time, $timeExpectedToLeave) {
+            $query->select('TableID')
+                ->from('reservations')
+                ->where('date', $Date)
+                ->where(function ($query2) use ($time, $timeExpectedToLeave) {
+                    $query2->whereBetween('time', [$time, $timeExpectedToLeave])
+                        ->orWhereBetween('TimeExpectedToLeave', [$time, $timeExpectedToLeave])
+                        ->orWhere(function ($query3) use ($time, $timeExpectedToLeave) {
+                            $query3->where('time', '<=', $time)
+                                ->where('TimeExpectedToLeave', '>=', $timeExpectedToLeave);
+                        });
+                });
+        })
+            ->orderBy('NumberOfChairs', 'asc')
+            ->get();
+        return response()->json($availableTables, 200);
     }
 }
