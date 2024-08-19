@@ -13,10 +13,7 @@ use Illuminate\Http\Request;
 
 
 /**
- * @OA\Info(
- *     title="Menu Item API",
- *     version="1.0.0",)
- *
+
  * @OA\Schema(
  *      schema="MenuItem",
  *      type="object",
