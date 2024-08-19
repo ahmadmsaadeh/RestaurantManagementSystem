@@ -10,6 +10,66 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * @OA\Schema(
+ *     schema="Reservation",
+ *     type="object",
+ *     title="Reservation",
+ *     required={"UserID", "Date", "Time", "NumOfCustomers", "ReservationType", "TableID", "TimeExpectedToLeave"},
+ *
+ *     @OA\Property(
+ *         property="UserID",
+ *         type="integer",
+ *         description="The ID of the user making the reservation",
+ *         example=1
+ *     ),
+ *
+ *     @OA\Property(
+ *         property="Date",
+ *         type="string",
+ *         format="date",
+ *         description="The date of the reservation",
+ *         example="18-08-2024"
+ *     ),
+ *
+ *     @OA\Property(
+ *         property="Time",
+ *         type="string",
+ *         format="time",
+ *         description="The time of the reservation",
+ *         example="18:00:00"
+ *     ),
+ *
+ *     @OA\Property(
+ *         property="NumOfCustomers",
+ *         type="integer",
+ *         description="The number of customers for the reservation",
+ *         example=4
+ *     ),
+ *
+ *     @OA\Property(
+ *         property="ReservationType",
+ *         type="string",
+ *         description="The type of reservation (e.g., 'Drinks', 'Food')",
+ *         example="dine-in"
+ *     ),
+ *
+ *     @OA\Property(
+ *         property="TableID",
+ *         type="integer",
+ *         description="The ID of the table reserved",
+ *         example=10
+ *     ),
+ *
+ *     @OA\Property(
+ *         property="TimeExpectedToLeave",
+ *         type="string",
+ *         format="time",
+ *         description="The expected time for the reservation to end",
+ *         example="20:00:00"
+ *     )
+ * )
+ */
 
 class ReservationController
 {
