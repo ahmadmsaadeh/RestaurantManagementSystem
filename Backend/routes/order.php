@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/createOrder', [OrdersController::class, 'createOrder']);
-Route::post('/orders/{orderId}/addItem', [OrdersController::class, 'addMenuItemToOrder']);
+Route::put('/orders/{orderId}/addItem', [OrdersController::class, 'addMenuItemToOrder']);
 Route::patch('/orders/{orderId}/items/{itemId}/status', [OrdersController::class, 'updateOrderItemStatus']);
 Route::get('/orders', [OrdersController::class, 'listOrders']);
 
