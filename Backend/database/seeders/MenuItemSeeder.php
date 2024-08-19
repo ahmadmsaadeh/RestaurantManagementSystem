@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\MenuItem;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\MenuItem;
 
 class MenuItemSeeder extends Seeder
 {
@@ -13,15 +13,39 @@ class MenuItemSeeder extends Seeder
      */
     public function run(): void
     {
-
+        MenuItem::create([
+            'name_item' => 'Cheeseburger',
+            'description' => 'A juicy beef burger topped with cheese, lettuce, and tomato.',
+            'price' => 9.99,
+            'availability' => true,
+            'image' => 'cheeseburger.jpg',
+            'category_id' => 2,
+        ]);
         MenuItem::create([
             'name_item' => 'Margherita Pizza',
-            'description' => 'Classic cheese pizza with tomato sauce and basil.',
-            'price' => 8.99,
+            'description' => 'Classic pizza with tomato, mozzarella, and basil.',
+            'price' => 12.99,
             'availability' => true,
-            'image' => 'margherita.jpg',
-            'category_id' => 1, // Assuming 1 is the ID of the 'Pizza' category
+            'image' => 'margherita_pizza.jpg',
+            'category_id' => 2,
         ]);
-        //
+        MenuItem::create([
+            'name_item' => 'Caesar Salad',
+            'description' => 'Fresh romaine lettuce with Caesar dressing, croutons, and parmesan.',
+            'price' => 7.99,
+            'availability' => true,
+            'image' => 'caesar_salad.jpg',
+            'category_id' => 1,
+        ]);
+        MenuItem::create([
+            'name_item' => 'Fries',
+            'description' => 'Crispy golden fries.',
+            'price' => 3.99,
+            'availability' => true,
+            'image' => 'fries.jpg',
+            'category_id' => 1, // Appetizers category_id
+        ]);
+
+
     }
 }
