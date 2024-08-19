@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //TODO: Add Middleware for this set of routes to be for customers
-Route::get('/reservations', [ReservationController::class, 'getAllUsersReservations']);
+Route::get('/reservations/{id}', [ReservationController::class, 'getUserReservations']);
 Route::post('/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}', [ReservationController::class, 'addReservation']);
 Route::patch('/reservations/{reservationID}', [ReservationController::class, 'updateReservation']);
 Route::delete('/reservations/{reservationID}', [ReservationController::class, 'deleteReservation']);
@@ -24,8 +24,8 @@ Route::get('/staff/reservations/{user_id}', [ReservationController::class, 'getA
 Route::get('/staff/reservations/date/{Date}', [ReservationController::class, 'getAllReservationByDate']);
 Route::get('/staff/reservations/date/{Date}/time/{time}', [ReservationController::class, 'getAllReservationByTime']);
 Route::get('/staff/reservations/id/{ReservationID}', [ReservationController::class, 'getReservationByID']);
-Route::post('/staff/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}', [ReservationController::class, 'addReservationForStaff']);
-Route::put('/staff/reservations/{reservationID}', [ReservationController::class, 'updateReservationForStaff']);
-Route::delete('/staff/reservations/{reservationID}', [ReservationController::class, 'deleteReservationForStaff']);
+Route::post('/staff/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}', [ReservationController::class, 'addReservation']);
+Route::put('/staff/reservations/{reservationID}', [ReservationController::class, 'updateReservation']);
+Route::delete('/staff/reservations/{reservationID}', [ReservationController::class, 'deleteReservation']);
 
 
