@@ -122,6 +122,320 @@
                 }
             }
         },
+        "/api/createOrder": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Create a new order",
+                "operationId": "089ecff697bfa3cdb8626150ffd603b0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "order_items"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "description": "ID of the user placing the order",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "reservation_id": {
+                                        "description": "ID of the reservation for the order",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "order_items": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "menu_item_id",
+                                                "quantity"
+                                            ],
+                                            "properties": {
+                                                "menu_item_id": {
+                                                    "description": "ID of the menu item",
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "quantity": {
+                                                    "description": "Quantity of the menu item",
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Order created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order created successfully"
+                                        },
+                                        "order details": {
+                                            "properties": {
+                                                "user_id": {
+                                                    "description": "ID of the user",
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "reservation_id": {
+                                                    "description": "ID of the reservation",
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "status": {
+                                                    "description": "Current status of the order",
+                                                    "type": "string",
+                                                    "example": "Open"
+                                                },
+                                                "total": {
+                                                    "description": "Total amount for the order",
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 25.98
+                                                },
+                                                "order_id": {
+                                                    "description": "ID of the created order",
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "created_at": {
+                                                    "description": "Order creation timestamp",
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-08-19T16:01:16.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "description": "Order last update timestamp",
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-08-19T16:01:17.000000Z"
+                                                },
+                                                "order_items": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "order_item_id": {
+                                                                "description": "ID of the order item",
+                                                                "type": "integer",
+                                                                "example": 2
+                                                            },
+                                                            "order_id": {
+                                                                "description": "ID of the related order",
+                                                                "type": "integer",
+                                                                "example": 3
+                                                            },
+                                                            "menu_item_id": {
+                                                                "description": "ID of the menu item",
+                                                                "type": "integer",
+                                                                "example": 2
+                                                            },
+                                                            "quantity": {
+                                                                "description": "Quantity of the menu item",
+                                                                "type": "integer",
+                                                                "example": 2
+                                                            },
+                                                            "subtotal": {
+                                                                "description": "Subtotal for this item",
+                                                                "type": "number",
+                                                                "format": "float",
+                                                                "example": 25.98
+                                                            },
+                                                            "item_status": {
+                                                                "description": "Status of the item",
+                                                                "type": "string",
+                                                                "example": "Pending"
+                                                            },
+                                                            "created_at": {
+                                                                "description": "Item creation timestamp",
+                                                                "type": "string",
+                                                                "format": "date-time",
+                                                                "example": "2024-08-19T16:01:17.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "description": "Item last update timestamp",
+                                                                "type": "string",
+                                                                "format": "date-time",
+                                                                "example": "2024-08-19T16:01:17.000000Z"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid input"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "invalid_menu_item_id": {
+                                        "summary": "Invalid Menu Item ID",
+                                        "value": {
+                                            "error": "Invalid menu item ID"
+                                        }
+                                    },
+                                    "invalid_quantity": {
+                                        "summary": "Invalid Quantity",
+                                        "value": {
+                                            "error": "Invalid quantity for item"
+                                        }
+                                    },
+                                    "user_not_associated": {
+                                        "summary": "User Not Associated",
+                                        "value": {
+                                            "error": "The specified user is not associated with this reservation"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Order creation failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Order creation failed"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/orders/{orderId}/addMenuItem": {
+            "put": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Add a menu item to an existing order",
+                "operationId": "1b3bcbf432f722109f6570e0c9732c2f",
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "in": "path",
+                        "description": "ID of the order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "menu_item_id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "menu_item_id": {
+                                        "description": "ID of the menu item",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "quantity": {
+                                        "description": "Quantity of the menu item",
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Menu item added to the order successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Menu item added to order successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Order or menu item not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Order not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "order_not_found": {
+                                        "summary": "Order Not Found",
+                                        "value": {
+                                            "error": "Order not found"
+                                        }
+                                    },
+                                    "menu_item_not_found": {
+                                        "summary": "Menu Item Not Found",
+                                        "value": {
+                                            "error": "Menu item not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/reports/sales-monthly": {
             "get": {
                 "tags": [
@@ -1196,8 +1510,13 @@
             "description": "Feedbacks"
         },
         {
+            "name": "Orders",
+            "description": "Orders"
+        },
+        {
             "name": "Reservations",
             "description": "Reservations"
+
         }
     ]
 }
