@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @file Routes for handling reservations.
+ *
+ * @author Ahmad Saadeh
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
