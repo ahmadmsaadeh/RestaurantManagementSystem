@@ -1489,6 +1489,59 @@
                     }
                 },
                 "type": "object"
+            },
+            "Reservation": {
+                "title": "Reservation",
+                "required": [
+                    "UserID",
+                    "Date",
+                    "Time",
+                    "NumOfCustomers",
+                    "ReservationType",
+                    "TableID",
+                    "TimeExpectedToLeave"
+                ],
+                "properties": {
+                    "UserID": {
+                        "description": "The ID of the user making the reservation",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Date": {
+                        "description": "The date of the reservation",
+                        "type": "string",
+                        "format": "date",
+                        "example": "18-08-2024"
+                    },
+                    "Time": {
+                        "description": "The time of the reservation",
+                        "type": "string",
+                        "format": "time",
+                        "example": "18:00:00"
+                    },
+                    "NumOfCustomers": {
+                        "description": "The number of customers for the reservation",
+                        "type": "integer",
+                        "example": 4
+                    },
+                    "ReservationType": {
+                        "description": "The type of reservation (e.g., 'Drinks', 'Food')",
+                        "type": "string",
+                        "example": "dine-in"
+                    },
+                    "TableID": {
+                        "description": "The ID of the table reserved",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "TimeExpectedToLeave": {
+                        "description": "The expected time for the reservation to end",
+                        "type": "string",
+                        "format": "time",
+                        "example": "20:00:00"
+                    }
+                },
+                "type": "object"
             }
         }
     },
