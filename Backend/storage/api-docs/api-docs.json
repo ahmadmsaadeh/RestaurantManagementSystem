@@ -122,6 +122,123 @@
                 }
             }
         },
+        "/api/menu-items": {
+            "get": {
+                "tags": [
+                    "MenuItems"
+                ],
+                "summary": "Get all menu items",
+                "description": "Returns a list of all menu items",
+                "operationId": "getMenuitem",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MenuItem"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": 5,
+                                        "name_item": "Margherita Pizza",
+                                        "description": "Classic cheese pizza with tomato sauce and basil.",
+                                        "price": 8.99,
+                                        "availability": true,
+                                        "image": "margherita.jpg",
+                                        "category_id": 1
+                                    },
+                                    {
+                                        "id": 6,
+                                        "name_item": "Pizza",
+                                        "description": "Delicious cheese pizza",
+                                        "price": 9.99,
+                                        "availability": true,
+                                        "image": "pizza.jpg",
+                                        "category_id": 1
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "MenuItems"
+                ],
+                "summary": "Create a new menu item",
+                "description": "Adds a new menu item to the database",
+                "operationId": "createMenuItem",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MenuItem"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Menu item created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MenuItem"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/menu-items/{id}": {
+            "get": {
+                "tags": [
+                    "MenuItems"
+                ],
+                "summary": "Get a menu item by ID",
+                "description": "Returns a single menu item by ID",
+                "operationId": "getMenuItemById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the menu item to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MenuItem"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/createOrder": {
             "post": {
                 "tags": [
@@ -1490,6 +1607,46 @@
                 },
                 "type": "object"
             },
+            "MenuItem": {
+                "required": [
+                    "name_item",
+                    "price",
+                    "availability",
+                    "category_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name_item": {
+                        "type": "string",
+                        "example": "Pizza"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Delicious cheese pizza"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 12.99
+                    },
+                    "availability": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "pizza.jpg"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
             "Reservation": {
                 "title": "Reservation",
                 "required": [
@@ -1563,13 +1720,16 @@
             "description": "Feedbacks"
         },
         {
+            "name": "MenuItems",
+            "description": "MenuItems"
+        },
+        {
             "name": "Orders",
             "description": "Orders"
         },
         {
             "name": "Reservations",
             "description": "Reservations"
-
         }
     ]
 }
