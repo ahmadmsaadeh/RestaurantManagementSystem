@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('order_items', function (Blueprint $table) {
+            $table->id('order_item_id');
             $table->foreignId('order_id')->references('order_id')->on('orders')->onDelete('cascade');
             $table->foreignId('menu_item_id')->references('menu_item_id')->on('menu_items')->onDelete('cascade');
-            $table->primary(['order_id', 'menu_item_id']);
             $table->unsignedInteger('quantity');
-            $table->unsignedInteger('subtotal');
+            $table->decimal('subtotal', 10, 2)->nullable(); // Subtotal with precision: 10 digits, 2 after the decimal point
+            $table->enum('item_status', ['Pending', 'In-progress', 'Completed', 'Served'])->default('Pending');
             $table->timestamps();
+
         });
     }
 

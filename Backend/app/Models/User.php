@@ -44,7 +44,7 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    
+
      protected $primaryKey = 'user_id';
 
     protected function casts(): array

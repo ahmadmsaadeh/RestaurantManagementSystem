@@ -15,5 +15,15 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/menu-items', [MenuItemController::class, 'getMenuitem']);
 Route::get('/menu-items/{id}', [MenuItemController::class, 'getMenuItemById']);
+<<<<<<< HEAD
 Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);  // end
+=======
+Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);
+
+require base_path('routes/order.php');
+
+require base_path('routes/auth.php');
+require base_path('routes/user.php');
+require base_path('routes/role.php');
+>>>>>>> 80e5ab889b8400a5bee4a9afb89955fbf6741955
 
