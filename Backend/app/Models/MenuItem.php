@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class MenuItem extends Model
+{
+    use HasFactory;
+
+
+    protected $primaryKey = 'menu_item_id';
+
+    protected $fillable = [
+        'name_item',
+        'description',
+        'price',
+        'availability',
+        'image',
+        'category_id',
+    ];
+
+    public function category()
+    {
+
+        return $this->belongsTo(Category::class, 'category_id', 'category_id');
+
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'menu_item_id', 'menu_item_id');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'menu_item_id','menu_item_id');
+    }
+}
+

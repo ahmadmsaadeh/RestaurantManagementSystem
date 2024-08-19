@@ -9,6 +9,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+//push it
 
 //List of users if need:
 Route::get('/users', [UsersController::class, 'getAllUsers']);

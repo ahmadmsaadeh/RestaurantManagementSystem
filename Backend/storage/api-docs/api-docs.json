@@ -1,11 +1,545 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Alaa API",
-        "description": "An API",
+        "title": "Restaurant Management System API",
         "version": "1.0.0"
     },
     "paths": {
+        "/feedbacks": {
+            "get": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Get list of feedbacks",
+                "operationId": "7170bad27a01bc7a9c14b831fb664d17",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Create a new feedback",
+                "operationId": "cafbb9fed2234f50ac0363d3b7f9219b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Feedback"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Feedback created successfully"
+                    }
+                }
+            }
+        },
+        "/feedbacks/{id}": {
+            "get": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Get feedback by ID",
+                "operationId": "228cdbfedf64b50953445817826d05f9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Update feedback by ID",
+                "operationId": "600380c3ae7d09e4f5d94eada38bdced",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Feedback"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Feedback updated successfully"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Delete feedback by ID",
+                "operationId": "7ef150bd995eb2c12fd6ff65df665881",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Feedback deleted successfully"
+                    }
+                }
+            }
+        },
+        "/reports/sales-monthly": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get Monthly Sales",
+                "operationId": "02e9282342b04d888ee6b320a3dc4b35",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reports/sales-yearly": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get Yearly Sales",
+                "operationId": "55bb9a6daefa6e57863f5c0534e9bc0d",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reports/menu-item-count": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get menu item orders count",
+                "operationId": "1df2b87a066215d08686e077dbc30eb3",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reports/feedback-tracking": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get feedback tracking (average per month)",
+                "operationId": "f6e12be661b8f005368271fcdc9d66dc",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reservations/{id}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservations for a specific user",
+                "description": "Retrieve all reservations for a user.",
+                "operationId": "b7e4764ba6df6342f57d83d48f81824a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/reservations/{user_id}/{Date}/{time}/{numOfCustomers}/{ReservationType}": {
+            "post": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Add a new reservation",
+                "description": "Allows users to add a new reservation.",
+                "operationId": "e6a68f82ca2c56b32e69447c0ac5011d",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "description": "Reservation time",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "time"
+                        }
+                    },
+                    {
+                        "name": "numOfCustomers",
+                        "in": "path",
+                        "description": "Number of customers",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "ReservationType",
+                        "in": "path",
+                        "description": "Type of reservation",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Reservation added"
+                    }
+                }
+            }
+        },
+        "/reservations/{reservationID}": {
+            "delete": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Delete a reservation",
+                "description": "Allows users to delete a reservation.",
+                "operationId": "9ed2605aabb14c761483129e5870d006",
+                "parameters": [
+                    {
+                        "name": "reservationID",
+                        "in": "path",
+                        "description": "Reservation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservation deleted"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Update a reservation",
+                "description": "Allows users to update an existing reservation.",
+                "operationId": "384a26ce36523200bc171e3e94631cc7",
+                "parameters": [
+                    {
+                        "name": "reservationID",
+                        "in": "path",
+                        "description": "Reservation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Reservation details to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "Date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "format": "time"
+                                    },
+                                    "numOfCustomers": {
+                                        "type": "integer"
+                                    },
+                                    "ReservationType": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reservation updated"
+                    }
+                }
+            }
+        },
+        "/reservations/date/{Date}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservations by date",
+                "description": "Retrieve reservations based on the date.",
+                "operationId": "1cee41396053eeac3a093736b4ed455f",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/reservations/date/{Date}/time/{time}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservations by date and time",
+                "description": "Retrieve reservations based on the date and time.",
+                "operationId": "6b47ea52fd490d0798f73c349be7d308",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "description": "Reservation time",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/reservations/id/{ReservationID}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Get reservation by ID",
+                "description": "Retrieve a specific reservation by its ID.",
+                "operationId": "2d0092b8e20c96724b1408aed41ebe66",
+                "parameters": [
+                    {
+                        "name": "ReservationID",
+                        "in": "path",
+                        "description": "Reservation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservation retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get all user reservations",
+                "description": "Retrieve all reservations for all users (staff only).",
+                "operationId": "024c40d5fe3acdb9ea072fe870928dc5",
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations/{user_id}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get all reservations for a specific user",
+                "description": "Retrieve all reservations for a specific user (staff only).",
+                "operationId": "7635ce66daa4e952b87993e372b94e38",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations/date/{Date}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get reservations by date",
+                "description": "Retrieve reservations by date (staff only).",
+                "operationId": "1f79fb2c119a92ab9170b127d529c9f7",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
+        "/staff/reservations/date/{Date}/time/{time}": {
+            "get": {
+                "tags": [
+                    "Reservations"
+                ],
+                "summary": "Staff: Get reservations by date and time",
+                "description": "Retrieve reservations by date and time (staff only).",
+                "operationId": "a1b0b96596c675ab6708f8b2ef1db88b",
+                "parameters": [
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "description": "Reservation date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "description": "Reservation time",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservations retrieved"
+                    }
+                }
+            }
+        },
         "/api/roles/{role_name}": {
             "get": {
                 "tags": [
@@ -602,6 +1136,48 @@
             }
         }
     },
+    "components": {
+        "schemas": {
+            "Feedback": {
+                "title": "Feedback",
+                "required": [
+                    "order_id",
+                    "menu_item_id",
+                    "customer_id",
+                    "rating",
+                    "comments"
+                ],
+                "properties": {
+                    "order_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "menu_item_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "customer_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "rating": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "comments": {
+                        "type": "string",
+                        "example": "Great service!"
+                    },
+                    "date_submitted": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-08-18 10:00:00"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
     "tags": [
         {
             "name": "Role Management",
@@ -610,6 +1186,18 @@
         {
             "name": "User Management",
             "description": "API Endpoints related to User Management"
+        },
+        {
+            "name": "Reports",
+            "description": "Endpoints for generating various reports"
+        },
+        {
+            "name": "Feedbacks",
+            "description": "Feedbacks"
+        },
+        {
+            "name": "Reservations",
+            "description": "Reservations"
         }
     ]
 }

@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order_item extends Model
 {
-    use HasFactory;
-    protected $primaryKey =['order_id', 'menu_item_id'];
+    protected $primaryKey = 'order_item_id'; // Single primary key
+
 
     protected $fillable = [
+        'order_id',
+        'menu_item_id',
         'quantity',
         'subtotal',
+        'item_status',
     ];
 
 
