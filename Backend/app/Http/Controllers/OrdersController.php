@@ -10,15 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-/**
- * @OA\Info(
- *     title="My First API",
- *     version="0.1"
- * )
- */
 class OrdersController extends Controller
 {
-
 
     public function createOrder(Request $request)
     {

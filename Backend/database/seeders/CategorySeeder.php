@@ -15,5 +15,6 @@ class CategorySeeder extends Seeder
     {
         Category::create(['category_name' => 'Appetizers']);
         Category::create(['category_name' => 'Main Courses']);
+
     }
 }

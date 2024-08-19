@@ -1,121 +1,234 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "My First API",
-        "version": "0.1"
+        "title": "Restaurant Management System API",
+        "version": "1.0.0"
     },
     "paths": {
-        "/api/createOrder": {
+        "/feedbacks": {
+            "get": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Get list of feedbacks",
+                "operationId": "7170bad27a01bc7a9c14b831fb664d17",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
             "post": {
                 "tags": [
-                    "Orders"
+                    "Feedbacks"
                 ],
-                "summary": "Create a new order",
-                "operationId": "089ecff697bfa3cdb8626150ffd603b0",
+                "summary": "Create a new feedback",
+                "operationId": "cafbb9fed2234f50ac0363d3b7f9219b",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "required": [
-                                    "order_items"
-                                ],
-                                "properties": {
-                                    "user_id": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "reservation_id": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "order_items": {
-                                        "type": "array",
-                                        "items": {
-                                            "required": [
-                                                "menu_item_id",
-                                                "quantity"
-                                            ],
-                                            "properties": {
-                                                "menu_item_id": {
-                                                    "type": "integer",
-                                                    "example": 1
-                                                },
-                                                "quantity": {
-                                                    "type": "integer",
-                                                    "example": 2
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    }
-                                },
-                                "type": "object"
+                                "$ref": "#/components/schemas/Feedback"
                             }
                         }
                     }
                 },
                 "responses": {
                     "201": {
-                        "description": "Order created successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Order created successfully"
-                                        },
-                                        "order_id": {
-                                            "type": "integer",
-                                            "example": 1
-                                        }
-                                    },
-                                    "type": "object"
-                                }
+                        "description": "Feedback created successfully"
+                    }
+                }
+            }
+        },
+        "/feedbacks/{id}": {
+            "get": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Get feedback by ID",
+                "operationId": "228cdbfedf64b50953445817826d05f9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Update feedback by ID",
+                "operationId": "600380c3ae7d09e4f5d94eada38bdced",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Feedback"
                             }
                         }
-                    },
-                    "400": {
-                        "description": "Invalid input",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "type": "string",
-                                            "example": "Invalid menu item ID"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Feedback updated successfully"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Delete feedback by ID",
+                "operationId": "7ef150bd995eb2c12fd6ff65df665881",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
                         }
-                    },
-                    "500": {
-                        "description": "Order creation failed",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "type": "string",
-                                            "example": "Order creation failed"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Feedback deleted successfully"
+                    }
+                }
+            }
+        },
+        "/reports/sales-monthly": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get Monthly Sales",
+                "operationId": "02e9282342b04d888ee6b320a3dc4b35",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reports/sales-yearly": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get Yearly Sales",
+                "operationId": "55bb9a6daefa6e57863f5c0534e9bc0d",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reports/menu-item-count": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get menu item orders count",
+                "operationId": "1df2b87a066215d08686e077dbc30eb3",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reports/feedback-tracking": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get feedback tracking (average per month)",
+                "operationId": "f6e12be661b8f005368271fcdc9d66dc",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
                     }
                 }
             }
         }
     },
+    "components": {
+        "schemas": {
+            "Feedback": {
+                "title": "Feedback",
+                "required": [
+                    "order_id",
+                    "menu_item_id",
+                    "customer_id",
+                    "rating",
+                    "comments"
+                ],
+                "properties": {
+                    "order_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "menu_item_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "customer_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "rating": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "comments": {
+                        "type": "string",
+                        "example": "Great service!"
+                    },
+                    "date_submitted": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-08-18 10:00:00"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
     "tags": [
         {
-            "name": "Orders",
-            "description": "Orders"
+            "name": "Reports",
+            "description": "Endpoints for generating various reports"
+        },
+        {
+            "name": "Feedbacks",
+            "description": "Feedbacks"
         }
     ]
 }

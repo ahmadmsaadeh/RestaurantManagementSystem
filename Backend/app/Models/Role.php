@@ -14,7 +14,7 @@ class Role extends Model
      *
      * @var array<int, string>
      */
-    
+
      protected $primaryKey = 'role_id';
 
     protected $fillable = [
