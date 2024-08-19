@@ -12,6 +12,7 @@ use App\Models\Role;
 use App\Models\Table;
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class deleteRecords extends Command
 {
@@ -34,24 +35,38 @@ class deleteRecords extends Command
      */
     public function handle()
     {
-        //Feedback::query()->delete();
-        Order_item::query()->delete();
-        Order::query()->delete();
-        Reservation::query()->delete();
-        Table::query()->delete();
-        MenuItem::query()->delete();
-        Category::query()->delete();
-        User::query()->delete();
-        Role::query()->delete();
+        Feedback::query()->forceDelete();
+        Order_item::query()->forceDelete();
+        Order::query()->forceDelete();
+        Reservation::query()->forceDelete();
+        Table::query()->forceDelete();
+        MenuItem::query()->forceDelete();
+        Category::query()->forceDelete();
+        User::query()->forceDelete();
+        Role::query()->forceDelete();
+
+// Reset auto-increment values using raw SQL
+        $this->resetAutoIncrement('feedbacks');
+        $this->resetAutoIncrement('order_items');
+        $this->resetAutoIncrement('orders');
+        $this->resetAutoIncrement('reservations');
+        $this->resetAutoIncrement('tables');
+        $this->resetAutoIncrement('menu_items');
+        $this->resetAutoIncrement('categories');
+        $this->resetAutoIncrement('users');
+        $this->resetAutoIncrement('roles');
+
+        $this->info('All records deleted and auto-increment values reset successfully');
 
 
-
-
-
-
-
-
-
-        $this->info('All records deleted successfully');
+    }
+    /**
+     * Reset the auto-increment value for a given table.
+     *
+     * @param string $table
+     */
+    protected function resetAutoIncrement($table)
+    {
+        DB::statement("ALTER TABLE $table AUTO_INCREMENT = 1");
     }
 }

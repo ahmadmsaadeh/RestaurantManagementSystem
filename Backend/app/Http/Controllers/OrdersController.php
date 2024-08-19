@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MenuItem;
 use App\Models\Order;
 use App\Models\Order_item;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +28,18 @@ class OrdersController extends Controller
             'reservation_id' => 'nullable|exists:reservations,ResID',
         ]);
 
-        // Create the order with default status 'Open' and default total as 0
+        // Check if the user_id is associated with the reservation_id
+        if (isset($validatedData['user_id']) && isset($validatedData['reservation_id'])) {
+            $reservation = Reservation::where('ResID', $validatedData['reservation_id'])
+                ->where('UserID', $validatedData['user_id'])
+                ->first();
+
+            if (!$reservation) {
+                return response()->json(['error' => 'The specified user is not associated with this reservation'], 400);
+            }
+        }
+
+        // Create the order with default status 'Open' and total=0
         $order = Order::create([
             'user_id' => $validatedData['user_id'] ?? null,
             'reservation_id' => $validatedData['reservation_id'] ?? null,
@@ -35,26 +47,34 @@ class OrdersController extends Controller
             'total' => 0.00,  // Set default total
         ]);
 
+        if (!$request->has('order_items') || empty($request->order_items)) {
+            return response()->json(['error' => 'No items in the order'], 400);
+        }
+
         if (!$order) {
             return response()->json(['error' => 'Order creation failed'], 500);
         }
 
         $total = 0.00;  // Initialize total
 
-        if ($request->has('order_items')) {
+        if ($request->has('order_items')) {  /// ????
+
             foreach ($request->order_items as $item) {
+                if (!isset($item['quantity']) || $item['quantity'] < 1) {
+                    return response()->json(['error' => 'Invalid quantity for item'], 400);
+                }
                 // Fetch the price from the menu_items table
                 $menuItem = MenuItem::find($item['menu_item_id']);
 
                 if ($menuItem) {
-                    $subtotal = $menuItem->price * $item['quantity'];
+                    $subtotal = $menuItem->price * $item['quantity']; //calculate subtotal for each item
 
-                    // Store the order item with the calculated subtotal
+                    // Store the order items
                     Order_item::create([
-                        'order_id' => $order->order_id,  // Ensure 'order_id' is correctly set
+                        'order_id' => $order->order_id,
                         'menu_item_id' => $item['menu_item_id'],
                         'quantity' => $item['quantity'],
-                        'subtotal' => $subtotal, // Store the subtotal
+                        'subtotal' => $subtotal,
                     ]);
 
                     // Add the subtotal to the total
@@ -67,9 +87,10 @@ class OrdersController extends Controller
 
             // Update the order with the total amount
             $order->update(['total' => $total]);
+            $order->load('orderItems');
         }
 
-        return response()->json(['message' => 'Order created successfully', 'order_id' => $order->order_id], 201);
+        return response()->json(['message' => 'Order created successfully', 'order details' => $order], 201);
     }
 
     public function addMenuItemToOrder(Request $request, $orderId)
