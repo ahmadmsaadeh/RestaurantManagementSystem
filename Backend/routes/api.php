@@ -8,9 +8,15 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-// ibtisam
+/**
+ * @author Ibtisam
+ *
+ */
+
 Route::get('/menu-items', [MenuItemController::class, 'getMenuitem']);
 Route::get('/menu-items/{id}', [MenuItemController::class, 'getMenuItemById']);
+
+Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);  // end
 Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);
 
 require base_path('routes/order.php');

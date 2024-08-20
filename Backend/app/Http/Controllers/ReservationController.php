@@ -8,6 +8,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -75,7 +77,7 @@ class ReservationController
 {
     /**
      * @OA\Get(
-     *     path="/reservations/{id}",
+     *     path="/api/reservations/{id}",
      *     tags={"Reservations"},
      *     summary="Get reservations for a specific user",
      *     description="Retrieve all reservations for a user.",
@@ -92,9 +94,19 @@ class ReservationController
      *     )
      * )
      */
-    public function getUserReservations($id = null)
+    public function getUserReservations($user_id)
     {
+        $user = User::find($user_id);
+        if (!$user) {
+            return response()->json(['error' => 'Invalid user id'], 404);
+        }
 
+        $reservations = $user->reservations;
+        if ($reservations->isEmpty()) {
+            return response()->json(['message' => 'Nothing get'], 404);
+        }else{
+            return response()->json($reservations, 200);
+        }
     }
 
     /**

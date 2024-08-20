@@ -13,10 +13,9 @@ Route::prefix('auth')->group(function () {
     // staff can't sign up directly the admin should give them there account so this one for customer
 
     //customer
-    Route::post('register/customer', [AuthController::class, 'registerCustomer'])->name('register.customer');
+    Route::post('register/registercustomer', [AuthController::class, 'registercustomer']);
 
     //staff
-    Route::post('register/staff', [AuthController::class, 'registerStaff'])->name('register.staff');
+    Route::post('register/registerstaff', [AuthController::class, 'registerStaff'])->name('register.staff');
 
 });
-
