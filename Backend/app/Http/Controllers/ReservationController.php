@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file Routes for handling reservations.
+ * @file Controller for handling reservations.
  *
  * @author Ahmad Saadeh
  */
@@ -14,7 +14,6 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 
 /**
  * @OA\Schema(

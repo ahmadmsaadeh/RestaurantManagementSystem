@@ -1313,6 +1313,177 @@
                 }
             }
         },
+        "/api/tables": {
+            "get": {
+                "tags": [
+                    "Tables"
+                ],
+                "summary": "Get All Tables",
+                "description": "Retrieve a list of all tables.",
+                "operationId": "27951a2d4eece16f1ed2b016ad9261f1",
+                "responses": {
+                    "200": {
+                        "description": "A list of tables",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "TableID": {
+                                                "description": "The ID of the Table",
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "NumberOfChairs": {
+                                                "description": "The number of chairs on this table",
+                                                "type": "integer",
+                                                "example": 10
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tables/{id}": {
+            "get": {
+                "tags": [
+                    "Tables"
+                ],
+                "summary": "Get Table by ID",
+                "description": "Retrieve the table with the specified ID.",
+                "operationId": "efc8e244a6097dcee458513f2ae5b83e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Table ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Table retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Table"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Table not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tables"
+                ],
+                "summary": "Delete a Table",
+                "description": "Deletes a table by its ID if there are no active reservations from the specified date onwards.",
+                "operationId": "a809da621ee3c230f71342d208e4f7a8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Table ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Table deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Table deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Table cannot be deleted because it has active reservations",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Table cannot be deleted because it has active reservations"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Table not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Table not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tables/{NumberOfChairs}": {
+            "post": {
+                "tags": [
+                    "Tables"
+                ],
+                "summary": "Add a new Table",
+                "description": "Create a new table with a specified number of chairs.",
+                "operationId": "27a996f45a322065b6a1bbe15cad99ca",
+                "parameters": [
+                    {
+                        "name": "NumberOfChairs",
+                        "in": "path",
+                        "description": "Number of chairs on the table",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Table added"
+                    },
+                    "400": {
+                        "description": "Invalid Number of Chairs"
+                    }
+                }
+            }
+        },
         "/api/users": {
             "get": {
                 "tags": [
@@ -1705,6 +1876,26 @@
                     }
                 },
                 "type": "object"
+            },
+            "Table": {
+                "title": "Table",
+                "required": [
+                    "TableID",
+                    "NumberOfChairs"
+                ],
+                "properties": {
+                    "TableID": {
+                        "description": "The ID of the table.",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "NumberOfChairs": {
+                        "description": "The number of chairs at this table.",
+                        "type": "integer",
+                        "example": 10
+                    }
+                },
+                "type": "object"
             }
         }
     },
@@ -1736,6 +1927,10 @@
         {
             "name": "Reservations",
             "description": "Reservations"
+        },
+        {
+            "name": "Tables",
+            "description": "Tables"
         }
     ]
 }

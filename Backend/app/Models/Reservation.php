@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @file Model for Reservations.
+ *
+ * @author Ahmad Saadeh
+ */
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;

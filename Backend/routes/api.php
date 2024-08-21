@@ -26,5 +26,4 @@ require base_path('routes/reports.php');
 require base_path('routes/user.php');
 require base_path('routes/role.php');
 require base_path('routes/reservation.php');
-
-
+require base_path('routes/tables.php');
