@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class LogInController extends Controller
 {
 
+
     /**
      * Login
      * @OA\Post (
