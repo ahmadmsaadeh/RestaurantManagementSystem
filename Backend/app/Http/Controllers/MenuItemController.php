@@ -169,4 +169,124 @@ class MenuItemController extends Controller
             ], 500);
         }
     }
+
+    // new
+    /**
+     * @OA\Put(
+     *     path="/api/menu-items/{id}",
+     *     operationId="updateMenuItem",
+     *     tags={"MenuItems"},
+     *     summary="Update an existing menu item",
+     *     description="Updates the details of an existing menu item",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of the menu item to update",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/MenuItem")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Menu item updated successfully",
+     *         @OA\JsonContent(ref="#/components/schemas/MenuItem")
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Menu item not found"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Bad request"
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error"
+     *     )
+     * )
+     */
+    public function updateMenuItem(Request $request, $id){
+        try {
+            $validatedData = $request->validate([
+                'name_item' => 'sometimes|required|string|max:255',
+                'description' => 'nullable|string',
+                'price' => 'sometimes|required|numeric',
+                'availability' => 'sometimes|required|boolean',
+                'image' => 'nullable|string|max:255',
+                'category_id' => 'sometimes|required|exists:categories,category_id',
+            ]);
+
+            $menuItem = MenuItem::find($id);
+
+            if (!$menuItem) {
+                return response()->json(['message' => 'Menu item not found'], 404);
+            }
+
+            $menuItem->update($validatedData);
+
+            return response()->json([
+                'message' => 'Menu item updated successfully!...... check ',
+                'menuItem' => $menuItem
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Menu item could not be updated. Please try again......',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+    /**
+     * @OA\Delete(
+     *     path="/api/menu-items/{id}",
+     *     operationId="deleteMenuItem",
+     *     tags={"MenuItems"},
+     *     summary="Delete a menu item",
+     *     description="Deletes a menu item by ID",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of the menu item to delete",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Menu item deleted successfully",
+     *         @OA\JsonContent(type="object", example={"message": "Menu item deleted successfully!"})
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Menu item not found"
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error"
+     *     )
+     * )
+     */
+    public function deleteMenuItem($id){
+        try {
+            $menuItem = MenuItem::find($id);
+
+            if (!$menuItem) {
+                return response()->json(['message' => 'Menu item not found'], 404);
+            }
+
+            $menuItem->delete();
+
+            return response()->json([
+                'message' => 'Menu item deleted successfully! .... good'
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Menu item could not be deleted... try again........',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 }
