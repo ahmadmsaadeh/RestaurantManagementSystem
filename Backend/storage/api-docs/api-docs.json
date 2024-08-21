@@ -1313,6 +1313,43 @@
                 }
             }
         },
+        "/api/tables": {
+            "get": {
+                "tags": [
+                    "Tables"
+                ],
+                "summary": "Get All Tables",
+                "description": "Retrieve a list of all tables.",
+                "operationId": "27951a2d4eece16f1ed2b016ad9261f1",
+                "responses": {
+                    "200": {
+                        "description": "A list of tables",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "TableID": {
+                                                "description": "The ID of the Table",
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "NumberOfChairs": {
+                                                "description": "The number of chairs on this table",
+                                                "type": "integer",
+                                                "example": 10
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/tables/{id}": {
             "get": {
                 "tags": [
@@ -1352,8 +1389,8 @@
                 "tags": [
                     "Tables"
                 ],
-                "summary": "Delete a table",
-                "description": "Delete a table by its ID.",
+                "summary": "Delete a Table",
+                "description": "Deletes a table by its ID if there are no active reservations from the specified date onwards.",
                 "operationId": "a809da621ee3c230f71342d208e4f7a8",
                 "parameters": [
                     {
@@ -1368,10 +1405,52 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Table deleted successfully"
+                        "description": "Table deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Table deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Table cannot be deleted because it has active reservations",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Table cannot be deleted because it has active reservations"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
-                        "description": "Table not found"
+                        "description": "Table not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Table not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
