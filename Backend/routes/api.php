@@ -19,6 +19,11 @@ Route::get('/menu-items/{id}', [MenuItemController::class, 'getMenuItemById']);
 Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);  // end
 Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);
 
+//new
+Route::put('/menu-items/{id}', [MenuItemController::class, 'updateMenuItem']);
+Route::delete('/menu-items/{id}', [MenuItemController::class, 'deleteMenuItem']);
+
+
 require base_path('routes/order.php');
 
 require base_path('routes/feedback.php');
