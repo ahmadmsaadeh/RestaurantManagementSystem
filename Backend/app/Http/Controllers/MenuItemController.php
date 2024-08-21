@@ -289,4 +289,125 @@ class MenuItemController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * @OA\Get(
+     *     path="/api/menu-items/category/{category_id}",
+     *     operationId="getMenuItemsByCategory",
+     *     tags={"MenuItems"},
+     *     summary="Get menu items by category",
+     *     description="Returns a list of menu items for a given category",
+     *     @OA\Parameter(
+     *         name="category_id",
+     *         in="path",
+     *         description="ID of the category",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/MenuItem"),
+     *             example={
+     *                 {
+     *                     "id": 1,
+     *                     "name_item": "Margherita Pizza",
+     *                     "description": "Classic cheese pizza with tomato sauce and basil.",
+     *                     "price": 8.99,
+     *                     "availability": true,
+     *                     "image": "margherita.jpg",
+     *                     "category_id": 1
+     *                 },
+     *                 {
+     *                     "id": 2,
+     *                     "name_item": "Pepperoni Pizza",
+     *                     "description": "Spicy pepperoni with mozzarella cheese.",
+     *                     "price": 10.99,
+     *                     "availability": true,
+     *                     "image": "pepperoni.jpg",
+     *                     "category_id": 1
+     *                 }
+     *             }
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Category not found"
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error"
+     *     )
+     * )
+     */
+    // retrieve menu item by id category
+    public function getMenuItemsByCategory($category_id)
+    {
+        try {
+            $menuItems = MenuItem::where('category_id', $category_id)->get();
+
+            if ($menuItems->isEmpty()) {
+                return response()->json(['message' => 'No menu items found for this category '], 404);
+            }
+
+            return response()->json($menuItems, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'An error occurred while fetching menu items by category.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function getAvailableMenuItems()
+    {
+        $availableMenuItems = MenuItem::where('availability', true)->get();
+
+        if ($availableMenuItems->isEmpty()) {
+            return response()->json(['message' => 'No available menu items found'], 404);
+        }
+
+        return response()->json($availableMenuItems, 200);
+
+
+    }
+// newwwwww
+    public function uploadMenuItemImage(Request $request, $id)
+    {
+        // Validate the request to ensure an image file is provided
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Find the menu item by its ID
+        $menuItem = MenuItem::find($id);
+
+        if (!$menuItem) {
+            return response()->json(['message' => 'Menu item not found'], 404);
+        }
+
+        // Store the uploaded image
+        if ($request->hasFile('image')) {
+
+            $file = $request->file('image');
+
+            $filename = time() . '_' . $file->getClientOriginalName();
+         //error
+            $file->move(public_path('images'), $filename);
+
+            $menuItem->image = $filename;
+            $menuItem->save();
+
+            return response()->json([
+                'message' => 'Image uploaded successfully!',
+                'menuItem' => $menuItem
+            ], 200);
+        }
+
+        return response()->json(['message' => 'Image upload failed'], 500);
+    }
+
+
 }
