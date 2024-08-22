@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
+
     /**
      * Register
      * @OA\Post (
