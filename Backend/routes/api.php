@@ -20,7 +20,6 @@ Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);  // e
 Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);
 
 require base_path('routes/order.php');
-
 require base_path('routes/feedback.php');
 require base_path('routes/reports.php');
 require base_path('routes/user.php');
