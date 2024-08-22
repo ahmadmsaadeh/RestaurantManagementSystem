@@ -34,7 +34,6 @@ Route::post('/menu-items/{id}/upload-image', [MenuItemController::class, 'upload
 
 
 require base_path('routes/order.php');
-
 require base_path('routes/feedback.php');
 require base_path('routes/reports.php');
 require base_path('routes/user.php');
