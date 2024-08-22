@@ -23,6 +23,12 @@ Route::post('/menu-items', [MenuItemController::class, 'createMenuItem']);
 Route::put('/menu-items/{id}', [MenuItemController::class, 'updateMenuItem']);
 Route::delete('/menu-items/{id}', [MenuItemController::class, 'deleteMenuItem']);
 
+//
+Route::get('/menu-items/category/{category_id}', [MenuItemController::class, 'getMenuItemsByCategory']);
+Route::get('/menu-items/available', [MenuItemController::class, 'getAvailableMenuItems']);
+Route::post('/menu-items/{id}/upload-image', [MenuItemController::class, 'uploadMenuItemImage']);
+
+
 
 require base_path('routes/order.php');
 
