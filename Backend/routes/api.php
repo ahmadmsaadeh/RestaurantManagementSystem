@@ -25,8 +25,11 @@ Route::delete('/menu-items/{id}', [MenuItemController::class, 'deleteMenuItem'])
 
 //
 Route::get('/menu-items/category/{category_id}', [MenuItemController::class, 'getMenuItemsByCategory']);
-Route::get('/menu-items/available', [MenuItemController::class, 'getAvailableMenuItems']);
+Route::get('/menu-items/ad/{availability}', [MenuItemController::class, 'getAvailableMenuItems']);
+Route::get('/menu-items/price', [MenuItemController::class, 'getMenuItemPrice']);
+
 Route::post('/menu-items/{id}/upload-image', [MenuItemController::class, 'uploadMenuItemImage']);
+//Route::get('/menu-items/price', [MenuItemController::class, 'getMenuItemPrice']);
 
 
 
