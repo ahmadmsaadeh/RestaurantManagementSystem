@@ -1,7 +1,12 @@
 <?php
 
+/**
+ * @file Routes for handling reservations.
+ *
+ * @author Ahmad Saadeh
+ */
+
 use App\Http\Controllers\ReservationController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 //TODO: Add Authentication For User

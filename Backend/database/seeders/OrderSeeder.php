@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
        Order::create([
            'user_id' => 2,
            'reservation_id' => 1,
-           'total' => 47.95,
+           'total' => 27.97,
            'status' => 'Open',
            'order_date' => now(), // Current timestamp for order_date
            'order_time' => now(), // Current timestamp for order_time

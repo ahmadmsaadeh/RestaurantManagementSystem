@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @file Model For Table's Table.
+ *
+ * @author Ahmad Saadeh
+ */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
