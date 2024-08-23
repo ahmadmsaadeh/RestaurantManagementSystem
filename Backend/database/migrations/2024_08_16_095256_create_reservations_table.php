@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('NumOfCustomers');
             $table->string('ReservationType');
             $table->time('TimeExpectedToLeave');
-        
+
             // Define foreign key constraints
             $table->foreign('UserID')->references('user_id')->on('users')->onDelete('cascade');
             $table->foreign('TableID')->references('TableID')->on('tables')->onDelete('cascade');

@@ -32,6 +32,25 @@ use Illuminate\Support\Facades\Log;
 
 
 
+
+/**
+
+ * @OA\Schema(
+ *      schema="MenuItem",
+ *      type="object",
+ *      required={"name_item", "price", "availability", "category_id"},
+ *      @OA\Property(property="id", type="integer", example=1),
+ *      @OA\Property(property="name_item", type="string", example="Pizza"),
+ *      @OA\Property(property="description", type="string", example="Delicious cheese pizza"),
+ *      @OA\Property(property="price", type="number", format="float", example=12.99),
+ *      @OA\Property(property="availability", type="boolean", example=true),
+ *      @OA\Property(property="image", type="string", example="pizza.jpg"),
+ *      @OA\Property(property="category_id", type="integer", example=1)
+ *  )
+ *     */
+
+
+
 class MenuItemController extends Controller
 {
     /**

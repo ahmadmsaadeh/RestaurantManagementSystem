@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->timestamp('date_joined')->nullable();
-            $table->string('auth_token');
+            $table->string('auth_token')->nullable();
             $table->timestamp('token_expiry')->nullable();
             $table->rememberToken();
             $table->timestamps();
