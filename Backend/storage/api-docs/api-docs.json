@@ -391,7 +391,6 @@
                 }
             }
         },
-<<<<<<< HEAD
         "/api/menu-items/{id}/upload-image": {
             "post": {
                 "tags": [
@@ -504,10 +503,7 @@
                 }
             }
         },
-        "/api/createOrder": {
-=======
         "/api/orders/createOrder": {
->>>>>>> d03612f51e74c81f05228dbbb58b532dd736eea8
             "post": {
                 "tags": [
                     "Orders"
