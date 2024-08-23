@@ -54,6 +54,44 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'role_id' => 3, // Customer role
         ]);
-
+        User::create([
+            'username' => 'chef_mohammed',
+            'phonenumber' => '123-555 6789',
+            'firstname' => 'Mohammed',
+            'lastname' => 'Ali',
+            'email' => 'mohammedali@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'auth_token' => Str::random(60),
+            'token_expiry' => now()->addDays(30),
+            'remember_token' => Str::random(10),
+            'role_id' => 4, // Staff role
+        ]);
+        User::create([
+            'username' => 'chef_laila',
+            'phonenumber' => '123-555 6790',
+            'firstname' => 'Laila',
+            'lastname' => 'Hassan',
+            'email' => 'lailahassan@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'auth_token' => Str::random(60),
+            'token_expiry' => now()->addDays(30),
+            'remember_token' => Str::random(10),
+            'role_id' => 4, // Staff role
+        ]);
+        User::create([
+            'username' => 'chef_ahmed',
+            'phonenumber' => '123-555 6791',
+            'firstname' => 'Ahmed',
+            'lastname' => 'El-Sayed',
+            'email' => 'ahmedelsayed@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'auth_token' => Str::random(60),
+            'token_expiry' => now()->addDays(30),
+            'remember_token' => Str::random(10),
+            'role_id' => 4, // Staff role
+        ]);
     }
 }

@@ -38,5 +38,7 @@ require base_path('routes/feedback.php');
 require base_path('routes/reports.php');
 require base_path('routes/user.php');
 require base_path('routes/role.php');
+require base_path('routes/auth.php');
+require base_path('routes/chefimage.php');
 require base_path('routes/reservation.php');
 require base_path('routes/tables.php');
