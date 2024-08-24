@@ -1,0 +1,12 @@
+/* user-reservation.component.css */
+.reservation-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.form-control {
+  margin-bottom: 10px;
+}
+.btn {
+  margin-top: 10px;
+}
