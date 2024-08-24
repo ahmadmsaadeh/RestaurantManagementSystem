@@ -16,36 +16,33 @@
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <label for="dateTimePicker">Select Date and Time:</label>
+            <label for="numberOfCustomers">Select Number of Customers:</label>
             <div class="input-group">
-              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
+              <input id="numberOfCustomers" #numberOfCustomers type="number" class="form-control" placeholder="Enter number of customers" min="1" max="100">
             </div>
           </div>
         </div>
         <div class="col-md-3"></div>
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
           <div class="form-group">
-            <label for="dateTimePicker">Select Date and Time:</label>
+            <label for="reservationType">Reservation Type:</label>
             <div class="input-group">
-              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
+              <select id="reservationType" #reservationType class="form-select">
+                <option value="" disabled selected>Select reservation type</option>
+                <option value="Drinks">Dine-In</option>
+                <option value="Food">Takeaway</option>
+                <option value="Takeaway">Delivery</option>
+              </select>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="form-group">
-            <label for="dateTimePicker">Select Date and Time:</label>
-            <div class="input-group">
-              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
       </div> <!-- End the row inside the form -->
 
       <div class="row">
         <div class="col-md-5"></div>
-        <div class="col-md-2"><button type="submit" class="btn btn-dark mt-3">Check Availability</button></div>
+        <div class="col-md-2"><button type="submit" class="btn btn-dark mt-3">Reserve Now!</button></div>
         <div class="col-md-5"></div>
       </div>
     </form>
