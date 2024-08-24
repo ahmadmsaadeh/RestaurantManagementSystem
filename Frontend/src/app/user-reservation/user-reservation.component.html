@@ -1,1 +1,53 @@
-<p>user-reservation works!</p>
+<div class="container-fluid bg-light">
+  <div class="row">
+    <form (ngSubmit)="onSubmit()" class="container mt-4">
+      <div class="row"> <!-- Start a new row inside the form -->
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="dateTimePicker">Select Date and Time:</label>
+            <div class="input-group">
+              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
+              <span class="input-group-text" (click)="openDateTimePicker()">
+                <i class="bi bi-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="dateTimePicker">Select Date and Time:</label>
+            <div class="input-group">
+              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="dateTimePicker">Select Date and Time:</label>
+            <div class="input-group">
+              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="dateTimePicker">Select Date and Time:</label>
+            <div class="input-group">
+              <input id="dateTimePicker" #dateTimePicker type="text" class="form-control" placeholder="Select date and time">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div> <!-- End the row inside the form -->
+
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2"><button type="submit" class="btn btn-dark mt-3">Check Availability</button></div>
+        <div class="col-md-5"></div>
+      </div>
+    </form>
+  </div>
+</div>
