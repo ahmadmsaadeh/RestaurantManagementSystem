@@ -4,7 +4,7 @@ import { MenuPageComponent } from './menu-page.component';
 
 describe('MenuPageComponent', () => {
   let component: MenuPageComponent;
-  let fixture: ComponentFixture<MenuPageComponent>;
+  let fixture: ComponentFixture<MenuPageComponent>; //
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

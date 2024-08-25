@@ -1,5 +1,5 @@
-<p>menu-page works!</p>
-<div class="menu-container">
+<!--p>menu-page works!</p-->
+<!--div class="menu-container">
   <h1>Menu</h1>
   <ul>
     <li >
@@ -11,9 +11,9 @@
       </div>
     </li>
   </ul>
-</div>
-<p>menu-page works!</p>
-<div class="menu-container">
+</div-->
+<!--p>menu-page works!</p-->
+<!--div class="menu-container">
   <h1>Our Menu</h1>
   <ul>
     <li>
@@ -26,6 +26,39 @@
         </div>
       </div>
     </li>
-    <!-- Add more menu items here -->
+
+  </ul>
+</div-->
+
+<!--div class="menu-container">
+  <h1>Menu</h1>
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <div class="menu-item">
+        <img [src]="'http://localhost:8000/images/' + item.image" alt="{{ item.name_item }}">
+        <h2>{{ item.name_item }}</h2>
+        <h2>{{ item.image }}</h2>
+        <p>{{ item.description }}</p>
+        <span>\${{ item.price }}</span>
+      </div>
+    </li>
+  </ul>
+</div-->
+
+
+<div class="menu-container">
+  <h1>Menu</h1>
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <div class="menu-item">
+        <img [src]="'http://localhost:8000/images/' + item.image" alt="{{ item.name_item }}">
+        <div class="menu-details">
+          <h2>{{ item.name_item }}</h2>
+          <p>{{ item.description }}</p>
+          <span>\${{ item.price }}</span>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>
+

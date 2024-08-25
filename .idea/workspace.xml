@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59720106-cf80-406e-9414-3730297a700b" name="Changes" comment="" />
+    <list default="true" id="59720106-cf80-406e-9414-3730297a700b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/public/images/image5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/public/images/imagee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/public/images/imageee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/storage/api-docs/api-docs.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/storage/api-docs/api-docs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,20 +157,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Ibtisam",
-    "last_opened_file_path": "C:/xampp/htdocs/project/project/Backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\xampp\\htdocs\\project\\project\\Frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Ibtisam&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/project/project/Backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\xampp\\htdocs\\project\\project\\Frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="OpenAPI/Swagger Code Generator.api-docs.json">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/Backend/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -225,7 +239,10 @@
       <workItem from="1724334912792" duration="13592000" />
       <workItem from="1724422196507" duration="10659000" />
       <workItem from="1724442797732" duration="456000" />
-      <workItem from="1724443267168" duration="1167000" />
+      <workItem from="1724443267168" duration="2647000" />
+      <workItem from="1724445976649" duration="375000" />
+      <workItem from="1724475761025" duration="4455000" />
+      <workItem from="1724604988861" duration="8241000" />
     </task>
     <servers />
   </component>
