@@ -28,6 +28,7 @@ export class LoginComponent {
   @Input() UserType: String = '';
 
   onSubmit() {
+
     this.loginService.checklogin(this.email, this.password).subscribe(
       result => {
         if (result.success) {
@@ -40,7 +41,7 @@ export class LoginComponent {
                   console.log('Role name:', response.role_name);
                   const UserType = response.role_name;
                   this.userService.setUserType(UserType);
-                  this.router.navigate(['/dashboard']);
+                  this.router.navigate(['/adminDashboard']);
                   if (response.role_name=="Admin") {}
                   else if (response.role_name=="Management") {}
                   else if (response.role_name=="Customer") {}
