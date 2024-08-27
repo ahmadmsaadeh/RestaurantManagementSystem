@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Menu Item Orders Count</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Menu Item</th>
+              <th>Orders Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of menuItems">
+              <td>{{ item.name }}</td>
+              <td>{{ item.ordersCount }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -180,13 +180,13 @@
                 }
             }
         },
-        "/feedbacks": {
+        "/api/feedbacks": {
             "get": {
                 "tags": [
                     "Feedbacks"
                 ],
                 "summary": "Get list of feedbacks",
-                "operationId": "7170bad27a01bc7a9c14b831fb664d17",
+                "operationId": "009ecd6bf889a3389c53dbaf0d26e11b",
                 "responses": {
                     "200": {
                         "description": "Successful operation"
@@ -198,7 +198,7 @@
                     "Feedbacks"
                 ],
                 "summary": "Create a new feedback",
-                "operationId": "cafbb9fed2234f50ac0363d3b7f9219b",
+                "operationId": "09015a7adb8b797713242561011a7d9a",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -216,13 +216,13 @@
                 }
             }
         },
-        "/feedbacks/{id}": {
+        "/api/feedbacks/{id}": {
             "get": {
                 "tags": [
                     "Feedbacks"
                 ],
                 "summary": "Get feedback by ID",
-                "operationId": "228cdbfedf64b50953445817826d05f9",
+                "operationId": "438c1f8b2dea0702dfc160efb70b9357",
                 "parameters": [
                     {
                         "name": "id",
@@ -245,7 +245,7 @@
                     "Feedbacks"
                 ],
                 "summary": "Update feedback by ID",
-                "operationId": "600380c3ae7d09e4f5d94eada38bdced",
+                "operationId": "72a24b42eeda97f0e301febdac1e686c",
                 "parameters": [
                     {
                         "name": "id",
@@ -278,7 +278,7 @@
                     "Feedbacks"
                 ],
                 "summary": "Delete feedback by ID",
-                "operationId": "7ef150bd995eb2c12fd6ff65df665881",
+                "operationId": "830b7dfecbb5a12e35c2afc07842410f",
                 "parameters": [
                     {
                         "name": "id",
@@ -2147,58 +2147,133 @@
                 }
             }
         },
-        "/reports/sales-monthly": {
+        "/api/reports/sales-monthly": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get Monthly Sales",
-                "operationId": "02e9282342b04d888ee6b320a3dc4b35",
+                "operationId": "72e4e215313a3fe1835db241b6dbbfce",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "month": {
+                                                "type": "integer"
+                                            },
+                                            "total": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/reports/sales-yearly": {
+        "/api/reports/sales-yearly": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get Yearly Sales",
-                "operationId": "55bb9a6daefa6e57863f5c0534e9bc0d",
+                "operationId": "823945bf7cda64c9033858e17566195f",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "year": {
+                                                "type": "integer"
+                                            },
+                                            "total": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/reports/menu-item-count": {
+        "/api/reports/menu-item-count": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get menu item orders count",
-                "operationId": "1df2b87a066215d08686e077dbc30eb3",
+                "operationId": "aab6f874e7ad713ce260b3c1b5b35be6",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "ordersCount": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/reports/feedback-tracking": {
+        "/api/reports/feedback-tracking": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get feedback tracking (average per month)",
-                "operationId": "f6e12be661b8f005368271fcdc9d66dc",
+                "operationId": "012592d06a6a1eecf763dcf97b5a9019",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "month": {
+                                                "type": "integer"
+                                            },
+                                            "averageScore": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -3645,10 +3720,6 @@
             "description": "API Endpoints related to Auth Management"
         },
         {
-            "name": "Reports",
-            "description": "Endpoints for generating various reports"
-        },
-        {
             "name": "Feedbacks",
             "description": "Feedbacks"
         },
@@ -3663,6 +3734,10 @@
         {
             "name": "Order Items",
             "description": "Order Items"
+        },
+        {
+            "name": "Reports",
+            "description": "Reports"
         },
         {
             "name": "Reservations",
