@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Sales Total Per Month</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Total Sales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of monthlySales">
+              <td>{{ sale.month }}</td>
+              <td>{{ sale.total | currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

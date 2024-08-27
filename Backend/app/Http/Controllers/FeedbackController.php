@@ -26,7 +26,7 @@ class FeedbackController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/feedbacks",
+     *     path="/api/feedbacks",
      *     summary="Get list of feedbacks",
      *     tags={"Feedbacks"},
      *     @OA\Response(
@@ -42,7 +42,7 @@ class FeedbackController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/feedbacks",
+     *     path="/api/feedbacks",
      *     summary="Create a new feedback",
      *     tags={"Feedbacks"},
      *     @OA\RequestBody(
@@ -63,7 +63,7 @@ class FeedbackController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/feedbacks/{id}",
+     *     path="/api/feedbacks/{id}",
      *     summary="Get feedback by ID",
      *     tags={"Feedbacks"},
      *     @OA\Parameter(
@@ -86,7 +86,7 @@ class FeedbackController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/feedbacks/{id}",
+     *     path="/api/feedbacks/{id}",
      *     summary="Update feedback by ID",
      *     tags={"Feedbacks"},
      *     @OA\Parameter(
@@ -115,7 +115,7 @@ class FeedbackController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/feedbacks/{id}",
+     *     path="/api/feedbacks/{id}",
      *     summary="Delete feedback by ID",
      *     tags={"Feedbacks"},
      *     @OA\Parameter(

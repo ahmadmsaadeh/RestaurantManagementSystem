@@ -8,6 +8,10 @@ import {FormsModule} from "@angular/forms";
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReservationTableComponent } from './reservation-table/reservation-table.component';
+import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { ReservationTableComponent } from './reservation-table/reservation-table
     UserReservationComponent,
     AppComponent,
     MenuPageComponent,
-    ReservationTableComponent
+    ReservationTableComponent,
+    MonthlySalesComponent,
+    YearlySalesComponent,
+    MenuItemOrdersComponent,
+    FeedbackTrackingComponent
   ],
   imports: [
     BrowserModule,
