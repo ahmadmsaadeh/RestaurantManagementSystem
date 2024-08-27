@@ -112,15 +112,26 @@ class RolesController extends Controller
      *     )
      * )
      */
+//    public function getById($id)
+//    {
+//        $role = Role::find($id);
+//
+//        if (!$role) {
+//            return response()->json(["error" => "Role not found"], 404);
+//        }
+//
+//        return response()->json(['role' => $role], 200);
+//    }
+
     public function getById($id)
     {
         $role = Role::find($id);
 
         if (!$role) {
-            return response()->json(["error" => "Role not found"], 404);
+            return response()->json(["success" => false, "error" => "Role not found"], 404);
         }
 
-        return response()->json(['role' => $role], 200);
+        return response()->json(['success' => true, 'role' => $role], 200);
     }
 
     /**
