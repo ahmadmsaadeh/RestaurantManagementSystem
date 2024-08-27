@@ -4,6 +4,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Chefimage;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             OrderItemSeeder::class,
             FeedbackSeeder::class,
+            ChefimageSeeder::class
         ]);
     }
 

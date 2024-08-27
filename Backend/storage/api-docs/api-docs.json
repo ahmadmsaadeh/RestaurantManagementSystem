@@ -5,13 +5,188 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/feedbacks": {
+        "/api/auth/registercustomer": {
+            "post": {
+                "tags": [
+                    "Auth Management"
+                ],
+                "summary": "Register",
+                "operationId": "044210a6189799b43fcbe690360b971f",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "username": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            },
+                                            "firstname": {
+                                                "type": "string"
+                                            },
+                                            "lastname": {
+                                                "type": "string"
+                                            },
+                                            "phonenumber": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "John1",
+                                    "email": "john@test.com",
+                                    "password": "johnjohn1",
+                                    "firstname": "john",
+                                    "lastname": "john",
+                                    "phonenumber": "0598985980"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "example": 200
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "success"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": null
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": 1
+                                                        },
+                                                        "username": {
+                                                            "type": "string",
+                                                            "example": "John"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "john@test.com"
+                                                        },
+                                                        "email_verified_at": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-28 06:06:17"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-28 06:06:17"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "access_token": {
+                                                    "properties": {
+                                                        "token": {
+                                                            "type": "string",
+                                                            "example": "randomtokenasfhajskfhajf398rureuuhfdshk"
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "example": "Bearer"
+                                                        },
+                                                        "expires_in": {
+                                                            "type": "number",
+                                                            "example": 3600
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "example": 422
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "error"
+                                                },
+                                                "message": {
+                                                    "properties": {
+                                                        "email": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string",
+                                                                "example": "The email has already been taken."
+                                                            },
+                                                            "collectionFormat": "multi"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": []
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/feedbacks": {
             "get": {
                 "tags": [
                     "Feedbacks"
                 ],
                 "summary": "Get list of feedbacks",
-                "operationId": "7170bad27a01bc7a9c14b831fb664d17",
+                "operationId": "009ecd6bf889a3389c53dbaf0d26e11b",
                 "responses": {
                     "200": {
                         "description": "Successful operation"
@@ -23,7 +198,7 @@
                     "Feedbacks"
                 ],
                 "summary": "Create a new feedback",
-                "operationId": "cafbb9fed2234f50ac0363d3b7f9219b",
+                "operationId": "09015a7adb8b797713242561011a7d9a",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -41,13 +216,13 @@
                 }
             }
         },
-        "/feedbacks/{id}": {
+        "/api/feedbacks/{id}": {
             "get": {
                 "tags": [
                     "Feedbacks"
                 ],
                 "summary": "Get feedback by ID",
-                "operationId": "228cdbfedf64b50953445817826d05f9",
+                "operationId": "438c1f8b2dea0702dfc160efb70b9357",
                 "parameters": [
                     {
                         "name": "id",
@@ -70,7 +245,7 @@
                     "Feedbacks"
                 ],
                 "summary": "Update feedback by ID",
-                "operationId": "600380c3ae7d09e4f5d94eada38bdced",
+                "operationId": "72a24b42eeda97f0e301febdac1e686c",
                 "parameters": [
                     {
                         "name": "id",
@@ -103,7 +278,7 @@
                     "Feedbacks"
                 ],
                 "summary": "Delete feedback by ID",
-                "operationId": "7ef150bd995eb2c12fd6ff65df665881",
+                "operationId": "830b7dfecbb5a12e35c2afc07842410f",
                 "parameters": [
                     {
                         "name": "id",
@@ -118,6 +293,156 @@
                 "responses": {
                     "204": {
                         "description": "Feedback deleted successfully"
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth Management"
+                ],
+                "summary": "Login",
+                "operationId": "0911c92452f74c7b120a5fefd12bf37d",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "user@test.com",
+                                    "password": "useruser1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Valid credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "example": 200
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "success"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": null
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": 2
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "User"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "user@test.com"
+                                                        },
+                                                        "email_verified_at": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-28 06:06:17"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-06-28 06:06:17"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "access_token": {
+                                                    "properties": {
+                                                        "token": {
+                                                            "type": "string",
+                                                            "example": "randomtokenasfhajskfhajf398rureuuhfdshk"
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "example": "Bearer"
+                                                        },
+                                                        "expires_in": {
+                                                            "type": "number",
+                                                            "example": 3600
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "example": 401
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "error"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Invalid credentials."
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": []
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -387,6 +712,118 @@
                     },
                     "500": {
                         "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/menu-items/{id}/upload-image": {
+            "post": {
+                "tags": [
+                    "MenuItems"
+                ],
+                "summary": "Upload an image for a menu item",
+                "description": "Uploads an image file for a specific menu item and saves the image path to the database",
+                "operationId": "uploadMenuItemImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the menu item to upload the image for",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "image": {
+                                        "description": "Image file to upload",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Image uploaded successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Image uploaded successfully!"
+                                        },
+                                        "image_url": {
+                                            "type": "string",
+                                            "example": "http://example.com/images/image.jpg"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request, image upload failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Image upload failed"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Menu item not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Menu item not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "An error occurred while uploading the image."
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Error details"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1710,58 +2147,133 @@
                 }
             }
         },
-        "/reports/sales-monthly": {
+        "/api/reports/sales-monthly": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get Monthly Sales",
-                "operationId": "02e9282342b04d888ee6b320a3dc4b35",
+                "operationId": "72e4e215313a3fe1835db241b6dbbfce",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "month": {
+                                                "type": "integer"
+                                            },
+                                            "total": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/reports/sales-yearly": {
+        "/api/reports/sales-yearly": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get Yearly Sales",
-                "operationId": "55bb9a6daefa6e57863f5c0534e9bc0d",
+                "operationId": "823945bf7cda64c9033858e17566195f",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "year": {
+                                                "type": "integer"
+                                            },
+                                            "total": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/reports/menu-item-count": {
+        "/api/reports/menu-item-count": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get menu item orders count",
-                "operationId": "1df2b87a066215d08686e077dbc30eb3",
+                "operationId": "aab6f874e7ad713ce260b3c1b5b35be6",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "ordersCount": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/reports/feedback-tracking": {
+        "/api/reports/feedback-tracking": {
             "get": {
                 "tags": [
                     "Reports"
                 ],
                 "summary": "Get feedback tracking (average per month)",
-                "operationId": "f6e12be661b8f005368271fcdc9d66dc",
+                "operationId": "012592d06a6a1eecf763dcf97b5a9019",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "month": {
+                                                "type": "integer"
+                                            },
+                                            "averageScore": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -2641,16 +3153,32 @@
                 }
             }
         },
-        "/api/users": {
+        "/api/chef": {
             "get": {
                 "tags": [
-                    "User Management"
+                    "Chef Management"
                 ],
-                "summary": "Get all users",
-                "operationId": "f2b69a142b3a47c79e32c352f5f0501c",
+                "summary": "Get role by name",
+                "operationId": "2ea52f9ab1e78d0c414dc0c309738de1",
                 "responses": {
                     "200": {
-                        "description": "List of all users"
+                        "description": "Role retrieved successfully"
+                    },
+                    "404": {
+                        "description": "Role not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Role not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -2836,6 +3364,90 @@
                                         "error": {
                                             "type": "string",
                                             "example": "Invalid user id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Get all users",
+                "operationId": "f2b69a142b3a47c79e32c352f5f0501c",
+                "responses": {
+                    "200": {
+                        "description": "List of all users"
+                    },
+                    "404": {
+                        "description": "No users found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "No users found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/chef/{id}": {
+            "get": {
+                "tags": [
+                    "Chef Management"
+                ],
+                "summary": "Get chef by id",
+                "operationId": "b7921caa0d2acaecde1cb0048e078e7f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the user to get it",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Chef got successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Chef got successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Chef not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid chef id"
                                         }
                                     },
                                     "type": "object"
@@ -3104,8 +3716,8 @@
             "description": "API Endpoints related to User Management"
         },
         {
-            "name": "Reports",
-            "description": "Endpoints for generating various reports"
+            "name": "Auth Management",
+            "description": "API Endpoints related to Auth Management"
         },
         {
             "name": "Feedbacks",
@@ -3124,12 +3736,20 @@
             "description": "Order Items"
         },
         {
+            "name": "Reports",
+            "description": "Reports"
+        },
+        {
             "name": "Reservations",
             "description": "Reservations"
         },
         {
             "name": "Tables",
             "description": "Tables"
+        },
+        {
+            "name": "Chef Management",
+            "description": "Chef Management"
         }
     ]
 }

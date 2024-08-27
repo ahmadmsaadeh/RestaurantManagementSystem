@@ -2,6 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserReservationComponent } from './user-reservation/user-reservation.component';
+import { MenuPageComponent } from './menu-page/menu-page.component';
+import { ReservationTableComponent } from './reservation-table/reservation-table.component';
+import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 import { HeaderComponent } from './Order_components/header/header.component';
 import { SidebarComponent } from './Order_components/sidebar/sidebar.component';
 import { OrderListComponent } from './Order_components/order-list/order-list.component';
@@ -28,6 +38,18 @@ import { OrderDetailsComponent } from './Order_components/order-details/order-de
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    SignupComponent,
+    DashboardComponent,
+    AppComponent,
+    UserReservationComponent,
+    AppComponent,
+    MenuPageComponent,
+    ReservationTableComponent,
+    MonthlySalesComponent,
+    YearlySalesComponent,
+    MenuItemOrdersComponent,
+    FeedbackTrackingComponent,
     HeaderComponent,
     SidebarComponent,
     OrderListComponent,
@@ -35,6 +57,13 @@ import { OrderDetailsComponent } from './Order_components/order-details/order-de
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

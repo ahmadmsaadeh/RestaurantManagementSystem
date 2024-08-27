@@ -1,0 +1,45 @@
+
+
+
+<!--div class="menu-container">
+  <h1>Menu</h1>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of menuItems">
+      <div class="menu-item d-flex flex-column">
+        <img [src]="'http://localhost:8000/images/' + item.image" alt="{{ item.name_item }}">
+        <div class="menu-details d-flex flex-column flex-grow-1">
+          <h2>{{ item.name_item | slice:0:20 }}...</h2>
+          <p>{{ item.description | slice:0:40 }}...</p>
+          <span>${{ item.price }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div-->
+<div class="menu-container">
+  <h1>Menu</h1>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of menuItems">
+      <div class="menu-item d-flex flex-column" (click)="showDetails(item)">
+        <img [src]="'http://localhost:8000/images/' + item.image" alt="{{ item.name_item }}">
+        <div class="menu-details d-flex flex-column flex-grow-1">
+          <h2>{{ item.name_item | slice:0:20 }}...</h2>
+          <p>{{ item.description | slice:0:40 }}...</p>
+          <span>${{ item.price }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for displaying full details -->
+  <div class="details-modal" *ngIf="selectedItem">
+    <div class="modal-content">
+      <span class="close" (click)="closeDetails()">&times;</span>
+      <h2>{{ selectedItem.name_item }}</h2>
+      <img [src]="'http://localhost:8000/images/' + selectedItem.image" alt="{{ selectedItem.name_item }}">
+      <p>{{ selectedItem.description }}</p>
+      <span>${{ selectedItem.price }}</span>
+      <button class="order-now" (click)="orderNow(selectedItem)">Order Now</button>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chefimage;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,24 +12,46 @@ class UsersController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/users",
-     *     summary="Get all users",
-     *     tags={"User Management"},
+     *     path="/api/chef",
+     *     summary="Get role by name",
+     *     tags={"Chef Management"},
      *     @OA\Response(
      *         response=200,
-     *         description="List of all users"
+     *         description="Role retrieved successfully",
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Role not found",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="Role not found")
+     *         )
      *     )
      * )
      */
-
-    public function getAllUsers()
+    public function getChefByRole()
     {
-        $users = User::all();
-        if(!$users){
-            return response("can't get all users", 404);
-        }else{
-            return response($users, 200);
+        $role_name = "Kitchen Staff";
+        $role = Role::where('role_name', $role_name)->first();
+
+        if (!$role) {
+            return response()->json(['error' => 'Role not found'], 404);
         }
+
+        $users = User::where('role_id', $role->role_id)
+            ->with('chefImage')
+            ->get();
+
+        if ($users->isEmpty()) {
+            return response()->json(['error' => "No users found for this role"], 404);
+        }
+
+        // Prepare user data with image URLs
+        $usersWithImages = $users->map(function ($user) {
+            $user->image_url = $user->chefImage->chef_image_url ?? null; // Assuming `image_url` is a column in Chefimage
+            return $user;
+        });
+
+        return response()->json(['users' => $usersWithImages], 200);
     }
 
     /**
@@ -59,7 +82,6 @@ class UsersController extends Controller
      *     )
      * )
      */
-
     public function getUserById($user_id)
     {
         $users = User::find($user_id);
@@ -67,6 +89,78 @@ class UsersController extends Controller
             return response("invalid user id", 404);
         } else {
             return response($users, 200);
+        }
+    }
+
+
+    /**
+     * @OA\Get(
+     *     path="/api/users",
+     *     summary="Get all users",
+     *     tags={"User Management"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of all users",
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="No users found",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="No users found")
+     *         )
+     *     )
+     * )
+     */
+    public function getAllUsers()
+    {
+        $users = User::all();
+        if(!$users){
+            return response("can't get all users", 404);
+        }else{
+            return response($users, 200);
+        }
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/api/chef/{id}",
+     *     summary="Get chef by id",
+     *     tags={"Chef Management"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(type="integer"),
+     *         description="The ID of the user to get it"
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Chef got successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Chef got successfully")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Chef not found",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="Invalid chef id")
+     *         )
+     *     )
+     * )
+     */
+    public function getChefById($chef_id)
+    {
+        $user = User::with('role')->find($chef_id);
+
+        if (!$user) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+
+        if ($user->role && $user->role->role_name === 'Kitchen Staff') {
+            return response()->json(['user' => $user], 200);
+        } else {
+            return response()->json(['error' => 'User does not have the Kitchen Staff role'], 404);
         }
     }
 
