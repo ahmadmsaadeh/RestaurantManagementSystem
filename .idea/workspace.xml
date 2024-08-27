@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96e8cd97-4cba-481f-a5d7-42abffc83ec9" name="Changes" comment="No need" />
+    <list default="true" id="96e8cd97-4cba-481f-a5d7-42abffc83ec9" name="Changes" comment="No need">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,10 +155,16 @@
       <path value="$PROJECT_DIR$/Backend/vendor/firebase/php-jwt" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2ktPmkm2HunEumgTwczJVa3QIpg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -166,10 +174,12 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Alaa&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/project/Frontend/src/app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\xampp\\htdocs\\project\\Frontend\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -179,7 +189,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\project\Frontend\src\app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\project\Frontend\src\assets" />
       <recent name="C:\xampp\htdocs\project\Backend\app\Providers" />
       <recent name="C:\xampp\htdocs\project\Backend\storage\secrets" />
     </key>
@@ -205,6 +219,8 @@
       <workItem from="1724140746324" duration="3833000" />
       <workItem from="1724229609987" duration="13300000" />
       <workItem from="1724262125836" duration="13348000" />
+      <workItem from="1724606132990" duration="16914000" />
+      <workItem from="1724775376132" duration="829000" />
     </task>
     <task id="LOCAL-00001" summary="create images table for chefs">
       <option name="closed" value="true" />
@@ -246,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724275618762</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Login page with simple dashboard to show the role for each user">
+      <option name="closed" value="true" />
+      <created>1724776199905</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724776199905</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +304,7 @@
     <MESSAGE value="Create registration API" />
     <MESSAGE value="Create login API" />
     <MESSAGE value="No need" />
-    <option name="LAST_COMMIT_MESSAGE" value="No need" />
+    <MESSAGE value="Login page with simple dashboard to show the role for each user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login page with simple dashboard to show the role for each user" />
   </component>
 </project>
