@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReservationService } from '../reservation.service'; // Import your reservation service
+import { ReservationService } from '../reservation.service';
 
 @Component({
   selector: 'app-reservation-table',
@@ -7,7 +7,7 @@ import { ReservationService } from '../reservation.service'; // Import your rese
   styleUrls: ['./reservation-table.component.css']
 })
 export class ReservationTableComponent {
-  reservations: any[] = []; // Adjust to match your API data structure
+  reservations: any[] = [];
 
   constructor(private reservationService: ReservationService) {}
 
@@ -16,8 +16,8 @@ export class ReservationTableComponent {
   }
 
   loadReservations(): void {
-    // this.reservationService.getReservations().subscribe((data: any[]) => {
-    //   this.reservations = data;
-    // });
+    this.reservationService.getReservations().subscribe((data: any[]) => {
+      this.reservations = data;
+    });
   }
 }

@@ -1,8 +1,8 @@
 .input-group-text {
-  cursor: pointer; /* Change cursor to pointer on hover */
+  cursor: pointer;
 }
 
 .input-group-text:hover {
-  background-color: rgba(0, 0, 0, 0.56); /* Darker background color on hover */
-  color: white; /* Change icon color to white for better contrast */
+  background-color: rgba(0, 0, 0, 0.56);
+  color: white;
 }

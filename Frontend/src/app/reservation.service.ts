@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReservationService {
-  // private apiUrl = 'http://localhost:8000/api/staff/reservations';
-  //
-  // constructor(private http: HttpClient) {}
-  //
-  // getReservations(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.apiUrl);
-  // }
+  private apiUrl = 'http://localhost:8000/api/staff/reservations';
+
+  constructor(private http: HttpClient) {}
+
+  getReservations(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
 }

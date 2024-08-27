@@ -16,8 +16,8 @@ export class UserReservationComponent implements AfterViewInit {
     flatpickr(this.dateTimePicker.nativeElement, {
     enableTime: true,
       dateFormat: 'Y-m-d H:i',
-      locale: english, // Ensure correct locale
-      time_24hr: true, // Enable 24-hour time format
+      locale: english,
+      time_24hr: true,
       minuteIncrement: 10
   });
 }
@@ -25,7 +25,7 @@ export class UserReservationComponent implements AfterViewInit {
   openDateTimePicker(): void {
     const flatpickrInstance = (this.dateTimePicker.nativeElement as any)._flatpickr;
     if (flatpickrInstance) {
-      flatpickrInstance.open(); // Opens Flatpickr when icon is clicked
+      flatpickrInstance.open();
     }
   }
 
