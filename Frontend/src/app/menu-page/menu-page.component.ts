@@ -8,7 +8,7 @@ import { MenuService } from '../menu.service';
 })
 export class MenuPageComponent implements OnInit{
   menuItems: any[] = [];
-
+  selectedItem: any = null;
   //constructor(private menuService: MenuService) { }
   private menuService = inject(MenuService);  // Use inject to get MenuService
 
@@ -25,5 +25,17 @@ export class MenuPageComponent implements OnInit{
         console.error('Error fetching menu items', error);
       }
     );
+  }
+  showDetails(item: any): void {
+    this.selectedItem = item;
+  }
+
+  closeDetails(): void {
+    this.selectedItem = null;
+  }
+
+  orderNow(item: any): void {
+    alert(`You have ordered: ${item.name_item}`);
+    // Here you can implement the actual order logic
   }
 }
