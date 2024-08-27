@@ -7,13 +7,15 @@ import { UserReservationComponent } from './user-reservation/user-reservation.co
 import {FormsModule} from "@angular/forms";
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReservationTableComponent } from './reservation-table/reservation-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserReservationComponent,
     AppComponent,
-    MenuPageComponent
+    MenuPageComponent,
+    ReservationTableComponent
   ],
   imports: [
     BrowserModule,
