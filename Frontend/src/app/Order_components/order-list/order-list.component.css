@@ -1,0 +1,74 @@
+@media (max-width: 576px) {
+  .container-fluid {
+    padding: 0;
+    margin: 0;
+  }
+  .card-body {
+    padding: 10px;
+  }
+  .table th, .table td {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+}
+
+.btn {
+  background-color: #d62300; /* Initial background color */
+  color: white; /* Initial text color */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.btn:hover, .form-control:hover, .form-select:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Media query for devices with a max-width of 768px */
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 0.875rem; /* Smaller font size for smaller screens */
+  }
+  .table {
+    font-size: 0.875rem; /* Adjust table font size */
+  }
+  .action-buttons{
+
+  }
+
+}
+
+/* Media query for devices with a max-width of 576px */
+@media (max-width: 576px) {
+  .table th, .table td {
+    font-size: 0.75rem; /* Even smaller font size for extra-small screens */
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+  }
+  .table {
+    font-size: 0.75rem; /* Adjust table font size */
+  }
+}
+
+ table {
+   width: 100%;
+   border-collapse: collapse;
+ }
+th, td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+
+
+.action-buttons button {
+  margin-right: 10px; /* Add space between buttons */
+  /* border-radius: 50%;  Make buttons circular */
+  padding: 10px; /* Adjust padding to fit the icons */
+}
