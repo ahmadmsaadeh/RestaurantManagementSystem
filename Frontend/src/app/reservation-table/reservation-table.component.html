@@ -1,28 +1,33 @@
 <div class="container-fluid mt-2">
-<table class="table table-striped table">
-  <thead>
-  <tr>
-    <th scope="col">ResID</th>
-    <th scope="col">UserID</th>
-    <th scope="col">TableID</th>
-    <th scope="col">Date</th>
-    <th scope="col">Time</th>
-    <th scope="col">NumOfCustomers</th>
-    <th scope="col">ReservationType</th>
-    <th scope="col">TimeExpectedToLeave</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let reservation of reservations">
-    <td>{{ reservation.ResID }}</td>
-    <td>{{ reservation.UserID }}</td>
-    <td>{{ reservation.TableID }}</td>
-    <td>{{ reservation.Date | date }}</td>
-    <td>{{ reservation.Time | date:'shortTime' }}</td>
-    <td>{{ reservation.NumOfCustomers }}</td>
-    <td>{{ reservation.ReservationType }}</td>
-    <td>{{ reservation.TimeExpectedToLeave | date:'shortTime' }}</td>
-  </tr>
-  </tbody>
-</table>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button class="btn btn-primary mb-2" (click)="refreshTable()">Refresh</button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ResID</th>
+      <th scope="col">Username</th>
+      <th scope="col">TableID</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">NumOfCustomers</th>
+      <th scope="col">ReservationType</th>
+      <th scope="col">TimeExpectedToLeave</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{ reservation.ResID }}</td>
+      <td>{{ reservation.username }}</td>
+      <td>{{ reservation.TableID }}</td>
+      <td>{{ reservation.Date | date }}</td>
+      <td>{{ reservation.Time }}</td>
+      <td>{{ reservation.NumOfCustomers }}</td>
+      <td>{{ reservation.ReservationType }}</td>
+      <td>{{ reservation.TimeExpectedToLeave }}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
