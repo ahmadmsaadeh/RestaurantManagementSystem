@@ -87,7 +87,7 @@ class UserSeeder extends Seeder
             'lastname' => 'El-Sayed',
             'email' => 'ahmedelsayed@example.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('alaaalaaalaa'),
             'auth_token' => Str::random(60),
             'token_expiry' => now()->addDays(30),
             'remember_token' => Str::random(10),
