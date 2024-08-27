@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59720106-cf80-406e-9414-3730297a700b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/public/images/image5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/public/images/imagee.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/public/images/imageee.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/storage/api-docs/api-docs.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/storage/api-docs/api-docs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +230,8 @@
       <workItem from="1724443267168" duration="2647000" />
       <workItem from="1724445976649" duration="375000" />
       <workItem from="1724475761025" duration="4455000" />
-      <workItem from="1724604988861" duration="8241000" />
+      <workItem from="1724604988861" duration="10139000" />
+      <workItem from="1724771581027" duration="579000" />
     </task>
     <servers />
   </component>
