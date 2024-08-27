@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from "@angular/forms";
 import { SignupComponent } from './signup/signup.component';
-import {HttpClientModule} from "@angular/common/http";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserReservationComponent } from './user-reservation/user-reservation.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
@@ -15,6 +12,28 @@ import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
 import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
 import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
 import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
+import { HeaderComponent } from './Order_components/header/header.component';
+import { SidebarComponent } from './Order_components/sidebar/sidebar.component';
+import { OrderListComponent } from './Order_components/order-list/order-list.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {OrdersService} from "./services/orders.service";
+import {FormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { OrderDetailsComponent } from './Order_components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +49,11 @@ import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking
     MonthlySalesComponent,
     YearlySalesComponent,
     MenuItemOrdersComponent,
-    FeedbackTrackingComponent
+    FeedbackTrackingComponent,
+    HeaderComponent,
+    SidebarComponent,
+    OrderListComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +63,30 @@ import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking
     AppRoutingModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule, // Add BrowserAnimationsModule here
+
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatIconModule,
+
+    /*
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    MatMenuModule   */
   ],
-  providers: [],
+  providers: [OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

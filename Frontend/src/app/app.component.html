@@ -15,7 +15,7 @@
           <a class="nav-link" href="#">About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Menu</a>
+          <a class="nav-link" href="/menu">Menu</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Chefs</a>
@@ -31,7 +31,7 @@
     </div>
   </div>
 </nav>
-<app-menu-page></app-menu-page>
+
 <app-user-reservation></app-user-reservation>
 <app-reservation-table></app-reservation-table>
 <div class="container">
@@ -40,5 +40,10 @@
   <app-menu-item-orders></app-menu-item-orders>
   <app-feedback-tracking></app-feedback-tracking>
 </div>
-<router-outlet></router-outlet>
+<div class="layout">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
 
+  </div>
+</div>
+<router-outlet></router-outlet>

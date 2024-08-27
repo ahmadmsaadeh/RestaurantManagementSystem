@@ -1,0 +1,17 @@
+
+
+.navbar-nav .nav-item {
+  margin-right: 50px;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0; /* Remove margin from the last item */
+}
+
+.header{
+  background-color: #FFFFFF;
+}
+
+.navbar-brand{
+  margin-left: 20px;
+}
