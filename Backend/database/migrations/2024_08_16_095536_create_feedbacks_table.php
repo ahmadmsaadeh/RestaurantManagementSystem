@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('menu_item_id');
             $table->unsignedBigInteger('customer_id');
-            $table->tinyInteger('rating')->unsigned(); 
+            $table->tinyInteger('rating')->unsigned();
             $table->text('comments')->nullable();
             $table->timestamp('date_submitted')->useCurrent();
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
