@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f54570f0-6b6c-471f-bf28-1791099e89d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c265217e-28f5-4175-9726-16840cccbdd5.corrupted.20240823-070516.reason.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c265217e-28f5-4175-9726-16840cccbdd5.corrupted.20240823-070516.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c265217e-28f5-4175-9726-16840cccbdd5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c265217e-28f5-4175-9726-16840cccbdd5/storage_v2/_src_/schema/restaurant.PUtalg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/database/seeders/MenuItemSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/database/seeders/MenuItemSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/routes/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/routes/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/menu-page/menu-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/styles.css" afterDir="false" />
-    </list>
+    <list default="true" id="f54570f0-6b6c-471f-bf28-1791099e89d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -311,6 +280,7 @@
       <workItem from="1724798478800" duration="713000" />
       <workItem from="1724799221300" duration="2912000" />
       <workItem from="1724802190674" duration="2022000" />
+      <workItem from="1724869783858" duration="1808000" />
     </task>
     <servers />
   </component>

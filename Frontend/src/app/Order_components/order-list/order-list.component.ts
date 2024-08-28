@@ -5,6 +5,8 @@ import {FormsModule} from "@angular/forms";
 import {CurrencyPipe, NgForOf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
+
+
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',

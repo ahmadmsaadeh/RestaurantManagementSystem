@@ -1,3 +1,4 @@
+
 /* sidebar.component.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -95,7 +96,6 @@ body {
   padding: 2rem 0;
   flex: 1 1 auto;
 }
-
 
 a.sidebar-link {
   padding: .625rem 1.625rem;

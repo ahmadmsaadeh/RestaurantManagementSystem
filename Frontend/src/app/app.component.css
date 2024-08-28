@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+=======
+
+/*.layout {*/
+/*  display: flex;*/
+
+/*  background-color: #f0e6d7;*/
+/*}*/
+
+
+
+/*.main-content {*/
+/*  flex: 1; !* Takes up the remaining space *!*/
+/*  padding: 20px; !* Add padding around the content *!*/
+/*  background-color: #f0e6d7;*/
+
+/* !*margin-left: -50px;*!*/
+/*}*/
+
+
+/*.container {*/
+/*  margin-top: 0; !* Adjust margin to align with your design *!*/
+/*}*/
+
+
+>>>>>>> f25b4ce21932ad297743a1729f03fb5c769da2c7
 .btn-outline-success {
   --bs-btn-color: #DE6262;
   --bs-btn-border-color: #DE6262;
@@ -15,3 +41,18 @@
   --bs-gradient: none;
   width: 100px;
 }
+
+/*.layout {*/
+/*  display: flex;*/
+/*}*/
+
+
+
+/*.main-content {*/
+/*  flex: 1; !* Takes up the remaining space *!*/
+/*  padding: 20px; !* Add padding around the content *!*/
+/*}*/
+
+/*.container {*/
+/*  margin-top: 0; !* Adjust margin to align with your design *!*/
+/*}*/

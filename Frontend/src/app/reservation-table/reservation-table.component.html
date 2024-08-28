@@ -1,33 +1,38 @@
-<div class="container-fluid mt-2">
+<div class="container-fluid d-flex justify-content-center mt-2">
   <div class="row">
-    <div class="col-md-12 text-right">
-      <button class="btn btn-primary mb-2" (click)="refreshTable()">Refresh</button>
+    <div class="col-lg-3 col-md-4 col-sm-12 d-flex justify-content-center" *ngFor="let reservation of reservations">
+      <div class="card mb-3" style="width: 18rem;">
+        <div class="card-body justify-content-center">
+          <h5 class="card-title">Reservation ID: {{ reservation.ResID }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Username: {{ reservation.username }}</h6>
+          <p class="card-text">
+            <strong>Table ID:</strong> {{ reservation.TableID }}<br>
+            <strong>Date:</strong> {{ reservation.Date | date }}<br>
+            <strong>Time:</strong> {{ reservation.Time }}<br>
+          </p>
+          <button class="btn btn-primary" (click)="openReservationDetails(reservation, reservationDetails)">View Details</button>
+        </div>
+      </div>
     </div>
   </div>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">ResID</th>
-      <th scope="col">Username</th>
-      <th scope="col">TableID</th>
-      <th scope="col">Date</th>
-      <th scope="col">Time</th>
-      <th scope="col">NumOfCustomers</th>
-      <th scope="col">ReservationType</th>
-      <th scope="col">TimeExpectedToLeave</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let reservation of reservations">
-      <td>{{ reservation.ResID }}</td>
-      <td>{{ reservation.username }}</td>
-      <td>{{ reservation.TableID }}</td>
-      <td>{{ reservation.Date | date }}</td>
-      <td>{{ reservation.Time }}</td>
-      <td>{{ reservation.NumOfCustomers }}</td>
-      <td>{{ reservation.ReservationType }}</td>
-      <td>{{ reservation.TimeExpectedToLeave }}</td>
-    </tr>
-    </tbody>
-  </table>
 </div>
+
+<ng-template #reservationDetails let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">Reservation Details</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Reservation ID:</strong> {{ selectedReservation?.ResID }}</p>
+    <p><strong>Username:</strong> {{ selectedReservation?.username }}</p>
+    <p><strong>Table ID:</strong> {{ selectedReservation?.TableID }}</p>
+    <p><strong>Date:</strong> {{ selectedReservation?.Date | date }}</p>
+    <p><strong>Time:</strong> {{ selectedReservation?.Time }}</p>
+    <p><strong>Number of Customers:</strong> {{ selectedReservation?.NumOfCustomers }}</p>
+    <p><strong>Reservation Type:</strong> {{ selectedReservation?.ReservationType }}</p>
+    <p><strong>Time Expected to Leave:</strong> {{ selectedReservation?.TimeExpectedToLeave }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteReservation(selectedReservation?.ResID, modal)">Cancel Reservation</button>  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
