@@ -1,3 +1,4 @@
+
 <div class="wrapper">
   <aside id="sidebar">
     <div class="d-flex">
@@ -26,7 +27,6 @@
         </a>
         <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-
             <a [routerLink]="['/orders']" class="sidebar-link">Orders List</a>
           </li>
           <li class="sidebar-item">
@@ -40,11 +40,11 @@
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
           <i class="bi bi-calendar2-check-fill"></i>
-          <span>Reservations</span>
+          <span>Menu</span>
         </a>
         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">Login</a>
+            <a [routerLink]="['/menu']" class="sidebar-link">Show menu</a>
           </li>
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">Register</a>
@@ -99,4 +99,5 @@
       </a>
     </div>
   </aside>
+
 </div>

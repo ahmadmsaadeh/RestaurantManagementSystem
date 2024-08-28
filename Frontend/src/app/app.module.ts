@@ -34,6 +34,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { OrderDetailsComponent } from './Order_components/order-details/order-details.component';
+import { SideWithContentComponent } from './Order_components/side-with-content/side-with-content.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { OrderDetailsComponent } from './Order_components/order-details/order-de
     SidebarComponent,
     OrderListComponent,
     OrderDetailsComponent,
+    SideWithContentComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -76,15 +79,7 @@ import { OrderDetailsComponent } from './Order_components/order-details/order-de
     MatButtonModule,
     MatIconModule,
 
-    /*
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTableModule,
-    MatInputModule,
-    MatSelectModule,
-    MatMenuModule   */
+
   ],
   providers: [OrdersService],
   bootstrap: [AppComponent]
