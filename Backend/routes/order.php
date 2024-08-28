@@ -17,7 +17,11 @@ Route::get('/orders/{orderId}', [OrdersController::class, 'getOrderById']);
 Route::get('/orders/user/{userId}', [OrdersController::class, 'getOrderByUserId']);
 Route::get('/orders/reservation/{reservationId}', [OrdersController::class, 'getOrderByReservationId']);
 Route::get('/orders/date/{date}', [OrdersController::class, 'getOrderByDate']);
+Route::get('/orders/date-range/{startDate}/{endDate}', [OrdersController::class, 'getOrdersByDateRange']);
 Route::get('/orders/status/{status}', [OrdersController::class, 'getOrderByStatus']);
+
+/////filterrrr
+Route::get('/orders/filter', [OrdersController::class, 'getFilteredOrders']);
 
 
 Route::get('/orders/items/status/{status}', [OrdersController::class, 'getOrderItemsByStatus']);
@@ -27,7 +31,6 @@ Route::get('/orders/{orderId}/items', [OrdersController::class, 'getOrderItems']
 Route::delete('/orders/{orderId}', [OrdersController::class, 'deleteOrder']);
 Route::delete('/orders/{orderId}/items/{itemId}', [OrdersController::class, 'removeMenuItemFromOrder']);
 
-///patch:: update a specific attribute or a small part of the resource without sending the entire resource's data.
 
 
 

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
+import {OrdersService} from "./services/orders.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 import {LoginComponent } from './login/login.component';
 import {Router} from "@angular/router";
 @Component({
@@ -6,7 +9,7 @@ import {Router} from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Frontend';
   constructor(private router: Router) {}
 

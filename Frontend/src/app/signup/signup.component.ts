@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {UserService} from "../userservice";
+import {Router} from "@angular/router";
+import {LoginService} from "../LoginService";
 
 @Component({
   selector: 'app-signup',
@@ -6,5 +9,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-
 }

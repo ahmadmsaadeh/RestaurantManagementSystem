@@ -15,6 +15,9 @@ import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
 import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
 import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
 import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
+import { RoleslistComponent } from './roleslist/roleslist.component';
+import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -30,17 +33,17 @@ import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking
     MonthlySalesComponent,
     YearlySalesComponent,
     MenuItemOrdersComponent,
-    FeedbackTrackingComponent
+    FeedbackTrackingComponent,
+    RoleslistComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    SidebarComponent,
+    CommonModule,
     FormsModule,
-    AppRoutingModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,27 +14,27 @@ class MenuItemSeeder extends Seeder
     public function run(): void
     {
         MenuItem::create([
-            'name_item' => 'Cheeseburger',
-            'description' => 'A juicy beef burger topped with cheese, lettuce, and tomato.',
-            'price' => 9.99,
-            'availability' => true,
-            'image' => 'cheeseburger.jpg',
-            'category_id' => 2,
-        ]);
-        MenuItem::create([
-            'name_item' => 'Margherita Pizza',
-            'description' => 'Classic pizza with tomato, mozzarella, and basil.',
+            'name_item' => 'Garlic-Butter Chicken & French Fries',
+            'description' => 'Delicious cheese Garlic-Butter Chicken & French Fr...',
             'price' => 12.99,
             'availability' => true,
-            'image' => 'margherita_pizza.jpg',
+            'image' => 'chickenfranch.png',
             'category_id' => 2,
         ]);
         MenuItem::create([
-            'name_item' => 'Caesar Salad',
-            'description' => 'Fresh romaine lettuce with Caesar dressing, croutons, and parmesan.',
-            'price' => 7.99,
+            'name_item' => 'Jammy Pastries',
+            'description' => 'Delicious cheese Jammy Pastries',
+            'price' => 10.99,
             'availability' => true,
-            'image' => 'caesar_salad.jpg',
+            'image' => 'tea.png',
+            'category_id' => 1,
+        ]);
+        MenuItem::create([
+            'name_item' => 'Chicken Gyro Meatball Salad',
+            'description' => 'This chicken gyro salad celebrates the fantastic f...',
+            'price' => 9.99,
+            'availability' => true,
+            'image' => 'gyro chicken.png',
             'category_id' => 1,
         ]);
         MenuItem::create([

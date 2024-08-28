@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Order_item;
 use App\Models\Reservation;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -636,9 +637,25 @@ class OrdersController extends Controller
      */
     public function listOrders(): JsonResponse
     {
-        $orders = Order::all();
+        $orders = Order::with(['user', 'reservation'])->get()->map(function ($order) {
+            return [
+                'order_id' => $order->order_id,
+                'table_no' => $order->reservation->TableID ?? null, // Table number from the reservation
+                'reservation_no' => $order->reservation_id ?? null,
+                'customer_name' => $order->user->username ?? 'Guest',
+                'user_id' => $order->user->user_id ?? null,
+                // Format the order_date and order_time using Carbon
+                'order_date' => Carbon::parse($order->order_date)->format('d-m-Y'),
+                'order_time' => Carbon::parse($order->order_time)->format('H:i:s'),
+                'order_total' => $order->total,
+                'status' => $order->status,
+            ];
+        });
+
         return response()->json($orders);
-    }  //done
+    }
+
+
 
     /**
      * @OA\Get(
@@ -685,14 +702,31 @@ class OrdersController extends Controller
      */
     public function getOrderById($orderId): JsonResponse
     {
-        $order=Order::find($orderId);
+        // Find the order by ID, including the related user and reservation
+        $order = Order::with(['user', 'reservation'])->find($orderId);
 
-        if(!$order){
+        // Check if the order exists
+        if (!$order) {
             return response()->json(['error' => 'Order not found'], 404);
         }
-        return response()->json(['Message' => 'Order details','order' => $order], 200);
 
-    }      //done
+        // Format the response using the relationships and desired structure
+        $response = [
+            'order_id' => $order->order_id,
+            'table_no' => $order->reservation->TableID ?? null, // Table number from the reservation
+            'reservation_no' => $order->reservation_id ?? null,
+            'customer_name' => $order->user->username ?? 'Guest',
+            'user_id' => $order->user->user_id ?? null,
+            'order_date' => Carbon::parse($order->order_date)->format('d-m-Y'),
+            'order_time' => Carbon::parse($order->order_date)->format('H:i:s'), // Adjusted to use order_date for consistency
+            'order_total' => $order->total,
+            'status' => $order->status,
+        ];
+
+        // Return the custom formatted response
+        return response()->json($response, 200);
+    }
+    //done
 
     /**
      * @OA\Get(
@@ -752,7 +786,6 @@ class OrdersController extends Controller
 
     public function getOrderByUserId($user_id): JsonResponse
     {
-
         $userExists = User::where('user_id', $user_id)->exists();
 
         if (!$userExists) {
@@ -765,8 +798,25 @@ class OrdersController extends Controller
             return response()->json(['error' => 'No orders for this user'], 404);
         }
 
-        return response()->json(['Message' => 'Order details', 'orders' => $orders], 200);
-    } //done
+        // Transform the orders to match the required JSON structure
+        $formattedOrders = $orders->map(function ($order) {
+            return [
+                'order_id' => $order->order_id,
+                'table_no' => $order->reservation->TableID ?? null, // Table number from the reservation
+                'reservation_no' => $order->reservation_id ?? null,
+                'customer_name' => $order->user->username ?? 'Guest',
+                'user_id' => $order->user->user_id ?? null,
+                // Format the order_date and order_time using Carbon
+                'order_date' => Carbon::parse($order->order_date)->format('d-m-Y'),
+                'order_time' => \Carbon\Carbon::parse($order->order_time)->format('H:i:s'),
+                'order_total' => $order->total,
+                'status' => $order->status,
+            ];
+        });
+
+        return response()->json($formattedOrders, 200);
+    }
+
 
     /**
      * @OA\Get(
@@ -823,20 +873,37 @@ class OrdersController extends Controller
      */
     public function getOrderByReservationId($reservationId): JsonResponse
     {
-        $reservationExists=Reservation::where('ResID', $reservationId)->exists();
+        $reservationExists = Reservation::where('ResID', $reservationId)->exists();
 
         if (!$reservationExists) {
             return response()->json(['error' => 'Reservation not found'], 404);
         }
 
-        $order=Order::where('reservation_id', $reservationId)->get();
+        $orders = Order::where('reservation_id', $reservationId)->get();
 
-        if($order->isEmpty()){
-            return response()->json(['error' => 'There are no orders for this reservation'], 404);
+        if ($orders->isEmpty()) {
+            return response()->json(['error' => 'No orders for this reservation'], 404);
         }
-        return response()->json(['Message' => 'Order details','order' => $order], 200);
 
-    }  //done
+        // Transform the orders to match the required JSON structure
+        $formattedOrders = $orders->map(function ($order) {
+            return [
+                'order_id' => $order->order_id,
+                'table_no' => $order->reservation->TableID ?? null, // Table number from the reservation
+                'reservation_no' => $order->reservation_id ?? null,
+                'customer_name' => $order->user->username ?? 'Guest',
+                'user_id' => $order->user->user_id ?? null,
+                // Format the order_date and order_time using Carbon
+                'order_date' => Carbon::parse($order->order_date)->format('d-m-Y'),
+                'order_time' => \Carbon\Carbon::parse($order->order_time)->format('H:i:s'),
+                'order_total' => $order->total,
+                'status' => $order->status,
+            ];
+        });
+
+        return response()->json($formattedOrders, 200);
+    }
+
 
 
     /**
@@ -917,6 +984,53 @@ class OrdersController extends Controller
 
     } //done
 
+    ////need swagger for this::
+    public function getOrdersByDateRange($startDate, $endDate): JsonResponse
+    {
+        // Validate the date format
+        $validator = Validator::make(['startDate' => $startDate, 'endDate' => $endDate], [
+            'startDate' => 'required|date_format:Y-m-d',
+            'endDate' => 'required|date_format:Y-m-d',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => 'Invalid date format. Use YYYY-MM-DD.'], 400);
+        }
+
+        // Fetch orders within the date range including endDate
+        $orders = Order::with(['user', 'reservation'])
+            ->whereDate('order_date', '>=', $startDate)
+            ->whereDate('order_date', '<=', $endDate)
+            ->get()
+            ->map(function ($order) {
+                return [
+                    'order_id' => $order->order_id,
+                    'table_no' => $order->reservation->TableID ?? null,
+                    'reservation_no' => $order->reservation_id ?? null,
+                    'customer_name' => $order->user->username ?? 'Guest',
+                    'user_id' => $order->user->user_id ?? null,
+                    // Format the order_date and order_time
+                    'order_date' => Carbon::parse($order->order_date)->format('d-m-Y'),
+                    'order_time' => Carbon::parse($order->order_time)->format('H:i:s'),
+                    'order_total' => $order->total,
+                    'status' => $order->status,
+                ];
+            });
+        if ($orders->isEmpty()) {
+            return response()->json(['error' => 'No orders found for the selected date range.'], 404);
+        }
+        return response()->json($orders);
+    }
+
+
+
+
+
+
+
+
+
+
     /**
      * @OA\Get(
      *     path="/api/orders/status/{status}",
@@ -980,16 +1094,33 @@ class OrdersController extends Controller
         ]);
 
         if ($validator->fails()) {
-          return response()->json(['error' => 'Invalid status. Allowed values are Open, Served, Closed.'], 400);
+            return response()->json(['error' => 'Invalid status. Allowed values are Open, Served, Closed.'], 400);
         }
-        $orders = Order::where('status', $status)->get();
+
+        $orders = Order::with(['user', 'reservation'])
+            ->where('status', $status)
+            ->get()
+            ->map(function ($order) {
+                return [
+                    'order_id' => $order->order_id,
+                    'table_no' => $order->reservation->TableID ?? null, // Table number from the reservation
+                    'reservation_no' => $order->reservation_id ?? null,
+                    'customer_name' => $order->user->username ?? 'Guest',
+                    'user_id' => $order->user->user_id ?? null,
+                    'order_date' => Carbon::parse($order->order_date)->format('d-m-Y'),
+                    'order_time' => \Carbon\Carbon::parse($order->order_time)->format('H:i:s'),
+                    'order_total' => $order->total,
+                    'status' => $order->status,
+                ];
+            });
 
         if ($orders->isEmpty()) {
             return response()->json(['error' => 'No orders found in this status'], 404);
         }
+        return response()->json($orders);
+       // return response()->json([$orders], 200);
+    }
 
-        return response()->json(['Message' => 'Order details', 'orders' => $orders], 200);
-    } //done
 
 
     /**
