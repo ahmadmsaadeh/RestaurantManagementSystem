@@ -1,24 +1,24 @@
-/* Add this to your global CSS file or the CSS file specific to the component */
 
-.layout {
-  display: flex;
+/*.layout {*/
+/*  display: flex;*/
 
-  background-color: #f0e6d7;
-}
-
+/*  background-color: #f0e6d7;*/
+/*}*/
 
 
-.main-content {
-  flex: 1; /* Takes up the remaining space */
-  padding: 20px; /* Add padding around the content */
-  background-color: #f0e6d7;
 
-/*  margin-left: -50px;*/
-}
+/*.main-content {*/
+/*  flex: 1; !* Takes up the remaining space *!*/
+/*  padding: 20px; !* Add padding around the content *!*/
+/*  background-color: #f0e6d7;*/
 
-.container {
-  margin-top: 0; /* Adjust margin to align with your design */
-}
+/* !*margin-left: -50px;*!*/
+/*}*/
+
+
+/*.container {*/
+/*  margin-top: 0; !* Adjust margin to align with your design *!*/
+/*}*/
 
 
 .btn-outline-success {
@@ -38,3 +38,18 @@
   --bs-gradient: none;
   width: 100px;
 }
+
+/*.layout {*/
+/*  display: flex;*/
+/*}*/
+
+
+
+/*.main-content {*/
+/*  flex: 1; !* Takes up the remaining space *!*/
+/*  padding: 20px; !* Add padding around the content *!*/
+/*}*/
+
+/*.container {*/
+/*  margin-top: 0; !* Adjust margin to align with your design *!*/
+/*}*/
