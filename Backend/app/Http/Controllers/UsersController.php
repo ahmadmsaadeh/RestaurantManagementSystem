@@ -6,6 +6,7 @@ use App\Models\Chefimage;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 //push it
 class UsersController extends Controller
@@ -253,16 +254,19 @@ class UsersController extends Controller
             $validated = $request->validate([
                 'username' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255',
-                'password' => 'required|string|min:10',
+                'password' => 'nullable|string|min:10',
                 'lastname' => 'required|string|max:255',
                 'firstname' => 'required|string|max:255',
             ]);
+
+            if (isset($validated['password'])) {
+                $validated['password'] = Hash::make($validated['password']);
+            }
 
             $user->update($validated);
 
             return response()->json(['success' => 'User updated successfully!'], 200);
         } catch (\Exception $e) {
-
             return response()->json(['error' => 'Update failed'], 500);
         }
     }
