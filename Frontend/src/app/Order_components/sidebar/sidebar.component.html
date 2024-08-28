@@ -22,7 +22,7 @@
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#order" aria-expanded="false" aria-controls="order">
-          <i class="bi bi-table"></i>
+        <i class="bi bi-table"></i>
           <span>Manage orders</span>
         </a>
         <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -36,6 +36,22 @@
         </ul>
       </li>
 
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#order" aria-expanded="false" aria-controls="order">
+          <i class="bi bi-table"></i>
+          <span>Manage orders</span>
+        </a>
+        <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/reservation']" class="sidebar-link">View Reservations</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/add-reservation']" class="sidebar-link">Add Reservation</a>
+
+          </li>
+        </ul>
+      </li>
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">

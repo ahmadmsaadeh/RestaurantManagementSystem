@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from './reservation-table-service/reservation.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { forkJoin } from 'rxjs';
-
 
 @Component({
   selector: 'app-reservation-table',
@@ -13,7 +11,10 @@ export class ReservationTableComponent implements OnInit {
   reservations: any[] = [];
   selectedReservation: any = null;
 
-  constructor(private reservationService: ReservationService, private modalService: NgbModal) {}
+  constructor(
+    private reservationService: ReservationService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.loadReservations();
@@ -21,41 +22,28 @@ export class ReservationTableComponent implements OnInit {
 
   loadReservations(): void {
     this.reservationService.getReservations().subscribe((reservations: any[]) => {
-      const userRequests = reservations.map(reservation =>
-        this.reservationService.getUser(reservation.UserID)
-      );
-
-      forkJoin(userRequests).subscribe(userResponses => {
-        reservations.forEach((reservation, index) => {
-          reservation.username = userResponses[index].username;
-        });
-        this.reservations = reservations;
-      });
+      this.reservations = reservations;
     }, error => {
-      console.error('Error fetching reservations or user data', error);
+      console.error('Error fetching reservations', error);
     });
   }
 
   openReservationDetails(reservation: any, content: any) {
     this.selectedReservation = reservation;
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-    }, (reason) => {
-    });
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        // Handle result if needed
+      },
+      (reason) => {
+        // Handle dismiss if needed
+      }
+    );
   }
 
-  openModal(reservation: any): void {
-    this.selectedReservation = reservation;
-    this.modalService.open('#reservationModal', { backdrop: 'static', keyboard: false });
-  }
-
-  closeModal(modal: any): void {
-    modal.close();
-  }
-
-  deleteReservation(ResID: any, modal: any) {
+  deleteReservation(ResID: any, modal: any): void {
     this.reservationService.deleteReservation(ResID).subscribe(() => {
-      this.loadReservations();
-      modal.close();
+      this.loadReservations(); // Refresh the reservations after deletion
+      modal.close(); // Close the modal after deletion
     }, error => {
       console.error('Error deleting reservation', error);
     });
