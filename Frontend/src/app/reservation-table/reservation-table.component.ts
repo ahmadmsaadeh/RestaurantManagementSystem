@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin } from 'rxjs';
 import { ReservationService } from './reservation-table-service/reservation.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { forkJoin } from 'rxjs';
+
 
 @Component({
   selector: 'app-reservation-table',
@@ -9,8 +11,9 @@ import { ReservationService } from './reservation-table-service/reservation.serv
 })
 export class ReservationTableComponent implements OnInit {
   reservations: any[] = [];
+  selectedReservation: any = null;
 
-  constructor(private reservationService: ReservationService) {}
+  constructor(private reservationService: ReservationService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.loadReservations();
@@ -33,8 +36,28 @@ export class ReservationTableComponent implements OnInit {
     });
   }
 
-  refreshTable(): void {
-    this.loadReservations();
+  openReservationDetails(reservation: any, content: any) {
+    this.selectedReservation = reservation;
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    }, (reason) => {
+    });
   }
 
+  openModal(reservation: any): void {
+    this.selectedReservation = reservation;
+    this.modalService.open('#reservationModal', { backdrop: 'static', keyboard: false });
+  }
+
+  closeModal(modal: any): void {
+    modal.close();
+  }
+
+  deleteReservation(ResID: any, modal: any) {
+    this.reservationService.deleteReservation(ResID).subscribe(() => {
+      this.loadReservations();
+      modal.close();
+    }, error => {
+      console.error('Error deleting reservation', error);
+    });
+  }
 }
