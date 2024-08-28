@@ -53,7 +53,7 @@ import { OrderDetailsComponent } from './Order_components/order-details/order-de
     HeaderComponent,
     SidebarComponent,
     OrderListComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
