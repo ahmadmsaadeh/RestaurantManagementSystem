@@ -14,6 +14,7 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @OA\Schema(
@@ -560,4 +561,29 @@ class ReservationController
             ->orderBy('NumberOfChairs', 'asc')
             ->get();
     }
+
+    public function saveReservations(Request $request): JsonResponse
+    {
+        $reservations = $request->input('reservations');
+
+        // Log the received data
+        Log::info('Received reservations:', ['reservations' => $reservations]);
+
+        if (empty($reservations)) {
+            Log::error('Received empty or null reservations data');
+            return response()->json(['message' => 'No reservations data received'], 400);
+        }
+
+        $filePath = storage_path('app/public/reservations.json');
+        $jsonData = json_encode($reservations, JSON_PRETTY_PRINT);
+
+        try {
+            file_put_contents($filePath, $jsonData);
+            return response()->json(['message' => 'Reservations saved successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Failed to save reservations:', ['error' => $e->getMessage()]);
+            return response()->json(['message' => 'Failed to save reservations', 'error' => $e->getMessage()], 500);
+        }
+    }
+
 }

@@ -34,3 +34,4 @@ Route::put('/staff/reservations/{reservationID}', [ReservationController::class,
 Route::delete('/staff/reservations/{reservationID}', [ReservationController::class, 'deleteReservation']);
 
 
+Route::post('/save-reservations', [ReservationController::class, 'saveReservations']);

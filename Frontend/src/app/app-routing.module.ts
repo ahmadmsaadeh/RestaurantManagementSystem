@@ -10,6 +10,7 @@ import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {SideWithContentComponent} from "./Order_components/side-with-content/side-with-content.component";
 import {ReservationTableComponent} from "./reservation-table/reservation-table.component";
 import {UserReservationComponent} from "./user-reservation/user-reservation.component";
+import {ReservationUserManagementComponent} from "./reservation-user-managment/reservation-user-management.component";
 
 import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
 import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
@@ -32,6 +33,8 @@ const routes: Routes = [
       { path: 'menu', component: MenuPageComponent },
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
+      {path: 'customer/view-reservations', component: ReservationUserManagementComponent },
+
       { path: 'feedback-tracking', component: FeedbackTrackingComponent },
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
