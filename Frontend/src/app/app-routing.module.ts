@@ -12,6 +12,12 @@ import {ReservationTableComponent} from "./reservation-table/reservation-table.c
 import {UserReservationComponent} from "./user-reservation/user-reservation.component";
 import {ReservationUserManagementComponent} from "./reservation-user-managment/reservation-user-management.component";
 
+import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
+
+
 const routes: Routes = [
 
   {path:'adminDashboard',component:SidebarComponent},
@@ -29,6 +35,10 @@ const routes: Routes = [
       { path: 'add-reservation', component: UserReservationComponent },
       {path: 'customer/view-reservations', component: ReservationUserManagementComponent },
 
+      { path: 'feedback-tracking', component: FeedbackTrackingComponent },
+      { path: 'menu-item-orders', component: MenuItemOrdersComponent},
+      { path: 'monthly-sales', component: MonthlySalesComponent},
+      { path: 'yearly-sales', component: YearlySalesComponent},
       // Add more routes here as needed
       { path: '', redirectTo: 'orders', pathMatch: 'full' } // Default route
     ]

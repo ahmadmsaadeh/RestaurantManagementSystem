@@ -67,7 +67,30 @@
           </li>
         </ul>
       </li>
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#order" aria-expanded="false" aria-controls="order">
+          <i class="bi bi-bar-chart"></i>
+        </a>
+        <ul id="Reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+ 
+            <a [routerLink]="['/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
 
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/monthly-sales']" class="sidebar-link">Monthly sales</a>
+
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/yearly-sales']" class="sidebar-link">Yearly sales</a>
+
+          </li>
+        </ul>
+      </li>
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
