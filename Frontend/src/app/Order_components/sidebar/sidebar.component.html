@@ -1,3 +1,4 @@
+
 <div class="wrapper">
   <aside id="sidebar">
     <div class="d-flex">
@@ -31,11 +32,11 @@
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#order" aria-expanded="false" aria-controls="order">
         <i class="bi bi-table"></i>
-          <span>Manage orders</span>
+          <span>Manage Orders</span>
         </a>
         <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-            <a [routerLink]="['/orders']" class="sidebar-link">Orders List</a>
+            <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">Orders List</a>
           </li>
           <li class="sidebar-item">
             <a [routerLink]="['/order-items']" class="sidebar-link">Orders' Items</a>
@@ -46,16 +47,16 @@
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#order" aria-expanded="false" aria-controls="order">
+           data-bs-target="#reservation" aria-expanded="false" aria-controls="reservation">
           <i class="bi bi-table"></i>
-          <span>Manage orders</span>
+          <span>Manage Reservations</span>
         </a>
         <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-            <a [routerLink]="['/reservation']" class="sidebar-link">View Reservations</a>
+            <a [routerLink]="['/side-with-content/reservation']" class="sidebar-link">View Reservations</a>
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/add-reservation']" class="sidebar-link">Add Reservation</a>
+            <a [routerLink]="['/side-with-content/add-reservation']" class="sidebar-link">Add Reservation</a>
 
           </li>
         </ul>
@@ -69,7 +70,7 @@
         </a>
         <ul id="" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-            <a [routerLink]="['/menu']" class="sidebar-link">Show menu</a>
+            <a [routerLink]="['/side-with-content/menu']" class="sidebar-link">Show menu</a>
           </li>
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">Register</a>
@@ -79,7 +80,7 @@
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#order" aria-expanded="false" aria-controls="order">
+           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
           <i class="bi bi-bar-chart"></i>
           <span>Charts</span>
         </a>
@@ -87,17 +88,19 @@
           <li class="sidebar-item">
 
             <a [routerLink]="['/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
+
+            <a [routerLink]="['/side-with-content/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
+            <a [routerLink]="['/side-with-content/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
 
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/monthly-sales']" class="sidebar-link">Monthly sales</a>
+            <a [routerLink]="['/side-with-content/monthly-sales']" class="sidebar-link">Monthly sales</a>
 
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/yearly-sales']" class="sidebar-link">Yearly sales</a>
+            <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
 
           </li>
         </ul>
@@ -141,16 +144,13 @@
         </a>
       </li>
 
-
       <div class="sidebar-footer">
         <a href="#" class="sidebar-link">
           <i class="lni lni-exit"></i>
           <span>Logout</span>
         </a>
       </div>
-
     </ul>
-
 
   </aside>
 

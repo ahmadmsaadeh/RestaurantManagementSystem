@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class ReservationService {
   private apiUrl = 'http://localhost:8000/api/staff/reservations';
+  private apiUrlUser = 'http://localhost:8000/api/reservations/';
   private userApiUrl = 'http://localhost:8000/api/users/';
   private staffDeleteReservation = 'http://localhost:8000/api/staff/reservations/';
   private saveToFileUrl = 'http://localhost:8000/api/save-reservations'; // Laravel endpoint to save data
@@ -40,6 +41,11 @@ export class ReservationService {
     );
   }
 
+  getUserReservations(userId: number): Observable<any[]> {
+    const userReservationsUrl = `${this.apiUrlUser}${userId}`;
+    return this.http.get<any[]>(userReservationsUrl);
+  }
+
   // Fetch user data
   getUser(userId: number): Observable<any> {
     return this.http.get<any>(`${this.userApiUrl}${userId}`);
@@ -56,9 +62,13 @@ export class ReservationService {
 
   // Save reservations data to a JSON file on the server
   private saveReservationsToFile(reservations: any[]): void {
+    console.log('Reservations data being sent to the server:', reservations); // Debugging line
     this.http.post(this.saveToFileUrl, { reservations }).subscribe(
       () => console.log('Reservations saved to JSON file'),
-      error => console.error('Error saving reservations to JSON file', error)
+      error => {
+        console.error('Error saving reservations to JSON file', error);
+        alert('Failed to save reservations to the JSON file on the server.');
+      }
     );
   }
 }

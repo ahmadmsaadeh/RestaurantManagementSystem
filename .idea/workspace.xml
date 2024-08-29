@@ -5,42 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f54570f0-6b6c-471f-bf28-1791099e89d2" name="Changes" comment="Merge branch 'main' of https://srv4.adham.ps:9999/cesummer2024/group4/project into Alaa&#10;&#10;# Conflicts:&#10;#&#9;Frontend/package-lock.json&#10;#&#9;Frontend/package.json&#10;#&#9;Frontend/src/app/app-routing.module.ts&#10;#&#9;Frontend/src/app/app.routes.ts">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-user-managment/reservation-user-management.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-user-managment/reservation-user-management.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-user-managment/reservation-user-management.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-user-managment/reservation-user-management.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/RolesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/RolesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/LoginService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/LoginService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/ReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/routes/reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/routes/reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table-service/reservation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table-service/reservation.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/rolelist.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/rolelist.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/service/signupserviec.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/service/signupserviec.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/service/signupserviec.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/get-user-reservation/get-user-reservation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/get-user-reservation/get-user-reservation.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +308,7 @@
       <workItem from="1724869783858" duration="2483000" />
       <workItem from="1724882813080" duration="6631000" />
       <workItem from="1724931689294" duration="9074000" />
-      <workItem from="1724941217107" duration="18565000" />
+      <workItem from="1724941217107" duration="21093000" />
     </task>
     <servers />
   </component>

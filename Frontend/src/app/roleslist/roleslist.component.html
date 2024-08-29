@@ -83,12 +83,12 @@
         </svg>
       </button>
     </div>
-  </div>
-</div>
+  </div></div>
+
 <div id="userModal" class="modal" *ngIf="selectedUser">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <span class="close" (click)="closeUserModal()">&times;</span>
+      <span class="close d-flex justify-content-end" (click)="closeUserModal()">&times;</span>
       <h2 class="text-model">{{ selectedUser.username }}</h2>
 
       <div class="modal-body">

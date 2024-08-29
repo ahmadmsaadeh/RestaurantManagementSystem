@@ -33,9 +33,11 @@ export class SignupComponent implements OnInit {
   }
 
   handleResponse(data: any, registrationForm: NgForm) {
+    alert('Registration Success! Please click here to log in.'); // Corrected string
+    registrationForm.resetForm();
+    window.location.href = '/login'; // Redirect to login page
     console.log('Response data:', data); // Log data to check its structure
     if (data.statusCode === 200) {
-      this.msg = 'Registration Success! Please click here to login.';
       registrationForm.resetForm();
     }
   }
@@ -46,6 +48,5 @@ export class SignupComponent implements OnInit {
     this.error = error.error.errors;
   }
 
-  protected readonly alert = alert;
   protected status = status;
 }

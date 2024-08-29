@@ -36,6 +36,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { OrderDetailsComponent } from './Order_components/order-details/order-details.component';
 import { SideWithContentComponent } from './Order_components/side-with-content/side-with-content.component';
+import { ReservationUserManagementComponent } from './reservation-user-managment/reservation-user-management.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { SideWithContentComponent } from './Order_components/side-with-content/s
     FeedbackTrackingComponent,
     RoleslistComponent,
     SideWithContentComponent,
+    ReservationUserManagementComponent,
+
   ],
     imports: [
         BrowserModule,

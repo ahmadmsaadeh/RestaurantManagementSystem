@@ -12,10 +12,16 @@ import {RouterLink} from "@angular/router";
 })
 export class SidebarComponent implements AfterViewInit {
   ngAfterViewInit(): void {
-    const hamBurger = document.querySelector(".toggle-btn") as HTMLElement;
-    hamBurger?.addEventListener("click", () => {
-      const sidebar = document.querySelector("#sidebar") as HTMLElement;
+    const hamBurger = document.querySelector(".toggle-btn");
+    const sidebar = document.querySelector("#sidebar");
+
+    hamBurger?.addEventListener("click", function () {
       sidebar?.classList.toggle("expand");
+
+
     });
+
+
   }
+
 }
