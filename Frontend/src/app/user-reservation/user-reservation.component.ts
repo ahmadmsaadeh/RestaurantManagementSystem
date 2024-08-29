@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import flatpickr from "flatpickr";
 import { english } from "flatpickr/dist/l10n/default";
 import { GetUserReservationService } from './get-user-reservation/get-user-reservation.service';
@@ -8,14 +8,31 @@ import { GetUserReservationService } from './get-user-reservation/get-user-reser
   templateUrl: './user-reservation.component.html',
   styleUrls: ['./user-reservation.component.css']
 })
-export class UserReservationComponent implements AfterViewInit {
+export class UserReservationComponent implements AfterViewInit, OnInit {
   @ViewChild('dateTimePicker') dateTimePicker!: ElementRef;
   @ViewChild('numberOfCustomers') numberOfCustomers!: ElementRef;
   @ViewChild('reservationType') reservationType!: ElementRef;
+  @ViewChild('userSelect') userSelect!: ElementRef; // Reference to the user select element
 
-  userId: number = 1;  // Suppose the user ID is set to 1
+  users: any[] = [];
+  selectedUserId: number = 1;  // Default selected user ID
 
-  constructor(private reservationService: GetUserReservationService) {}
+  constructor(
+    private reservationService: GetUserReservationService,
+    private userService: GetUserReservationService  // Inject the user service
+  ) {}
+
+  ngOnInit(): void {
+    this.fetchUsers();
+  }
+
+  fetchUsers(): void {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+    }, error => {
+      console.error('Error fetching users', error);
+    });
+  }
 
   ngAfterViewInit(): void {
     flatpickr(this.dateTimePicker.nativeElement, {
@@ -38,14 +55,14 @@ export class UserReservationComponent implements AfterViewInit {
     const dateTime = this.dateTimePicker.nativeElement.value;
     const numOfCustomers = this.numberOfCustomers.nativeElement.value;
     const reservationType = this.reservationType.nativeElement.value;
+    const userId = this.userSelect.nativeElement.value;
     const [date, time] = dateTime.split(' ');
 
-    this.reservationService.createReservation(this.userId, date, time, numOfCustomers, reservationType)
+    this.reservationService.createReservation(userId, date, time, numOfCustomers, reservationType)
       .subscribe(response => {
         console.log('Reservation created successfully', response);
       }, error => {
         console.error('Error creating reservation', error);
       });
   }
-
 }

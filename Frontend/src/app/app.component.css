@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 
 /*.layout {*/
 /*  display: flex;*/
@@ -21,9 +20,6 @@
 /*.container {*/
 /*  margin-top: 0; !* Adjust margin to align with your design *!*/
 /*}*/
-
-
->>>>>>> f25b4ce21932ad297743a1729f03fb5c769da2c7
 .btn-outline-success {
   --bs-btn-color: #DE6262;
   --bs-btn-border-color: #DE6262;

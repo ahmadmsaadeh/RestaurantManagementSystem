@@ -4,7 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f54570f0-6b6c-471f-bf28-1791099e89d2" name="Changes" comment="" />
+    <list default="true" id="f54570f0-6b6c-471f-bf28-1791099e89d2" name="Changes" comment="Merge branch 'main' of https://srv4.adham.ps:9999/cesummer2024/group4/project into Alaa&#10;&#10;# Conflicts:&#10;#&#9;Frontend/package-lock.json&#10;#&#9;Frontend/package.json&#10;#&#9;Frontend/src/app/app-routing.module.ts&#10;#&#9;Frontend/src/app/app.routes.ts">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/app/Http/Controllers/RolesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/Http/Controllers/RolesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/LoginService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/LoginService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/Order_components/sidebar/sidebar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table-service/reservation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table-service/reservation.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/reservation-table/reservation-table.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/rolelist.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/rolelist.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/roleslist/roleslist.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/service/signupserviec.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/service/signupserviec.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/service/signupserviec.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/signup/signup.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/get-user-reservation/get-user-reservation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/get-user-reservation/get-user-reservation.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/user-reservation/user-reservation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,6 +268,9 @@
       <path value="$PROJECT_DIR$/Backend/vendor/firebase/php-jwt" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -245,7 +285,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Alaa&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging Alaa&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -260,6 +300,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\project\Frontend\src\app\signup\service" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -280,7 +325,10 @@
       <workItem from="1724798478800" duration="713000" />
       <workItem from="1724799221300" duration="2912000" />
       <workItem from="1724802190674" duration="2022000" />
-      <workItem from="1724869783858" duration="1808000" />
+      <workItem from="1724869783858" duration="2483000" />
+      <workItem from="1724882813080" duration="6631000" />
+      <workItem from="1724931689294" duration="9074000" />
+      <workItem from="1724941217107" duration="18565000" />
     </task>
     <servers />
   </component>
@@ -297,5 +345,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'main' of https://srv4.adham.ps:9999/cesummer2024/group4/project into Alaa&#10;&#10;# Conflicts:&#10;#&#9;Frontend/package-lock.json&#10;#&#9;Frontend/package.json&#10;#&#9;Frontend/src/app/app-routing.module.ts&#10;#&#9;Frontend/src/app/app.routes.ts&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' of https://srv4.adham.ps:9999/cesummer2024/group4/project into Alaa&#10;&#10;# Conflicts:&#10;#&#9;Frontend/package-lock.json&#10;#&#9;Frontend/package.json&#10;#&#9;Frontend/src/app/app-routing.module.ts&#10;#&#9;Frontend/src/app/app.routes.ts&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/Backend/app/Http/Controllers/RolesController.php</url>
+          <line>47</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\RolesController" />
+            <option name="methodName" value="getRoleByname" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

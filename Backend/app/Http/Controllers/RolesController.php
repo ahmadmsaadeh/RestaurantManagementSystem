@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use function Laravel\Prompts\error;
 
 
@@ -225,7 +227,6 @@ class RolesController extends Controller
     public function updateRole(Request $request ,$role_id){
 
       $role = Role::findOrfail($role_id);
-
       $validated = $request->validate([
         'role_name' => 'required|string|max:255|unique:roles,role_name',
         'description' => 'nullable|string|max:1000',
@@ -267,15 +268,51 @@ class RolesController extends Controller
      * )
      */
 
-    public function deleteRole(Request $request,$role_id){
-        $role = Role::findOrfail($role_id);
 
-        if (!$role) {
-            return response()->json(["error" => "Role not found"], 404);
-        }
-        else{
+
+    public function deleteRole(Request $request, $role_id)
+    {
+        DB::beginTransaction();
+
+        try {
+            // Find the role by ID
+            $role = Role::find($role_id);
+
+            if (!$role) {
+                // Rollback and return a 404 response if the role is not found
+                DB::rollBack();
+                return response()->json(["error" => "Role not found"], 404);
+            }
+
+            // Get users with the given role_id
+            $users = User::where('role_id', $role_id)->get();
+
+            foreach ($users as $user) {
+                // Delete associated orders before deleting the user
+                Order::where('user_id', $user->user_id)->delete();
+
+                // Delete the user
+                $user->delete();
+            }
+
+            // Delete the role
             $role->delete();
-            return response()->json("the role deleted successfully", 204);
+
+            // Commit the transaction
+            DB::commit();
+
+            // Return a success response
+            return response()->json(["message" => "Role and associated users deleted successfully"], 204);
+
+        } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
+            DB::rollBack();
+
+            // Log the error and return a 500 response
+            \Log::error("Error deleting role: " . $e->getMessage());
+            return response()->json(["error" => "An error occurred while deleting the role"], 500);
         }
     }
+
+
 }

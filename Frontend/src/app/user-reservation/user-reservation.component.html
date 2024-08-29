@@ -1,9 +1,9 @@
-<div class="container-fluid bg-light">
+<div class="container-fluid bg-light align-items-center vh-100 mt-5">
   <div class="row">
     <form (ngSubmit)="onSubmit()" class="container mt-4">
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
+      <div class="row justify-content-center align-items-center">
+        <!-- DateTime Picker -->
+        <div class="col-md-6">
           <div class="form-group">
             <label for="dateTimePicker">Select Date and Time:</label>
             <div class="input-group">
@@ -14,7 +14,10 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3">
+      </div>
+        <div class="row justify-content-center align-items-center">
+        <!-- Number of Customers -->
+        <div class="col-md-6">
           <div class="form-group">
             <label for="numberOfCustomers">Select Number of Customers:</label>
             <div class="input-group">
@@ -22,28 +25,41 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        </div>
+          <div class="row justify-content-center align-items-center">
+          <!-- User Select -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="userSelect">Select User:</label>
+            <select id="userSelect" #userSelect class="form-select">
+              <option *ngFor="let user of users" [value]="user.id">{{ user.name }}, id: {{ user.id }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-3">
+        <!-- Reservation Type -->
+        <div class="col-md-6">
           <div class="form-group">
             <label for="reservationType">Reservation Type:</label>
             <div class="input-group">
               <select id="reservationType" #reservationType class="form-select">
                 <option value="" disabled selected>Select reservation type</option>
-                <option value="Drinks">Dine-In</option>
-                <option value="Food">Takeaway</option>
-                <option value="Takeaway">Delivery</option>
+                <option value="Dine-In">Dine-In</option>
+                <option value="Takeaway">Takeaway</option>
+                <option value="Delivery">Delivery</option>
               </select>
             </div>
           </div>
         </div>
-        <div class="col-md-4"></div>
       </div>
 
       <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-2"><button type="submit" class="btn btn-dark mt-3">Reserve Now!</button></div>
-        <div class="col-md-5"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-dark mt-3">Reserve Now!</button>
+        </div>
       </div>
     </form>
   </div>

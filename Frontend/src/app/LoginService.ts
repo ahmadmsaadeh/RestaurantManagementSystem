@@ -1,43 +1,24 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {catchError, map, Observable, of, switchMap} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, of, switchMap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   private apiUrl = 'http://127.0.0.1:8000';
-
+  //showNavbar: boolean = false;
+  private _showNavbar = new BehaviorSubject<boolean>(true);
+  showNavbar$ = this._showNavbar.asObservable();
   constructor(private http: HttpClient) {
   }
-
-//   checklogin(email: string, password: string):
-//     Observable<{ success: boolean, user?: any, token?: string, role_id?: number }> {
-//     return this.http.post<any>(this.apiUrl + "/api/auth/login", {email, password})
-//       .pipe(
-//         map(response => {
-//           if (response.meta && response.meta.code === 200 && response.meta.status === 'success') {
-//             return {
-//               success: true,
-//               user: response.data.user,           // User information
-//               token: response.data.access_token.token,  // Access token
-//               role_id: response.data.user.role_id      // Role ID
-//             };
-//           } else {
-//             return {success: false};
-//           }
-//         })
-//       );
-//   }
-// }
-
-//
   checklogin(email: string, password: string):
     Observable<{ success: boolean, user?: any, token?: string, role_id?: number }> {
     return this.http.post<any>(this.apiUrl + "/api/auth/login", {email, password})
       .pipe(
         map(response => {
           if (response.meta && response.meta.code === 200 && response.meta.status === 'success') {
+            this._showNavbar.next(false);
             return {
               success: true,
               user: response.data.user,

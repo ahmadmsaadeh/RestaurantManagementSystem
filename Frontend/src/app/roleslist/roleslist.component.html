@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,37 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grid Table Layout</title>
   <link rel="stylesheet" href="roleslist.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body style="background-color:rgba(222,98,98,0.15); border-radius: 10px">
+
+<div class="header-container">
+  <h1 class="text-header">Roles List</h1>
+
+  <div class="input-group rounded search-container">
+    <div class="search-wrapper">
+      <input type="search" [(ngModel)]="searchQuery" (input)="filterRoles()" class="form-control form-control-searchs rounded" placeholder="Search roles..." aria-label="Search" />
+      <i class="fas fa-search search-icon"></i>
+    </div>
+    <span (click)="openAddRoleDialog()" style="margin-left: 20px; border-radius: 15px" class="input-group-text border-0" id="add-icon">
+      <i style="color: #DE6262" class="fas fa-plus"></i>
+    </span>
+  </div>
+
+</div>
+
+
+<div *ngIf="showAddRoleDialog" class="modal">
+  <div class="modal-content">
+    <button class="close d-flex justify-content-end" (click)="closeAddRoleDialog()">&times;</button>
+    <h3 class="text-model d-flex justify-content-start">Add New Role</h3>
+    <div class="add-role-container">
+      <form (ngSubmit)="addRole()">
+        <div class="form-group">
+          <label for="role_name">Role Name</label>
+          <input type="text" id="role_name" [(ngModel)]="newRole.role_name" name="role_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" [(ngModel)]="newRole.description" name="description" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-add">Add Role</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <div class="grid-container">
-  <!-- Header -->
   <div class="grid-header">Role ID</div>
   <div class="grid-header">Role Name</div>
   <div class="grid-header">Description</div>
   <div class="grid-header">Users</div>
   <div class="grid-header">Action</div>
-  <div class="grid-header"></div>
 
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item">
-    <button>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-      </svg>
-    </button>
-    <button>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-      </svg>
-    </button>
+  <div *ngFor="let role of filteredRoles" class="grid-row">
+    <div class="grid-item">{{ role.role_id }}</div>
+    <div class="grid-item">
+      <input [(ngModel)]="role.role_name" class="form-control">
+    </div>
+    <div class="grid-item">
+      <input [(ngModel)]="role.description" class="form-control">
+    </div>
+
+    <div class="grid-item">
+      <div class="avatar-group">
+        <div *ngFor="let user of usersByRole[role.role_id]" class="avatar" (click)="openUserModal(user)">
+          <i class="fas fa-user" *ngIf="!user.avatarUrl"></i>
+          <img *ngIf="user.avatarUrl" [src]="user.avatarUrl" alt="{{ user.username }}" class="avatar-image">
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <button (click)="deleteRole(role.role_id)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+        </svg>
+      </button>
+      <button (click)="updateRole(role.role_id, role.role_name, role.description)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+        </svg>
+      </button>
+    </div>
   </div>
-  <div class="grid-item"></div>
-
-
 </div>
+<div id="userModal" class="modal" *ngIf="selectedUser">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <span class="close" (click)="closeUserModal()">&times;</span>
+      <h2 class="text-model">{{ selectedUser.username }}</h2>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 col-md-6 text-model">
+            <p><strong>First Name:</strong> {{ selectedUser.firstname }}</p>
+          </div>
+          <div class="col-12 col-md-6 text-model">
+            <p><strong>Last Name:</strong> {{ selectedUser.lastname }}</p>
+          </div>
+          <div class="col-12 col-md-6 text-model">
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+          </div>
+          <div class="col-12 col-md-6 text-model">
+            <p><strong>Phone Number:</strong> {{ selectedUser.phonenumber }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </body>
 </html>

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GetUserReservationService {
   private baseUrl = 'http://localhost:8000/api/reservations';
+  private userApiUrl = 'http://localhost:8000/api/users';
 
   constructor(private http: HttpClient) {}
 
@@ -15,5 +16,8 @@ export class GetUserReservationService {
     const url = `${this.baseUrl}/${userId}/${date}/${formattedTime}/${numOfCustomers}/${reservationType}`;
     console.log(url);
     return this.http.post<any>(url, {});
+  }
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.userApiUrl);
   }
 }

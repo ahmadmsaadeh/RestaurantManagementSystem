@@ -9,23 +9,36 @@ import { MenuPageComponent } from './menu-page/menu-page.component';
 import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {SideWithContentComponent} from "./Order_components/side-with-content/side-with-content.component";
 import {CommonModule} from "@angular/common";
+import {ReservationTableComponent} from "./reservation-table/reservation-table.component";
+import {UserReservationComponent} from "./user-reservation/user-reservation.component";
+
+import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
+import {RoleslistComponent} from "./roleslist/roleslist.component";
+
 
 const routes: Routes = [
 
   {path:'adminDashboard',component:SidebarComponent},
-  {path:'orders',component:OrderListComponent},
-  {path:'order-detail/:id',component:OrderDetailsComponent},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
 
   { path: 'side-with-content', component: SideWithContentComponent },
   {
-    path: '', component: SideWithContentComponent, children: [
+    path: 'side-with-content', component: SideWithContentComponent, children: [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
       { path: 'menu', component: MenuPageComponent },
-      { path: '', redirectTo: 'orders', pathMatch: 'full' } // Default route
+      { path: 'reservation', component: ReservationTableComponent },
+      { path: 'add-reservation', component: UserReservationComponent },
+      { path: 'feedback-tracking', component: FeedbackTrackingComponent },
+      { path: 'menu-item-orders', component: MenuItemOrdersComponent},
+      { path: 'monthly-sales', component: MonthlySalesComponent},
+      { path: 'yearly-sales', component: YearlySalesComponent},
+      { path: 'roles-list', component: RoleslistComponent},
     ]
   }
 
@@ -33,7 +46,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),     CommonModule,
+  imports: [RouterModule.forRoot(routes),
+    CommonModule,
   ],
   exports: [RouterModule]
 })

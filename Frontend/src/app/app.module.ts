@@ -23,7 +23,6 @@ import {FormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
@@ -54,28 +53,28 @@ import { SideWithContentComponent } from './Order_components/side-with-content/s
     MenuItemOrdersComponent,
     FeedbackTrackingComponent,
     RoleslistComponent,
-    SideWithContentComponent
+    SideWithContentComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule, // Add BrowserAnimationsModule here
-
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatIconModule,
+        SidebarComponent,
+    ],
   providers: [OrdersService],
   bootstrap: [AppComponent]
 })
