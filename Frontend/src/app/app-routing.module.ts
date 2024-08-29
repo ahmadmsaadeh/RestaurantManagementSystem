@@ -10,6 +10,7 @@ import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {SideWithContentComponent} from "./Order_components/side-with-content/side-with-content.component";
 import {ReservationTableComponent} from "./reservation-table/reservation-table.component";
 import {UserReservationComponent} from "./user-reservation/user-reservation.component";
+import {ReservationUserManagementComponent} from "./reservation-user-managment/reservation-user-management.component";
 
 const routes: Routes = [
 
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'menu', component: MenuPageComponent },
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
+      {path: 'customer/view-reservations', component: ReservationUserManagementComponent },
 
       // Add more routes here as needed
       { path: '', redirectTo: 'orders', pathMatch: 'full' } // Default route
