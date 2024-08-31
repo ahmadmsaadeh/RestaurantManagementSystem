@@ -5,7 +5,10 @@ import {Router, RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {SignupComponent} from "./signup/signup.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+
 import { MenuPageComponent } from './menu-page/menu-page.component';
+import { MenuEditComponent } from './menu-edit/menu-edit.component';  //
+
 import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {SideWithContentComponent} from "./Order_components/side-with-content/side-with-content.component";
 import {ReservationTableComponent} from "./reservation-table/reservation-table.component";
@@ -30,7 +33,10 @@ const routes: Routes = [
     path: 'side-with-content', component: SideWithContentComponent, children: [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
+
       { path: 'menu', component: MenuPageComponent },
+      { path: 'menu/edit', component: MenuEditComponent }, //
+
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
       {path: 'customer/view-reservations', component: ReservationUserManagementComponent },
