@@ -71,24 +71,6 @@ export class LoginComponent {
       }
     );
   }
-
-
-  // onSubmit() {
-  //   this.loginService.checklogin(this.email, this.password).subscribe(
-  //     result => {
-  //       if (result.success) {
-  //         console.log('Login successful');
-  //         console.log(result.role_id);
-  //       } else {
-  //         console.log('Login not successful');
-  //       }
-  //     },
-  //     error => {
-  //       console.error('Error occurred during login', error);
-  //       console.error('Error details:', error.error);  // Print the detailed error response
-  //     }
-  //   );
-  // }
   ngOnInit(): void {
 
     this.onSubmit();

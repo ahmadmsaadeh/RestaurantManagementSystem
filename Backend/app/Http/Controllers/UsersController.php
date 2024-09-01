@@ -272,6 +272,7 @@ class UsersController extends Controller
     }
 
 
+
     /**
      * @OA\Delete(
      *     path="/api/users/{id}",

@@ -1,10 +1,16 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {OrdersService} from "../../services/orders.service";
 import {ActivatedRoute} from "@angular/router";
+import {CurrencyPipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-order-details',
   templateUrl: './order-details.component.html',
+  standalone: true,
+  imports: [
+    CurrencyPipe,
+    NgForOf
+  ],
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit{

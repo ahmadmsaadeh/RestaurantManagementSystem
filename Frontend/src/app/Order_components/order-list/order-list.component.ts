@@ -1,10 +1,22 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {OrdersService} from "../../services/orders.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {FormsModule} from "@angular/forms";
+import {CurrencyPipe, NgForOf} from "@angular/common";
+import {RouterLink} from "@angular/router";
+
+
 
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    CurrencyPipe,
+    RouterLink,
+    NgForOf
+  ],
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit{
