@@ -39,7 +39,9 @@ import { SideWithContentComponent } from './Order_components/side-with-content/s
 import { ReservationUserManagementComponent } from './reservation-user-managment/reservation-user-management.component';
 import { MenuEditComponent } from './menu-edit/menu-edit.component';
 import { MatCardModule } from '@angular/material/card';
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { TablesManagementComponent } from './tables-managment/tables-management.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SideWithContentComponent,
     ReservationUserManagementComponent,
     MenuEditComponent,
+    TablesManagementComponent,
 
 
   ],
