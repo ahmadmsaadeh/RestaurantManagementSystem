@@ -1,4 +1,5 @@
 
+
 /*.layout {*/
 /*  display: flex;*/
 
@@ -19,8 +20,6 @@
 /*.container {*/
 /*  margin-top: 0; !* Adjust margin to align with your design *!*/
 /*}*/
-
-
 .btn-outline-success {
   --bs-btn-color: #DE6262;
   --bs-btn-border-color: #DE6262;

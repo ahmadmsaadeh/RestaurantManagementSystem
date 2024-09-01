@@ -108,13 +108,13 @@ class AuthController extends Controller
 
 public function registercustomer(Request $request)
 {
-    $validate = $this->validate($request, [
-        'username' => 'required|string|min:2|max:255',
-        'firstname' => 'required|string|min:2|max:255',
-        'lastname' => 'required|string|min:2|max:255',
-        'phonenumber' => 'required|string|min:10|max:15',
-        'email' => 'required|string|email:rfc,dns|max:255|unique:users',
-        'password' => 'required|string|min:6|max:255',
+    $validate =  $request->validate([
+        'username' => 'required|min:2|max:255',
+        'firstname' => 'required|min:2|max:255',
+        'lastname' => 'required|min:2|max:255',
+        'phonenumber' => 'required|min:10|max:15',
+        'email' => 'required|email|max:255|unique:users',
+        'password' => 'required|min:6|max:255',
     ]);
 
     if (!$validate) {
