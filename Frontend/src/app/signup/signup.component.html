@@ -7,8 +7,8 @@
   <title>Sign Up</title>
 </head>
 
-<body class="d-flex align-items-center bg-body-tertiary" style="width: 100%;
-">
+<body class="d-flex align-items-center bg-body-tertiary" style="width: 100%;">
+
 <section class="signup-block">
   <div class="container">
     <div class="row">
@@ -63,39 +63,42 @@
         <h2 class="text-center mt-auto" >Create Your Account</h2>
 
 
-        <form class="signup-form" method="POST" action="/signup">
+        <form class="signup-form" #registrationForm="ngForm" (ngSubmit)="submitSignup(registrationForm)">
+          <p-checkbox value ="Active" label="Active" [(ngModel)]="status"></p-checkbox>
+
           <h2 style="font-size: 14px; text-decoration: none;" class="text-center">Already have an account?
             <a style="color: #DE6262" href="/login">Sign In</a></h2>
           <div class="mb-1">
             <label for="username" style="color: #DE6262" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required minlength="2" maxlength="255" style="background: #DE6262">
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="form.username" required minlength="2" maxlength="255" style="background: #DE6262">
           </div>
           <div class="mb-1 row">
             <div class="col-6">
               <label for="firstname" style="color: #DE6262" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="firstname" name="firstname" required minlength="2" maxlength="255" style="background: #DE6262">
+              <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="form.firstname"  required minlength="2" maxlength="255" style="background: #DE6262">
             </div>
 
             <div class="col-6">
               <label for="lastname" style="color: #DE6262" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" required minlength="2" maxlength="255" style="background: #DE6262">
+              <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="form.lastname"  required minlength="2" maxlength="255" style="background: #DE6262">
             </div>
  </div>
           <div class="mb-1">
             <label for="phonenumber" style="color: #DE6262" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phonenumber" name="phonenumber" required minlength="10" maxlength="15" style="background: #DE6262">
+            <input type="text" class="form-control" id="phonenumber" name="phonenumber" [(ngModel)]="form.phonenumber" required minlength="10" maxlength="15" style="background: #DE6262">
           </div>
           <div class="mb-1">
             <label for="email" style="color: #DE6262" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required maxlength="255" style="background: #DE6262">
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="form.email" required maxlength="255" style="background: #DE6262">
           </div>
           <div class="mb-1">
             <label for="password" style="color: #DE6262" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required minlength="6" maxlength="255" style="background:#DE6262">
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="form.password" required minlength="6" maxlength="255" style="background:#DE6262">
           </div>
-       <button type="submit" class="btn btn-signup-submit float-end mt-2">Sign Up</button>
+       <button type="submit" class="btn btn-signup-submit float-end mt-2" >Sign Up</button>
 
 <!--          <div class="copy-text">Created with <i class="fa fa-heart"></i> by Alaa Hasan</div>-->
+
         </form>
 
       </div>

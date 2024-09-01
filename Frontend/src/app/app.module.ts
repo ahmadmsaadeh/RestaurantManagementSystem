@@ -12,8 +12,10 @@ import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
 import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
 import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
 import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
+import { RoleslistComponent } from './roleslist/roleslist.component';
+import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
+import {CommonModule} from "@angular/common";
 import { HeaderComponent } from './Order_components/header/header.component';
-import { SidebarComponent } from './Order_components/sidebar/sidebar.component';
 import { OrderListComponent } from './Order_components/order-list/order-list.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {OrdersService} from "./services/orders.service";
@@ -51,37 +53,31 @@ import { ReservationUserManagementComponent } from './reservation-user-managment
     YearlySalesComponent,
     MenuItemOrdersComponent,
     FeedbackTrackingComponent,
-    HeaderComponent,
-    SidebarComponent,
-    OrderListComponent,
-    OrderDetailsComponent,
+    RoleslistComponent,
     SideWithContentComponent,
     ReservationUserManagementComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule, // Add BrowserAnimationsModule here
-
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatIconModule,
-
-
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatIconModule,
+        SidebarComponent,
+    ],
   providers: [OrdersService],
   bootstrap: [AppComponent]
 })

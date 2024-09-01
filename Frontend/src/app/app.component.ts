@@ -1,19 +1,22 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
-import {OrdersService} from "./services/orders.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+// app.component.ts
+import { Component, OnInit } from '@angular/core';
+import {LoginService} from "./LoginService";
 
-import {LoginComponent } from './login/login.component';
-import {Router} from "@angular/router";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
-  title = 'Frontend';
-  constructor(private router: Router) {}
+export class AppComponent implements OnInit {
+  showNavbar: boolean = true;
 
-  isLoginOrSignupPage(): boolean {
-    return this.router.url === '/login' || this.router.url === '/signup';
+  constructor(private loginService: LoginService) {}
+
+  ngOnInit() {
+    // Subscribe to showNavbar$ to reflect login state
+    this.loginService.showNavbar$.subscribe((show: boolean) => {
+      console.log('Navbar visibility changed:', show); // Debug log
+      this.showNavbar = show;
+    });
   }
 }
