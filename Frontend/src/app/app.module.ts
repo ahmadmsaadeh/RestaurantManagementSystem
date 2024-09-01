@@ -37,6 +37,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { OrderDetailsComponent } from './Order_components/order-details/order-details.component';
 import { SideWithContentComponent } from './Order_components/side-with-content/side-with-content.component';
 import { ReservationUserManagementComponent } from './reservation-user-managment/reservation-user-management.component';
+import { MenuEditComponent } from './menu-edit/menu-edit.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { ReservationUserManagementComponent } from './reservation-user-managment
     RoleslistComponent,
     SideWithContentComponent,
     ReservationUserManagementComponent,
+    MenuEditComponent,
+
 
   ],
     imports: [
