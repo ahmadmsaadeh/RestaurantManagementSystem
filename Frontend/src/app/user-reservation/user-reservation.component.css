@@ -9,5 +9,9 @@
 
 .btn{
   color: white;
-  background-color: #885133;
+  background-color:#DE6262;
+}
+
+.btn:hover{
+  background-color: #bd1313;
 }
