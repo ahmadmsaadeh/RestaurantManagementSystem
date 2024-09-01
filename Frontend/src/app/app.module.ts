@@ -39,6 +39,7 @@ import { SideWithContentComponent } from './Order_components/side-with-content/s
 import { ReservationUserManagementComponent } from './reservation-user-managment/reservation-user-management.component';
 import { MenuEditComponent } from './menu-edit/menu-edit.component';
 import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,8 @@ import { MatCardModule } from '@angular/material/card';
         MatButtonModule,
         MatIconModule,
         SidebarComponent,
+      ReactiveFormsModule
+
     ],
   providers: [OrdersService],
   bootstrap: [AppComponent]
