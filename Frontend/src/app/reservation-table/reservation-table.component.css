@@ -20,12 +20,12 @@
   height: 40vh; /* Ensures the card content is vertically centered */
 }
 
-.btn{
-  color: white;
-  background-color: #885133;
-}
+/*.btn{*/
+/*  color: black;*/
+/*  !*background-color:#DE6262;*!*/
+/*}*/
 
 #cancel{
   color: white;
-  background-color: #d9534f;
+  /*background-color: #830707;*/
 }
