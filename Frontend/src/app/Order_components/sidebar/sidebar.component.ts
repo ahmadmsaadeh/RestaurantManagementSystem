@@ -2,6 +2,7 @@ import {AfterViewInit, Component} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {AppModule} from "../../app.module";
 import {UserService} from "../../dashboard/service/userservice";
+import {UserlistService} from "../../userlist/service/userlist.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -39,5 +40,4 @@ export class SidebarComponent implements AfterViewInit {
     console.log('User email:', this.Useeremail);
 
   }
-
 }

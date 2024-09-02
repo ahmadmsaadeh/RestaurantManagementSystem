@@ -23,6 +23,7 @@ import {ForgetpasswordComponent} from "./forgetpassword/forgetpassword.component
 import {CreatestaffComponent} from "./createstaff/createstaff.component";
 import {UserlistComponent} from "./userlist/userlist.component";
 import {FullscreenBackgroundComponent} from "./fullscreen-background/fullscreen-background.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 
 const routes: Routes = [
@@ -48,10 +49,14 @@ const routes: Routes = [
       { path: 'roles-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
-
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'createstaffaccount', component: CreatestaffComponent },
       { path: 'user-list', component: UserlistComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'feedback-tracking', component: FeedbackTrackingComponent },
+      { path: 'menu-item-orders', component: MenuItemOrdersComponent},
+      { path: 'monthly-sales', component: MonthlySalesComponent},
+      { path: 'yearly-sales', component: YearlySalesComponent},
 
     ]
   },
