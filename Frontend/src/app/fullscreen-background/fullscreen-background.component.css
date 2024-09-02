@@ -1,0 +1,15 @@
+.fullscreen-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the image behind the content */
+  overflow: hidden; /* Ensure the image covers the whole screen */
+}
+
+.fullscreen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the screen while maintaining aspect ratio */
+}

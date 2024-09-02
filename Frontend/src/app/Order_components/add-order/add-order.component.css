@@ -1,0 +1,31 @@
+
+/* Hide arrows for number input in WebKit browsers (Chrome, Safari) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows for number input in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.quantity-selector {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-selector .btn {
+  /*flex: 0 0 auto; !* Ensure buttons don't stretch *!*/
+  padding-left: 7px; /* Adjust this value to move content to the left */
+  width: 10px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  font-size: 18px; /* Adjust font size as needed */
+}
+
+.quantity-selector .form-control {
+  text-align: center;
+  width: 50px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  font-size: 18px; /* Adjust font size as needed */
+}

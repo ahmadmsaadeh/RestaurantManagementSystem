@@ -1312,6 +1312,7 @@ class OrdersController extends Controller
 
         $formattedItems = $orderItems->map(function ($item) {
             return [
+                'menu_item_id' => $item->menuItem->menu_item_id,
                 'item_name' => $item->menuItem->name_item, // Assuming MenuItem model has a 'name_item' attribute
                 'price' => $item->menuItem->price,
                 'image' => $item->menuItem->image,
