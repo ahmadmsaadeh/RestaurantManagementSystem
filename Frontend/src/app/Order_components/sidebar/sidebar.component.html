@@ -97,15 +97,16 @@
         </a>
         <ul id="Reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-
-            <a [routerLink]="['/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
-
             <a [routerLink]="['/side-with-content/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Feedback </a>
           </li>
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
 
           </li>
+        
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/monthly-sales']" class="sidebar-link">Monthly sales</a>
 
@@ -113,6 +114,18 @@
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
 
+          </li>
+        </ul>
+      </li>
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+          <i class="bi bi-chat-left-dots"></i> <!-- Updated icon -->
+          <span>Feedback</span> <!-- Updated text -->
+        </a>
+        <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Feedback</a>
           </li>
         </ul>
       </li>
