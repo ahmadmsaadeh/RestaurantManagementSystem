@@ -31,7 +31,7 @@ export class RoleslistComponent implements OnInit {
     this.rolelistService.getRoleList().subscribe(
       (roles: any[]) => {
         this.roles = roles;
-        this.filteredRoles = roles;
+        this.filteredRoles = roles; // Initialize filteredRoles with all roles
         this.roles.forEach(role => {
           this.getUsersForRole(role.role_id);
         });
@@ -90,7 +90,7 @@ export class RoleslistComponent implements OnInit {
       response => {
         console.log('Role updated successfully', response);
         alert('Role updated successfully.');
-        this.showAllRoles();
+        this.showAllRoles(); // Refresh roles list
       },
       error => {
         console.error('Error updating role', error);
@@ -105,7 +105,7 @@ export class RoleslistComponent implements OnInit {
         response => {
           console.log('Role deleted successfully', response);
           alert('Role deleted successfully.');
-          this.showAllRoles();
+          this.showAllRoles(); // Refresh roles list
         },
         error => {
           console.error('Error deleting role', error);

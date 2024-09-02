@@ -17,9 +17,5 @@ class RoleSeeder extends Seeder
         Role::create(['role_name' => 'Management', 'description' => 'Manages daily tasks']);
         Role::create(['role_name' => 'Customer', 'description' => 'Makes reservations']);
         Role::create(['role_name' => 'Kitchen Staff', 'description' => 'Making dishes']);
-        Role::create(['role_name' => 'Wait Staff', 'description' => 'Serves food and drinks to customers']);
-        Role::create(['role_name' => 'Bartender', 'description' => 'Prepares and serves drinks']);
-        Role::create(['role_name' => 'Dishwasher', 'description' => 'Cleans dishes and kitchen equipment']);
-
     }
 }

@@ -89,7 +89,7 @@
 }
 
 .form-control-search {
-  padding-right: 40px;
+  padding-right: 40px; /* Add space for the icon inside the input field */
   border-radius: 15px;
   background-color: whitesmoke;
   color: #DE6262;
@@ -97,21 +97,21 @@
 
 .search-icon {
   position: absolute;
-  right: 10px;
+  right: 10px; /* Adjust as needed */
   top: 50%;
   transform: translateY(-50%);
   color: #DE6262;
-  font-size: 1.2em;
-  pointer-events: none;
+  font-size: 1.2em; /* Adjust size as needed */
+  pointer-events: none; /* Ensures clicks go to the input field */
 }
 .plus-icon {
   position: absolute;
-  right: 10px;
+  right: 10px; /* Adjust as needed */
   top: 50%;
   transform: translateY(-50%);
   color: #DE6262;
   font-size: 1.8em;
-  pointer-events: none;
+  pointer-events: none; /* Ensures clicks go to the input field */
 }
 
 .form-control{

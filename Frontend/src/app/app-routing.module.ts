@@ -5,7 +5,10 @@ import {Router, RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {SignupComponent} from "./signup/signup.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+
 import { MenuPageComponent } from './menu-page/menu-page.component';
+import { MenuEditComponent } from './menu-edit/menu-edit.component';  //
+
 import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {SideWithContentComponent} from "./Order_components/side-with-content/side-with-content.component";
 import {CommonModule} from "@angular/common";
@@ -19,11 +22,15 @@ import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.com
 import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 import {RoleslistComponent} from "./roleslist/roleslist.component";
 import {AppComponent} from "./app.component";
-import {ForgetpasswordComponent} from "./forgetpassword/forgetpassword.component";
-import {CreatestaffComponent} from "./createstaff/createstaff.component";
-import {UserlistComponent} from "./userlist/userlist.component";
-import {FullscreenBackgroundComponent} from "./fullscreen-background/fullscreen-background.component";
-import {ProfileComponent} from "./profile/profile.component";
+
+import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
+import {TablesManagementComponent} from "./tables-managment/tables-management.component";
+import { FeedbackComponent } from './feedback/feedback.component';
+
+import { ReportsComponent } from './reports/reports.component';
+
+import {UserReserveComponent} from "./user-reserve/user-reserve.component";
+
 
 
 const routes: Routes = [
@@ -32,16 +39,23 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'forgot-password', component: ForgetpasswordComponent },
+
   { path: 'side-with-content', component: SideWithContentComponent },
   {
     path: 'side-with-content', component: SideWithContentComponent, children: [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
+      { path: 'new-order', component: AddOrderComponent },
+
       { path: 'menu', component: MenuPageComponent },
+      { path: 'menu/edit', component: MenuEditComponent }, //
+
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
-      { path: 'customer/view-reservations', component: ReservationUserManagementComponent },
+      {path: 'view-reservations', component: ReservationUserManagementComponent },
+      {path: 'tables-management',component: TablesManagementComponent},
+      {path: 'user-reserve',component: UserReserveComponent},
+
       { path: 'feedback-tracking', component: FeedbackTrackingComponent },
       { path: 'menu-item-orders', component: MenuItemOrdersComponent},
       { path: 'monthly-sales', component: MonthlySalesComponent},
@@ -49,15 +63,10 @@ const routes: Routes = [
       { path: 'roles-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
-      { path: 'yearly-sales', component: YearlySalesComponent },
-      { path: 'createstaffaccount', component: CreatestaffComponent },
-      { path: 'user-list', component: UserlistComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'feedback-tracking', component: FeedbackTrackingComponent },
-      { path: 'menu-item-orders', component: MenuItemOrdersComponent},
-      { path: 'monthly-sales', component: MonthlySalesComponent},
-      { path: 'yearly-sales', component: YearlySalesComponent},
 
+      { path: 'yearly-sales', component: YearlySalesComponent },
+      { path: 'feedback', component: FeedbackComponent },
+      { path: 'reports', component: ReportsComponent},
     ]
   },
 
@@ -68,11 +77,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    declarations: [
-        FullscreenBackgroundComponent
-    ],
-    exports: [RouterModule, FullscreenBackgroundComponent]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 
