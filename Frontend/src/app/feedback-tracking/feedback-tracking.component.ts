@@ -12,7 +12,7 @@ export class FeedbackTrackingComponent implements OnInit {
   constructor(private ReportingService: ReportingService) { }
 
   ngOnInit(): void {
-    this.ReportingService.getFeedbackAverage().subscribe(data => {
+    this.ReportingService.getMonthlyFeedback().subscribe(data => {
       this.feedbackTracking = data;
     });
   }

@@ -45,7 +45,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
 import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+
+import { ReportsComponent } from './reports/reports.component';
+
 import { UserReserveComponent } from './user-reserve/user-reserve.component';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +80,11 @@ import { UserReserveComponent } from './user-reserve/user-reserve.component';
     AddOrderComponent,
    TablesManagementComponent,
    FullscreenBackgroundComponent,
+
+   ReportsComponent,
+
    UserReserveComponent,
+
 
   ],
   imports: [
