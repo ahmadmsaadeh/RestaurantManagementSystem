@@ -37,81 +37,61 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { OrderDetailsComponent } from './Order_components/order-details/order-details.component';
 import { SideWithContentComponent } from './Order_components/side-with-content/side-with-content.component';
 import { ReservationUserManagementComponent } from './reservation-user-managment/reservation-user-management.component';
-import { MenuEditComponent } from './menu-edit/menu-edit.component';
-import { MatCardModule } from '@angular/material/card';
-import { AddOrderComponent } from './Order_components/add-order/add-order.component';
-
-import { ReactiveFormsModule } from '@angular/forms';
-import { TablesManagementComponent } from './tables-managment/tables-management.component';
-import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-
-import { ReportsComponent } from './reports/reports.component';
-
-import { UserReserveComponent } from './user-reserve/user-reserve.component';
-
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import {ResetPasswordComponent } from './resetpassword/resetpassword.component';
+import { CreatestaffComponent } from './createstaff/createstaff.component';
+import { UserlistComponent } from './userlist/userlist.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent,
-    DashboardComponent,
-    AppComponent,
-    UserReservationComponent,
-    AppComponent,
-    MenuPageComponent,
-    ReservationTableComponent,
-    MonthlySalesComponent,
-    YearlySalesComponent,
-    MenuItemOrdersComponent,
-    FeedbackTrackingComponent,
-    RoleslistComponent,
-    SideWithContentComponent,
-    ReservationUserManagementComponent,
-    MenuEditComponent,
-
-    TablesManagementComponent,
-    FeedbackComponent,
-
-
-    AddOrderComponent,
-
-    AddOrderComponent,
-   TablesManagementComponent,
-   FullscreenBackgroundComponent,
-
-   ReportsComponent,
-
-   UserReserveComponent,
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatIconModule,
-    SidebarComponent,
-    MatSelectModule,
-    MatTableModule,
-    ReactiveFormsModule
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        SignupComponent,
+        DashboardComponent,
+        AppComponent,
+        UserReservationComponent,
+        AppComponent,
+        MenuPageComponent,
+        ReservationTableComponent,
+        MonthlySalesComponent,
+        YearlySalesComponent,
+        MenuItemOrdersComponent,
+        FeedbackTrackingComponent,
+        RoleslistComponent,
+        SideWithContentComponent,
+        ReservationUserManagementComponent,
+        ForgetpasswordComponent,
+        ResetPasswordComponent,
+        CreatestaffComponent,
+        UserlistComponent,
+        ProfileComponent,
 
     ],
-  providers: [OrdersService],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatIconModule,
+        SidebarComponent,
+    ],
+    providers: [OrdersService],
+    exports: [
+        LoginComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

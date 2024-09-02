@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -108,7 +109,7 @@ class AuthController extends Controller
 
 public function registercustomer(Request $request)
 {
-    $validate =  $request->validate([
+    $validate = $request->validate([
         'username' => 'required|min:2|max:255',
         'firstname' => 'required|min:2|max:255',
         'lastname' => 'required|min:2|max:255',
@@ -146,4 +147,92 @@ public function registercustomer(Request $request)
         ], 200);
     }
 }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? response()->json(['message' => __($status)], 200)
+            : response()->json(['message' => __($status)], 400);
+    }
+
+
+    public function reset(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, string $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+            ? response()->json(['message' => __($status)], 200)
+            : response()->json(['message' => __($status)], 400);
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+
+    public function registerStaff(Request $request)
+    {
+        $validate = $request->validate([
+            'username' => 'required|min:2|max:255',
+            'firstname' => 'required|min:2|max:255',
+            'lastname' => 'required|min:2|max:255',
+            'phonenumber' => 'required|min:10|max:15',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|max:255',
+            'role_id' => 'required|integer'
+        ]);
+
+        if (!$validate) {
+            return response()->json([
+                'meta' => [
+                    'code' => 404,
+                    'status' => 'can not create user',
+                    'message' => 'User did not created successfully!',
+                ],]);
+        } else {
+            $user = User::create([
+                'username' => $request['username'],
+                'firstname' => $request['firstname'],
+                'lastname' => $request['lastname'],
+                'phonenumber' => $request['phonenumber'],
+                'email' => $request['email'],
+                'password' => Hash::make($request->password),
+                'role_id' => $request['role_id'],
+                'date_joined' => date('Y-m-d'),
+            ]);
+            return response()->json([
+                'meta' => [
+                    'code' => 200,
+                    'status' => 'success',
+                    'message' => 'User created successfully!',
+                ],
+                'data' => [
+                    'user' => $user]
+            ], 200);
+        }
+    }
+
+
 }

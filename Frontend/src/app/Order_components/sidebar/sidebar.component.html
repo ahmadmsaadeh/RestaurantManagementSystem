@@ -13,8 +13,21 @@
     <ul class="sidebar-nav">
 
       <li class="sidebar-item">
-        <a href="" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#order" aria-expanded="false" aria-controls="order">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           aria-expanded="false">
+          <i class="lni lni-user"></i>
+          <span>{{Useeremail}}</span>
+        </a>
+        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/profile']" class="sidebar-link">User profile</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#roleslist" aria-expanded="false" aria-controls="roleslist">
           <i class="bi bi-menu-app"></i>
           <span>Manage Roles and Users</span>
         </a>
@@ -23,7 +36,7 @@
             <a [routerLink]="['/side-with-content/roles-list']" class="sidebar-link">Roles List</a>
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/roles-list']" class="sidebar-link">Users List</a>
+            <a [routerLink]="['/side-with-content/user-list']" class="sidebar-link">User List</a>
           </li>
         </ul>
       </li>
@@ -50,7 +63,7 @@
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#reservation" aria-expanded="false" aria-controls="reservation">
-          <i class="bi bi-collection"></i>
+          <i class="bi bi-calendar-check-fill"></i>
           <span>Manage Reservations</span>
         </a>
         <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -82,7 +95,7 @@
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-          <i class="bi bi-calendar2-check-fill"></i>
+          <i class="bi bi-table"></i>
           <span>Menu</span>
         </a>
         <ul id="" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -105,7 +118,7 @@
           <i class="bi bi-bar-chart"></i>
           <span>Charts</span>
         </a>
-        
+
         <ul id="Reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/reports']" class="sidebar-link">Charts</a>
@@ -127,7 +140,7 @@
             <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
 
           </li>
-      
+
         </ul>
       </li>
       <li class="sidebar-item">
@@ -180,6 +193,21 @@
           <span>Setting</span>
         </a>
       </li>
+
+      <li class="sidebar-item">
+        <a href="" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#createstaffaccount" aria-expanded="false" aria-controls="order">
+          <i class="lni lni-add-files"></i>
+          <span>Create new account for staff</span>
+        </a>
+        <ul id="createstaffaccount" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/createstaffaccount']" class="sidebar-link">Create Staff Account</a>
+          </li>
+        </ul>
+      </li>
+
+
 
       <div class="sidebar-footer">
         <a href="#" class="sidebar-link">
