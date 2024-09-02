@@ -46,6 +46,11 @@ import { TablesManagementComponent } from './tables-managment/tables-management.
 import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
+import { ReportsComponent } from './reports/reports.component';
+
+import { UserReserveComponent } from './user-reserve/user-reserve.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +80,11 @@ import { FeedbackComponent } from './feedback/feedback.component';
     AddOrderComponent,
    TablesManagementComponent,
    FullscreenBackgroundComponent,
+
+   ReportsComponent,
+
+   UserReserveComponent,
+
 
   ],
   imports: [
