@@ -172,10 +172,30 @@ class MenuItemController extends Controller
                 'description' => 'nullable|string',
                 'price' => 'required|numeric',
                 'availability' => 'required|boolean',
-                'image' => 'nullable|string|max:255',
+                'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
                 'category_id' => 'required|exists:categories,category_id', // Ensure the category exists
             ]);
+//
+            $imageName = null;
 
+            if ($request->hasFile('image')) {
+             //   $imagePath = $request->file('image')->store('images', 'public');//
+              //  $imageName = basename($imagePath);
+               // $validatedData['image'] = $imageName;
+               // $validatedData['image'] = $imagePath;
+              //  $imageName = basename($imagePath); //
+              //  $validatedData['image'] = $imageName;//
+               // $imagePath = $request->file('image')->store('images', 'public');
+                //$imageName = basename($imagePath);
+
+
+                $imagePath = $request->file('image')->store('images', 'public');
+                $imageName = $request->file('image')->getClientOriginalName();
+            }
+            $validatedData['image'] = $imageName;
+
+
+            //
             $menuItem = MenuItem::create($validatedData);
 
             return response()->json([
