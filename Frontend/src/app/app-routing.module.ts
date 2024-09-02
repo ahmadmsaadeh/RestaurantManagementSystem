@@ -23,6 +23,7 @@ import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking
 import {RoleslistComponent} from "./roleslist/roleslist.component";
 import {AppComponent} from "./app.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 const routes: Routes = [
@@ -53,7 +54,9 @@ const routes: Routes = [
       { path: 'roles-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
+      
       { path: 'yearly-sales', component: YearlySalesComponent },
+      { path: 'feedback', component: FeedbackComponent },
     ]
   },
 

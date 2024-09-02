@@ -42,6 +42,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { TablesManagementComponent } from './tables-managment/tables-management.
     ReservationUserManagementComponent,
     MenuEditComponent,
     TablesManagementComponent,
+    FeedbackComponent,
 
 
   ],
