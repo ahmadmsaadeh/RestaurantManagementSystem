@@ -48,4 +48,6 @@ export class ReservationTableComponent implements OnInit {
       console.error('Error deleting reservation', error);
     });
   }
+
+
 }

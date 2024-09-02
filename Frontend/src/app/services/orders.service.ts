@@ -34,4 +34,7 @@ export class OrdersService {
   getOrderItems(orderId: string): Observable<any> {
     return this.http.get<any>(`http://localhost:8000/api/orders/${orderId}/items`);
   }
+  createOrder(orderData: any): Observable<any> {
+    return this.http.post<any>(`http://localhost:8000/api/orders/createOrder`,orderData);
+  }
 }

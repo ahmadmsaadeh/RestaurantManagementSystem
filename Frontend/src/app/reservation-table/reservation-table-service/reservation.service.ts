@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {map, Observable} from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -71,4 +71,36 @@ export class ReservationService {
       }
     );
   }
+
+
+
+  getReservationIds(): Observable<number[]> {
+    return this.getReservations().pipe(
+      map((reservations: any[]) => reservations.map((reservation: any) => reservation.ResID)) // Specify the type of reservation
+    );
+  }
+  getTableIds(): Observable<number[]> {
+    return this.getReservations().pipe(
+      map((reservations: any[]) => reservations.map((reservation: any) => reservation.TableID)) // Specify the type of reservation
+    );
+  }
+  getUserIDByReservationID(reservationID: number): Observable<number | undefined> {
+    return this.getReservations().pipe(
+      map((reservations: any[]) => {
+        console.log('Fetched reservations:', reservations); // Debugging log
+        const reservation = reservations.find(r => r.ResID === Number(reservationID)); // or String(reservationID)
+        console.log('Looking for ResID:', reservationID);
+        console.log('Found reservation:', reservation); // Debugging log
+        if (reservation) {
+          console.log('Reservation UserID:', reservation.UserID); // Log UserID if found
+        } else {
+          console.log('No reservation found with ResID:', reservationID); // Log if not found
+        }
+        return reservation ? reservation.UserID : undefined;
+      })
+    );
+  }
+
+
+
 }

@@ -1,4 +1,4 @@
-import { Component ,inject, OnInit  } from '@angular/core';
+import {Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
 import { MenuService } from '../menu.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class MenuPageComponent implements OnInit{
   selectedItem: any = null;
   //constructor(private menuService: MenuService) { }
   private menuService = inject(MenuService);  // Use inject to get MenuService
-
+  @Output() itemAdded = new EventEmitter<any>();
   ngOnInit(): void {
     this.getMenuItems();  // Call the method to fetch menu items
   }
@@ -35,7 +35,9 @@ export class MenuPageComponent implements OnInit{
   }
 
   orderNow(item: any): void {
-    alert(`You have ordered: ${item.name_item}`);
-    // Here you can implement the actual order logic
+    // alert(`You have ordered: ${item.menu_item_id}`);
+
+    this.itemAdded.emit(item); // Emit the item to be added to the order
+    // alert(`You have ordered: ${item.name_item}`);
   }
 }
