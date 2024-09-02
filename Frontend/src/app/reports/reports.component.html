@@ -1,33 +1,38 @@
-<!-- Bootstrap Container -->
 <div class="container">
-  <!-- Monthly Feedback Chart -->
-  <div class="row">
-    <div class="col-lg-6 mb-4">
-      <div id="monthlyFeedbackChart" style="width: 100%; height: 400px;"></div>
+  <div class="row text-center">
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="chart-container">
+        <h4>Monthly Sales</h4>
+        <div id="monthlySalesChart" class="chart" style="height: 400px;"></div>
+      </div>
     </div>
 
-    <!-- Pie Chart -->
-    <div class="col-lg-6 mb-4">
-      <div id="pieChartE" style="width: 100%; height: 400px;"></div>
-    </div>
-  </div>
-
-  <!-- Monthly Sales Chart -->
-  <div class="row">
-    <div class="col-lg-6 mb-4">
-      <div id="monthlySalesChart" style="width: 100%; height: 400px;"></div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="chart-container">
+        <h4>Yearly Sales</h4>
+        <div id="yearlySalesChart" class="chart" style="height: 400px;"></div>
+      </div>
     </div>
 
-    <!-- Yearly Sales Chart -->
-    <div class="col-lg-6 mb-4">
-      <div id="yearlySalesChart" style="width: 100%; height: 400px;"></div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="chart-container">
+        <h4>Feedback Distribution</h4>
+        <div id="pieChartE" class="chart" style="height: 400px;"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Bar Chart -->
-  <div class="row">
-    <div class="col-12 mb-4">
-      <div id="barChartE" style="width: 100%; height: 400px;"></div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="chart-container">
+        <h4>Menu Item Orders</h4>
+        <div id="barChartE" class="chart" style="height: 400px;"></div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="chart-container">
+        <h4>Monthly Feedback Average</h4>
+        <div id="monthlyFeedbackChart" class="chart" style="height: 400px;"></div>
+      </div>
     </div>
   </div>
 </div>

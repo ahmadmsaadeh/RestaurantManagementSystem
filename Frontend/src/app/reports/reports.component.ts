@@ -24,10 +24,7 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('monthlySalesChart')!;
       const myChart = echarts.init(chartDom);
       const option = {
-        title: {
-          text: 'Monthly Sales',
-          left: 'center'
-        },
+       
         tooltip: {
           trigger: 'axis'
         },
@@ -53,10 +50,7 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('yearlySalesChart')!;
       const myChart = echarts.init(chartDom);
       const option = {
-        title: {
-          text: 'Yearly Sales',
-          left: 'center'
-        },
+       
         tooltip: {
           trigger: 'axis'
         },
@@ -82,10 +76,7 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('pieChartE')!;
       const myChart = echarts.init(chartDom);
       const option = {
-        title: {
-          text: 'Feedback Distribution',
-          left: 'center'
-        },
+      
         tooltip: {
           trigger: 'item'
         },
@@ -105,10 +96,7 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('barChartE')!;
       const myChart = echarts.init(chartDom);
       const option = {
-        title: {
-          text: 'Menu Item Orders',
-          left: 'center'
-        },
+     
         tooltip: {
           trigger: 'axis'
         },
@@ -133,10 +121,7 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('monthlyFeedbackChart')!;
       const myChart = echarts.init(chartDom);
       const option = {
-        title: {
-          text: 'Monthly Feedback Average',
-          left: 'center'
-        },
+     
         tooltip: {
           trigger: 'axis'
         },
