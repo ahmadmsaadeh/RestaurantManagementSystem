@@ -35,7 +35,7 @@ export class UserlistService {
   addUser(userData: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/users`, userData);
   }
-  getUserById(userId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/users/${userId}`);
+  getUserById(user_id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/users/${user_id}`);
   }
 }

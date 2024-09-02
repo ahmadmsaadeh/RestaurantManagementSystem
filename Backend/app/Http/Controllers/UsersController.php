@@ -89,7 +89,9 @@ class UsersController extends Controller
         if (!$users) {
             return response("invalid user id", 404);
         } else {
-            return response($users, 200);
+            return response()->json([
+                'success' => true,
+                'user' => $users]);
         }
     }
 
@@ -257,6 +259,7 @@ class UsersController extends Controller
                 'password' => 'nullable|string|min:10',
                 'lastname' => 'required|string|max:255',
                 'firstname' => 'required|string|max:255',
+                'phonenumber' => 'nullable|string|max:255',
             ]);
 
             if (isset($validated['password'])) {

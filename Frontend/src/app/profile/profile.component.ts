@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserlistService} from "../userlist/service/userlist.service";
+import {LoginService} from "../login/service/LoginService";
 
 
 @Component({
@@ -17,37 +18,51 @@ export class ProfileComponent implements OnInit {
   };
   updateSuccess = false;
   updateError = false;
+  userId: number | null = null;
 
-  constructor(private userListService: UserlistService) {}
+  constructor(private userListService: UserlistService , private loginservice : LoginService) {}
 
   ngOnInit(): void {
-    this.getUserProfile();
+    this.userId = this.loginservice.getUserId();
+    if (this.userId) {
+      this.loadUserProfile(this.userId);
+    } else {
+      alert('User ID not found. Please log in again.');
+    }
   }
-  updateProfile() {
-    this.userListService.updateUser(this.user.user_id, this.user).subscribe(
-      () => {
-        this.updateSuccess = true;
-        this.updateError = false;
+
+  loadUserProfile(userId: number) {
+    this.userListService.getUserById(userId).subscribe(
+      (response: any) => {
+        if (response.success) {
+          this.user = response.user;
+        } else {
+          alert('User not found');
+        }
       },
       error => {
-        console.error('Error updating profile', error);
-        this.updateSuccess = false;
-        this.updateError = true;
+        console.error('Error fetching user profile', error);
+        alert('Error fetching user profile. Please try again later.');
       }
     );
   }
 
-  getUserProfile(): void {
-    this.userListService.getUserById(1).subscribe(
-      (data: any) => {
-        this.user = data;
-        console.log('User ID:', this.user.user_id);
-        console.log('User Type:', this.user.role_id);
-        console.log('User email:', this.user.email);
-      },
-      (error: any) => {
-        console.error('Error fetching user profile:', error);
-      }
-    );
+
+  updateProfile() {
+    if (this.userId !== null) {
+      this.userListService.updateUser(this.userId, this.user).subscribe(
+        () => {
+          this.updateSuccess = true;
+          this.updateError = false;
+        },
+        error => {
+          console.error('Error updating profile', error);
+          this.updateSuccess = false;
+          this.updateError = true;
+        }
+      );
+    } else {
+      alert('User ID not found. Please log in again.');
+    }
   }
 }
