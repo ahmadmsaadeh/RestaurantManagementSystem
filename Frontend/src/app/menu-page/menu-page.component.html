@@ -1,6 +1,3 @@
-
-
-
 <!--div class="menu-container">
   <h1>Menu</h1>
   <div class="row">
@@ -60,7 +57,24 @@
       <h2>{{ selectedItem.name_item }}</h2>
       <img [src]="'http://localhost:8000/images/' + selectedItem.image" alt="{{ selectedItem.name_item }}">
       <p>{{ selectedItem.description }}</p>
+
+      <!-- Star  -->
+      <span class="rating-stars">
+        <i class="fa fa-star"
+           *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+           [ngClass]="getStarClass(selectedItem, i + 1)"
+           (click)="selectRating(selectedItem, i + 1, $event)"></i>
+      </span>
+
+     <!-- star end-->
+
       <span>${{ selectedItem.price }}</span>
+      <!-- Commentttt -->
+      <div class="comment-section">
+        <textarea [(ngModel)]="commentText" placeholder="Write your comment here..."></textarea>
+      </div>
+ <!-- comment end -->
+
       <button class="order-now" (click)="orderNow(selectedItem)">Order Now</button>
     </div>
   </div>
