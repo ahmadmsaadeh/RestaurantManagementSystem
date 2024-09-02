@@ -13,6 +13,9 @@ export class MenuPageComponent implements OnInit{
 
   filteredMenuItems: any[] = [];
   categories: any[] = [];
+  selectedItemrating: any ; // rating
+
+  commentText: string = ''; // comment
 
   //constructor(private menuService: MenuService) { }
   private menuService = inject(MenuService);  // Use inject to get MenuService
@@ -159,6 +162,7 @@ export class MenuPageComponent implements OnInit{
   //
   showDetails(item: any): void {
     this.selectedItem = item;
+    this.commentText = '';
   }
 
   closeDetails(): void {
@@ -171,4 +175,20 @@ export class MenuPageComponent implements OnInit{
     this.itemAdded.emit(item); // Emit the item to be added to the order
     // alert(`You have ordered: ${item.name_item}`);
   }
+
+  getStarsArray(rating: number): number[] {
+    return Array(5).fill(0).map((_, i) => i < rating ? 1 : 0);
+  }
+
+
+  // commit and rating
+  getStarClass(item: any, index: number): string {
+    return item.rating >= index ? 'fa-star text-warning' : 'fa-star text-muted';
+  }
+
+  selectRating(item: any, rating: number, event: any) {
+    item.rating = rating;
+    event.stopPropagation();
+  }
+  // rating
 }
