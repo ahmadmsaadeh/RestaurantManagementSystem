@@ -26,7 +26,7 @@ class MenuItemSeeder extends Seeder
             'description' => 'Delicious cheese Jammy Pastries',
             'price' => 10.99,
             'availability' => true,
-            'image' => 'tea.png',
+            'image' => 'Breakfast_pastry.jpg',
             'category_id' => 1,
         ]);
         MenuItem::create([
@@ -37,15 +37,50 @@ class MenuItemSeeder extends Seeder
             'image' => 'gyro chicken.png',
             'category_id' => 1,
         ]);
+
+
         MenuItem::create([
             'name_item' => 'Fries',
             'description' => 'Crispy golden fries.',
             'price' => 3.99,
             'availability' => true,
-            'image' => 'fries.jpg',
+            'image' => 'Fries.jpg',
             'category_id' => 1, // Appetizers category_id
         ]);
+        // new
+        MenuItem::create([
+            'name_item' => 'Lemonade',
+            'description' => 'Freshly squeezed lemonade with a hint of mint.',
+            'price' => 2.99,
+            'availability' => true,
+            'image' => 'Lemonade.jpg',
+            'category_id' => 4, // Beverages
+        ]);
 
+        MenuItem::create([
+            'name_item' => 'Grilled Salmon',
+            'description' => 'Perfectly grilled salmon served with a lemon butter sauce.',
+            'price' => 18.99,
+            'availability' => true,
+            'image' => 'Grilled Salmon.jpg',
+            'category_id' => 2, // Main Courses
+        ]);
+        MenuItem::create([
+            'name_item' => 'Chocolate Lava Cake',
+            'description' => 'Warm chocolate cake with a gooey molten center.',
+            'price' => 6.99,
+            'availability' => true,
+            'image' => 'Chocolate Lava Cake.jpg',
+            'category_id' => 3, // Desserts
+        ]);
 
+        MenuItem::create([
+            'name_item' => 'Ice Cream Sundae',
+            'description' => 'Classic ice cream sundae with your choice of toppings.',
+            'price' => 4.99,
+            'availability' => true,
+            'image' => 'Ice Cream Sundaee.jpg',
+            'category_id' => 3, // Desserts
+        ]);
     }
 }

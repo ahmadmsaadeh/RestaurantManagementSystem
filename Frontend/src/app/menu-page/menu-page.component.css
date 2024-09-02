@@ -1,3 +1,38 @@
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* Category button styling */
+.category-button {
+  padding: 12px 24px;
+  margin: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: #f7f7f7;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-button:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.category-button.active {
+  background: #27ae60;
+  color: #fff;
+}
+
+
+
 .menu-container {
   max-width: 1400px;
   margin: 30px auto;
@@ -190,6 +225,37 @@
   color: #B166CC;
 }
 
+
+.category-filter {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category-filter select {
+  padding: 10px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border: 1px solid #E36262;
+}
+#categorySelect {
+  background-color: #fff; /* Ensure background color is not transparent */
+  color: #000; /* Ensure text color is readable */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#categorySelect {
+  background-color: #fff; /* Set a white background to ensure visibility */
+  color: #000; /* Set text color to black for visibility */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light border for better appearance */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1em; /* Font size for readability */
+}
+
+#categorySelect option {
+  color: #000; /* Ensure text color in options is readable */
+}
 @media (max-width: 992px) {
   .menu-item {
     flex-basis: 48%;
