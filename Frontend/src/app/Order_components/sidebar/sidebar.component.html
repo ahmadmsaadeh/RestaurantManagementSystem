@@ -91,11 +91,16 @@
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+           data-bs-target="#reports" aria-expanded="false" aria-controls="reports">
           <i class="bi bi-bar-chart"></i>
           <span>Charts</span>
         </a>
+        
         <ul id="Reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/reports']" class="sidebar-link">Charts</a>
+
+          </li>
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
           </li>
@@ -112,6 +117,7 @@
             <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
 
           </li>
+      
         </ul>
       </li>
       <li class="sidebar-item">

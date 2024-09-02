@@ -26,8 +26,7 @@ import {AppComponent} from "./app.component";
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
 import { FeedbackComponent } from './feedback/feedback.component';
-
-
+import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
 
@@ -61,6 +60,7 @@ const routes: Routes = [
       
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
+      { path: 'reports', component: ReportsComponent},
     ]
   },
 

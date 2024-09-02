@@ -27,4 +27,9 @@ export class ReportingService {
   getFeedbackAverage(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/feedback-tracking`);
   }
+  getMonthlyFeedback(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/feedback-monthly`);
+  }
+
 }
+
