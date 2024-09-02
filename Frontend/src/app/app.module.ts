@@ -39,6 +39,7 @@ import { SideWithContentComponent } from './Order_components/side-with-content/s
 import { ReservationUserManagementComponent } from './reservation-user-managment/reservation-user-management.component';
 import { MenuEditComponent } from './menu-edit/menu-edit.component';
 import { MatCardModule } from '@angular/material/card';
+import { AddOrderComponent } from './Order_components/add-order/add-order.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
@@ -62,30 +63,32 @@ import { TablesManagementComponent } from './tables-managment/tables-management.
     SideWithContentComponent,
     ReservationUserManagementComponent,
     MenuEditComponent,
-    TablesManagementComponent,
-
+    AddOrderComponent,
+   TablesManagementComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        CommonModule,
-        FormsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        MatSnackBarModule,
-        BrowserAnimationsModule,
-        MatDatepickerModule,
-        MatInputModule,
-        MatNativeDateModule,
-        MatButtonModule,
-        MatIconModule,
-        SidebarComponent,
-      ReactiveFormsModule
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatIconModule,
+    SidebarComponent,
+    MatSelectModule,
+    MatTableModule,
+    ReactiveFormsModule
 
     ],
   providers: [OrdersService],
