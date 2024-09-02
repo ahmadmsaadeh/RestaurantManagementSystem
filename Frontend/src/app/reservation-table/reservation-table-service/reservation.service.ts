@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {map, Observable} from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -69,6 +69,11 @@ export class ReservationService {
         console.error('Error saving reservations to JSON file', error);
         alert('Failed to save reservations to the JSON file on the server.');
       }
+    );
+  }
+  getUsername(UserID: any): Observable<string> {
+    return (this.http.get<any>(`${this.userApiUrl}${UserID}`)).pipe(
+      map( user =>user.username)
     );
   }
 }

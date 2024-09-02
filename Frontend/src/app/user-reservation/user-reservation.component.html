@@ -32,7 +32,7 @@
           <div class="form-group">
             <label for="userSelect">Select User:</label>
             <select id="userSelect" #userSelect class="form-select">
-              <option *ngFor="let user of users" [value]="user.id">{{ user.name }}, id: {{ user.id }}</option>
+              <option *ngFor="let user of users" [value]="user.user_id">{{ user.username }}, id: {{ user.user_id }}</option>
             </select>
           </div>
         </div>
