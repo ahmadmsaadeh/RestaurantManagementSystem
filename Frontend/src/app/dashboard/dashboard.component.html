@@ -1,37 +1,39 @@
 <!-- dashboard.component.html -->
 <div>
-  <h1>Welcome, {{ Useeremail }}</h1>
+  <h1>Welcome, {{ userType }}</h1>
 
   <!-- Display content based on userType -->
   <div *ngIf="userType === 'Admin'">
     <h2>Admin Dashboard</h2>
+    <p>Manage users, view system statistics, and configure settings.</p>
+    <!-- Add more admin-specific content here -->
   </div>
 
   <div *ngIf="userType === 'Management'">
     <h2>Management Dashboard</h2>
+    <p>Review and analyze management reports and oversee daily operations.</p>
+    <!-- Add more management-specific content here -->
   </div>
 
   <div *ngIf="userType === 'Customer'">
     <h2>Customer Dashboard</h2>
+    <p>View and manage your orders, reservations, and feedback.</p>
+    <!-- Add more customer-specific content here -->
   </div>
 
   <div *ngIf="userType === 'Kitchen Staff'">
     <h2>Kitchen Staff Dashboard</h2>
+    <p>Check orders, update order status, and manage inventory.</p>
+    <!-- Add more kitchen staff-specific content here -->
   </div>
 
-  <div *ngIf="userType === 'Wait Staff'">
-    <h2>Wait Staff Dashboard</h2>
+  <div *ngIf="userType === 'Cashier Staff'">
+    <h2>Cashier Staff Dashboard</h2>
+    <p>Process payments, manage transactions, and handle receipts.</p>
+    <!-- Add more cashier staff-specific content here -->
   </div>
 
-  <div *ngIf="userType === 'Bartender'">
-    <h2>Bartender Dashboard</h2>
-  </div>
-
-  <div *ngIf="userType === 'Dishwasher'">
-    <h2>Dishwasher Dashboard</h2>
-  </div>
-
-  <div *ngIf="!['Admin', 'Management', 'Customer', 'Kitchen Staff', 'Wait Staff' , 'Bartender' , 'Dishwasher'].includes(userType)">
+  <div *ngIf="!['Admin', 'Management', 'Customer', 'Kitchen Staff', 'Cashier Staff'].includes(userType)">
     <h2>Unknown Role</h2>
     <p>The user type is not recognized. Please contact support.</p>
   </div>

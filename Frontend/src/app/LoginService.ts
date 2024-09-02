@@ -13,7 +13,7 @@ export class LoginService {
   constructor(private http: HttpClient) {
   }
   checklogin(email: string, password: string):
-    Observable<{ success: boolean, user?: any, token?: string, role_id?: number ,email?: string}> {
+    Observable<{ success: boolean, user?: any, token?: string, role_id?: number }> {
     return this.http.post<any>(this.apiUrl + "/api/auth/login", {email, password})
       .pipe(
         map(response => {
@@ -23,8 +23,7 @@ export class LoginService {
               success: true,
               user: response.data.user,
               token: response.data.access_token.token,
-              role_id: response.data.user.role_id,
-              email: response.email,
+              role_id: response.data.user.role_id
             };
           } else {
             return {success: false};

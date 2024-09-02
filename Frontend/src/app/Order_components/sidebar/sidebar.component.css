@@ -60,7 +60,7 @@ body {
 
 #sidebar.expand {
   width: 260px;
-  min-width: 200px;
+  min-width: 200px; /*  the width when it's expanded */
 }
 
 .toggle-btn {

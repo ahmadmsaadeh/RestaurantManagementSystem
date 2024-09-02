@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {UserService} from "../../dashboard/service/userservice";
 
 @Component({
   selector: 'app-side-with-content',
