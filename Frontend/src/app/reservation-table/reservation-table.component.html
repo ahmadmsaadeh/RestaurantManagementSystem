@@ -1,16 +1,16 @@
+<app-fullscreen-background [imageUrl]="'assets/images/reservation.jpg'"></app-fullscreen-background>
 <div class="container-fluid d-flex justify-content-center mt-2">
   <div class="row">
     <div class="col-lg-3 col-md-4 col-sm-12 d-flex justify-content-center" *ngFor="let reservation of reservations">
-      <div class="card mb-3 card-hover text-center" style="width: 18rem;">
+      <div class="card mb-3 card-hover text-center bg-dark text-white rounded-5 bg-opacity-75" style="width: 18rem;">
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
-          <h5 class="card-title">Reservation ID: {{ reservation.ResID }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Username: {{ reservation.username }}</h6>
+          <h5 class="card-title">{{ reservation.username  }}</h5>
+          <h6 class="card-subtitle mb-2"></h6>
           <p class="card-text">
             <strong>Table ID:</strong> {{ reservation.TableID }}<br>
             <strong>Date:</strong> {{ reservation.Date | date }}<br>
             <strong>Time:</strong> {{ reservation.Time }}<br>
-          </p>
-          <button class="btn btn-light mt-auto" (click)="openReservationDetails(reservation, reservationDetails)"><strong>View Details</strong></button>
+          <p><button class="btn mt-auto text-white link-underline bg-secondary bg-opacity-50 mt-5" (click)="openReservationDetails(reservation, reservationDetails)"><strong>{{ reservation.ResID }}</strong></button></p>
         </div>
       </div>
     </div>

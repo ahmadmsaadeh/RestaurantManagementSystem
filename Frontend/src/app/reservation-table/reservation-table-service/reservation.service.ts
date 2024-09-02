@@ -101,6 +101,12 @@ export class ReservationService {
     );
   }
 
+  getUsername(UserID: any): Observable<string> {
+    return (this.http.get<any>(`${this.userApiUrl}${UserID}`)).pipe(
+      map( user =>user.username)
+    );
+  }
+
 
 
 }

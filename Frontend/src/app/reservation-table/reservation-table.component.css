@@ -1,6 +1,10 @@
+
+
 .modal-backdrop {
   filter: blur(5px);
 }
+
+
 
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -20,10 +24,9 @@
   height: 40vh; /* Ensures the card content is vertically centered */
 }
 
-/*.btn{*/
-/*  color: black;*/
-/*  !*background-color:#DE6262;*!*/
-/*}*/
+.btn:hover{
+  transform: scale(1.1);
+}
 
 #cancel{
   color: white;
