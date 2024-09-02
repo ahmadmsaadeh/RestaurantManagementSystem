@@ -1,0 +1,17 @@
+.input-group-text {
+  cursor: pointer;
+}
+
+.input-group-text:hover {
+  background-color: rgba(0, 0, 0, 0.56);
+  color: white;
+}
+
+.btn{
+  color: white;
+  background-color:#DE6262;
+}
+
+.btn:hover{
+  background-color: #bd1313;
+}

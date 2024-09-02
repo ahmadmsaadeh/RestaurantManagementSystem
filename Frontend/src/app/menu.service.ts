@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class MenuService {
   private apiUrl = 'http://localhost:8000/api/menu-items';
+
+  private  caturl = 'http://localhost:8000/api/categories';
   constructor(private http: HttpClient) { }
 
   getMenuItems(): Observable<any> {
@@ -24,5 +26,12 @@ export class MenuService {
     });
   }
 //
+  getCategories(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.caturl}`); // Fetch categories from API
+  }
+
+  getMenuItemsByCategory(categoryId: String): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}?category_id=${categoryId}`);
+  }
 
 }

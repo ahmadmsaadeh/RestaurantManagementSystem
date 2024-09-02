@@ -26,7 +26,12 @@ import {AppComponent} from "./app.component";
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+
 import { ReportsComponent } from './reports/reports.component';
+
+import {UserReserveComponent} from "./user-reserve/user-reserve.component";
+
+
 
 const routes: Routes = [
 
@@ -47,8 +52,9 @@ const routes: Routes = [
 
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
-      {path: 'customer/view-reservations', component: ReservationUserManagementComponent },
+      {path: 'view-reservations', component: ReservationUserManagementComponent },
       {path: 'tables-management',component: TablesManagementComponent},
+      {path: 'user-reserve',component: UserReserveComponent},
 
       { path: 'feedback-tracking', component: FeedbackTrackingComponent },
       { path: 'menu-item-orders', component: MenuItemOrdersComponent},
@@ -57,7 +63,7 @@ const routes: Routes = [
       { path: 'roles-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
-      
+
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
       { path: 'reports', component: ReportsComponent},

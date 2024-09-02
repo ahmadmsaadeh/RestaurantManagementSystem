@@ -9,11 +9,27 @@ import { MenuService } from '../menu.service';
 export class MenuPageComponent implements OnInit{
   menuItems: any[] = [];
   selectedItem: any = null;
+  selectedCategory: string = 'all';
+
+  filteredMenuItems: any[] = [];
+  categories: any[] = [];
+
   //constructor(private menuService: MenuService) { }
   private menuService = inject(MenuService);  // Use inject to get MenuService
   @Output() itemAdded = new EventEmitter<any>();
   ngOnInit(): void {
-    this.getMenuItems();  // Call the method to fetch menu items
+   // this.getMenuItems();  // Call the method to fetch menu items
+   // this.getCategories();
+ /*   this.menuService.getCategories().subscribe((data) => {
+      this.categories = data;
+    });
+
+    this.menuService.getMenuItems().subscribe((data) => {
+      this.menuItems = data;
+    });*/
+  //  this.loadCategories();
+    this.loadCategories();
+    this.loadMenuItems();
   }
 
   private getMenuItems(): void {
@@ -26,6 +42,121 @@ export class MenuPageComponent implements OnInit{
       }
     );
   }
+  //
+  private loadMenuItems(): void {
+    this.menuService.getMenuItems().subscribe(
+      (data: any[]) => {
+        this.menuItems = data;
+        this.filteredMenuItems = data; // Initialize filtered items
+        console.log('All Menu Items:', data); // Debug: Print all menu items
+      },
+      (error) => {
+        console.error('Error fetching menu items', error);
+      }
+    );
+  }
+
+  private loadCategories(): void {
+    this.menuService.getCategories().subscribe(
+      (data: any[]) => {
+        this.categories = data;
+        console.log('Categories:', data); // Debug: Print categories
+      },
+      (error) => {
+        console.error('Error fetching categories', error);
+      }
+    );
+  }
+
+  filterByCategory(categoryId: string): void {
+    this.selectedCategory = categoryId;
+    console.log('Selected Category:', categoryId); // Debug: Print selected category
+
+    if (categoryId === 'all') {
+      this.filteredMenuItems = this.menuItems;
+    } else {
+      // Convert categoryId to a number if necessary
+      this.filteredMenuItems = this.menuItems.filter(item => item.category_id === Number(categoryId));
+    }
+  }
+//
+
+ /* private loadMenuItems(): void {
+    this.menuService.getMenuItems().subscribe(
+      (data: any[]) => {
+        this.menuItems = data;
+        this.filteredMenuItems = data; // Initialize filtered items
+      },
+      (error) => {
+        console.error('Error fetching menu items', error);
+      }
+    );
+  }*/
+
+  private getCategories(): void {
+    this.menuService.getCategories().subscribe(
+      (data: any[]) => {
+        this.categories = data;
+      },
+      (error) => {
+        console.error('Error fetching categories', error);
+      }
+    );
+  }
+
+ /* filterByCategory(event: any): void {
+    const categoryId = event.target.value;
+    if (categoryId === 'all') {
+      this.menuService.getMenuItems().subscribe((data) => {
+        this.menuItems = data;
+      });
+    } else {
+      this.menuService.getMenuItemsByCategory(categoryId).subscribe((data) => {
+        this.menuItems = data;
+      });
+    }
+  }*/
+/*  filterByCategory(categoryId: string): void {
+    this.selectedCategory = categoryId;
+    if (categoryId === 'all') {
+      this.loadMenuItems();
+    } else {
+      this.menuService.getMenuItemsByCategory(categoryId).subscribe(
+        (data: any[]) => {
+          this.filteredMenuItems = data;
+        },
+        (error) => {
+          console.error('Error fetching menu items by category', error);
+        }
+      );
+    }
+  }*/
+
+  /* loadCategories(): void {
+     this.menuService.getCategories().subscribe(
+       (data: any[]) => {
+         console.log('Categories:', data); // Log categories to console
+         this.categories = data;
+       },
+       (error) => {
+         console.error('Error fetching categories:', error);
+       }
+     );
+   }*/
+
+  /*private loadCategories(): void {
+    this.menuService.getCategories().subscribe(
+      (data: any[]) => {
+        this.categories = data;
+      },
+      (error) => {
+        console.error('Error fetching categories', error);
+      }
+    );
+  }*/
+
+
+  //
   showDetails(item: any): void {
     this.selectedItem = item;
   }

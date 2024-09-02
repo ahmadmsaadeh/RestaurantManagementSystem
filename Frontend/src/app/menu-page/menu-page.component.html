@@ -18,8 +18,30 @@
 </div-->
 <div class="menu-container">
   <h1>Menu</h1>
+  <!--div-- class="category-filter">
+    <button class="category-button" (click)="filterByCategory('all')">All Categories</button>
+    <button *ngFor="let category of categories"
+            class="category-button"
+            [ngClass]="{'active': selectedCategory === category.category_id}"
+            (click)="filterByCategory(category.category_id)">
+      {{ category.category_name }}
+    </button>
+  </div-->
+  <div class="category-filter">
+    <button class="category-button"
+            [ngClass]="{'active': selectedCategory === 'all'}"
+            (click)="filterByCategory('all')">All Categories</button>
+    <button *ngFor="let category of categories"
+            class="category-button"
+            [ngClass]="{'active': selectedCategory === category.category_id}"
+            (click)="filterByCategory(category.category_id)">
+      {{ category.category_name }}
+    </button>
+  </div>
+
+
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of menuItems">
+    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of filteredMenuItems">
       <div class="menu-item d-flex flex-column" (click)="showDetails(item)">
         <img [src]="'http://localhost:8000/images/' + item.image" alt="{{ item.name_item }}">
         <div class="menu-details d-flex flex-column flex-grow-1">
