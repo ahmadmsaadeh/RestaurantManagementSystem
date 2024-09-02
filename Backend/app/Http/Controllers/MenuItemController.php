@@ -8,7 +8,7 @@
  */
 namespace App\Http\Controllers;
 use App\Models\MenuItem;
-
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
@@ -577,5 +577,11 @@ class MenuItemController extends Controller
             ], 500);
         }
     }*/
-
+    public function getCategories()
+    {
+        $categories = Category::all(); // Fetch all categories from the database
+        return response()->json($categories); // Return the categories as JSON
+       // return Category::all();
+    }
 }
+

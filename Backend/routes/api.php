@@ -31,6 +31,7 @@ Route::get('/menu-items/price', [MenuItemController::class, 'getMenuItemPrice'])
 Route::post('/menu-items/{id}/upload-image', [MenuItemController::class, 'uploadMenuItemImage']);
 //Route::get('/menu-items/price', [MenuItemController::class, 'getMenuItemPrice']);
 
+Route::get('/categories', [MenuItemController::class, 'getCategories']);
 
 
 require base_path('routes/order.php');
