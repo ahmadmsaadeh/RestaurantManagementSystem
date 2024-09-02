@@ -23,7 +23,7 @@ class OrderSeeder extends Seeder
        ]);
        Order::create([
            'user_id' => 1,
-           'reservation_id' => 1,
+           'reservation_id' => 2,
            'total' => 24.96,
            'status' => 'Served',
            'order_date' => now(), // Current timestamp for order_date

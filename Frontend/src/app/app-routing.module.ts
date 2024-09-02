@@ -22,8 +22,11 @@ import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.com
 import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 import {RoleslistComponent} from "./roleslist/roleslist.component";
 import {AppComponent} from "./app.component";
+
+import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+
 
 
 const routes: Routes = [
@@ -38,6 +41,7 @@ const routes: Routes = [
     path: 'side-with-content', component: SideWithContentComponent, children: [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
+      { path: 'new-order', component: AddOrderComponent },
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
