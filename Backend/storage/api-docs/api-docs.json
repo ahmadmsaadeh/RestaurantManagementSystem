@@ -297,6 +297,62 @@
                 }
             }
         },
+        "/api/feedbacks/item/{menu_item_id}": {
+            "get": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Get feedback for a specific menu item",
+                "description": "Fetches the average rating and comments for a specific menu item based on the menu item ID.",
+                "operationId": "2a7024327a6daf96c45985f5ebf331f4",
+                "parameters": [
+                    {
+                        "name": "menu_item_id",
+                        "in": "path",
+                        "description": "ID of the menu item for which feedback is being fetched",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "average_rating": {
+                                            "description": "Average rating for the menu item",
+                                            "type": "number",
+                                            "format": "float",
+                                            "example": 4.5
+                                        },
+                                        "comments": {
+                                            "description": "List of comments for the menu item",
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "example": "The food was amazing!"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Menu item not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
         "/api/auth/login": {
             "post": {
                 "tags": [

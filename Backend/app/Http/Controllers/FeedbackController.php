@@ -136,4 +136,67 @@ class FeedbackController extends Controller
         Feedback::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
+
+
+    /**
+ * @OA\Get(
+ *     path="/api/feedbacks/item/{menu_item_id}",
+ *     summary="Get feedback for a specific menu item",
+ *     description="Fetches the average rating and comments for a specific menu item based on the menu item ID.",
+ *     tags={"Feedbacks"},
+ *     @OA\Parameter(
+ *         name="menu_item_id",
+ *         in="path",
+ *         required=true,
+ *         description="ID of the menu item for which feedback is being fetched",
+ *         @OA\Schema(type="integer", example=1)
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="object",
+ *             @OA\Property(
+ *                 property="average_rating",
+ *                 type="number",
+ *                 format="float",
+ *                 description="Average rating for the menu item",
+ *                 example=4.5
+ *             ),
+ *             @OA\Property(
+ *                 property="comments",
+ *                 type="array",
+ *                 description="List of comments for the menu item",
+ *                 @OA\Items(
+ *                     type="string",
+ *                     example="The food was amazing!"
+ *                 )
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="Menu item not found",
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="Internal server error"
+ *     )
+ * )
+ */
+public function getItemFeedback($menu_item_id)
+{
+    // Fetch all feedbacks for the menu item
+    $feedbacks = Feedback::where('menu_item_id', $menu_item_id)->get();
+
+    // Calculate the average rating
+    $averageRating = $feedbacks->avg('rating');
+
+    // Return the average rating and the feedback comments
+    return response()->json([
+        'average_rating' => $averageRating,
+        'comments' => $feedbacks->pluck('comments') // Only return comments
+    ]);
+}
+
 }
