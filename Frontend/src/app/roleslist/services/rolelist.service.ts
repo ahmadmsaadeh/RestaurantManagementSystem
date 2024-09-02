@@ -7,11 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class RolelistService {
 
-  private apiUrl = 'http://localhost:8000/api';  // Base URL
+  private apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) {}
 
-  // Method to get roles list
   getRoleList(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/roles`);
   }

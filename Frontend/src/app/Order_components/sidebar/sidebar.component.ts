@@ -1,14 +1,17 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {RouterLink} from "@angular/router";
+import {AppModule} from "../../app.module";
+import {UserService} from "../../dashboard/service/userservice";
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
   ],
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+
 })
 export class SidebarComponent implements AfterViewInit {
   ngAfterViewInit(): void {
@@ -21,6 +24,19 @@ export class SidebarComponent implements AfterViewInit {
 
     });
 
+
+  }
+
+  userType: string = '';
+  Useeremail: string = ' ';
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userType = this.userService.getUserType();
+    this.Useeremail = this.userService.getUseremail();
+    console.log('User Type:', this.userType);
+    console.log('User email:', this.Useeremail);
 
   }
 

@@ -1,6 +1,6 @@
 // app.component.ts
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "./LoginService";
+import {LoginService} from "./login/service/LoginService";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   showNavbar: boolean = true;
 
   constructor(private loginService: LoginService) {}
+
 
   ngOnInit() {
     // Subscribe to showNavbar$ to reflect login state

@@ -71,18 +71,28 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  padding: 10px;
+  grid-template-columns: 70px 1fr 1fr 1fr 1fr 1fr 1fr 70px;;
+  gap: 5px;
+  padding: 5px;
 }
 
 .grid-header, .grid-item {
-  padding: 10px;
+  padding: 5px;
+  font-size: 0.8em;
   text-align: center;
   color: #DE6262;
+  box-sizing: border-box;
   border-color:#DE6262
-
 }
+
+.grid-header {
+  font-weight: bold;
+  background-color: #f4f4f4;
+}
+
+
+
+
 .search-wrapper {
   position: relative;
   display: flex;
@@ -123,7 +133,7 @@
   outline: none;
 }
 .form-control:hover{
-border-color:#DE6262 }
+  border-color:#DE6262 }
 
 .grid-header {
   font-weight: bold;

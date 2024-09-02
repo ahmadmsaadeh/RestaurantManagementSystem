@@ -161,7 +161,7 @@
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-            <a href="#" style="color:#DE6262">Forget Your password?</a>
+            <a [routerLink]="'/forgot-password'" style="color:#DE6262">Forget Your Password?</a>
           </div>
           <button style="width: 100%" type="submit" class="btn btn-login" (click)="onSubmit()">Log In</button>
         </form>
