@@ -43,6 +43,7 @@ import { AddOrderComponent } from './Order_components/add-order/add-order.compon
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +64,13 @@ import { TablesManagementComponent } from './tables-managment/tables-management.
     SideWithContentComponent,
     ReservationUserManagementComponent,
     MenuEditComponent,
+
+    TablesManagementComponent,
+    FeedbackComponent,
+
+
     AddOrderComponent,
-   TablesManagementComponent,
+
 
   ],
   imports: [
