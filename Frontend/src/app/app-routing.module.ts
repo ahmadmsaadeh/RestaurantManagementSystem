@@ -22,6 +22,7 @@ import {AppComponent} from "./app.component";
 import {ForgetpasswordComponent} from "./forgetpassword/forgetpassword.component";
 import {CreatestaffComponent} from "./createstaff/createstaff.component";
 import {UserlistComponent} from "./userlist/userlist.component";
+import {FullscreenBackgroundComponent} from "./fullscreen-background/fullscreen-background.component";
 
 
 const routes: Routes = [
@@ -62,8 +63,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    declarations: [
+        FullscreenBackgroundComponent
+    ],
+    exports: [RouterModule, FullscreenBackgroundComponent]
 })
 export class AppRoutingModule {
 
