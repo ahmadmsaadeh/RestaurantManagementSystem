@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from './reservation-table-service/reservation.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-reservation-table',
@@ -9,7 +10,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ReservationTableComponent implements OnInit {
   reservations: any[] = [];
+  user: any[] =[];
   selectedReservation: any = null;
+  username: any = null;
 
   constructor(
     private reservationService: ReservationService,
@@ -23,6 +26,13 @@ export class ReservationTableComponent implements OnInit {
   loadReservations(): void {
     this.reservationService.getReservations().subscribe((reservations: any[]) => {
       this.reservations = reservations;
+
+      // For each reservation, fetch the username
+      this.reservations.forEach(reservation => {
+        this.reservationService.getUsername(reservation.UserID).subscribe(username => {
+          reservation.username = username;  // Store the username in the reservation object
+        });
+      });
     }, error => {
       console.error('Error fetching reservations', error);
     });
@@ -49,5 +59,10 @@ export class ReservationTableComponent implements OnInit {
     });
   }
 
+  getUsername(UserID: any): Observable<any> {
+   this.reservationService.getUser(UserID).subscribe((user: any[])=>{
+     this.username = user.map(user => user.username )});
+   return this.username;
+  }
 
 }

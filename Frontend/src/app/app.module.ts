@@ -41,6 +41,9 @@ import { MenuEditComponent } from './menu-edit/menu-edit.component';
 import { MatCardModule } from '@angular/material/card';
 import { AddOrderComponent } from './Order_components/add-order/add-order.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { TablesManagementComponent } from './tables-managment/tables-management.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +64,7 @@ import { AddOrderComponent } from './Order_components/add-order/add-order.compon
     ReservationUserManagementComponent,
     MenuEditComponent,
     AddOrderComponent,
-
+   TablesManagementComponent,
 
   ],
   imports: [
@@ -85,7 +88,9 @@ import { AddOrderComponent } from './Order_components/add-order/add-order.compon
     SidebarComponent,
     MatSelectModule,
     MatTableModule,
-  ],
+    ReactiveFormsModule
+
+    ],
   providers: [OrdersService],
   bootstrap: [AppComponent]
 })

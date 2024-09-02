@@ -1,0 +1,35 @@
+<section id="listTables">
+  <div class="container-fluid mt-5">
+    <div class="row border-1 border-black " *ngFor="let table of tables">
+      <div class="row m-2">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-2 d-flex justify-content-center m2 p-2 bg-secondary bg-opacity-25">ID: {{ table.TableID}}</div>
+        <div class="col-md-2 d-flex justify-content-center m2 p-2 bg-secondary bg-opacity-75">Chairs : {{table.NumberOfChairs}}</div>
+        <div class="col-md-2 d-flex justify-content-center m2 p-2"><button class="btn btn-danger" (click)="deleteTable(table.TableID)">Delete Table</button></div>
+        <div class="col-md-3 col-sm-1"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="AddTable">
+  <form (ngSubmit)="onsubmit()">
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6">
+          <label for="numOfChairs">Enter Number Of Chairs To Add New Table: </label>
+          <input #numOfChairs id="numOfChairs" type="number" class="form-control" placeholder="Enter Number Of Chairs" min="2" max="25">
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 d-flex justify-content-center">
+          <button type="submit" class="btn btn-secondary mt-3">Add New Table</button>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+      </div>
+    </div>
+  </form>
+</section>

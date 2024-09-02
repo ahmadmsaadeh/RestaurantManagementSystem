@@ -22,7 +22,10 @@ import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.com
 import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 import {RoleslistComponent} from "./roleslist/roleslist.component";
 import {AppComponent} from "./app.component";
+
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
+import {TablesManagementComponent} from "./tables-managment/tables-management.component";
+
 
 
 const routes: Routes = [
@@ -45,6 +48,7 @@ const routes: Routes = [
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
       {path: 'customer/view-reservations', component: ReservationUserManagementComponent },
+      {path: 'tables-management',component: TablesManagementComponent},
 
       { path: 'feedback-tracking', component: FeedbackTrackingComponent },
       { path: 'menu-item-orders', component: MenuItemOrdersComponent},

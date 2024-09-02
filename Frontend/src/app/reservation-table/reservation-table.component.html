@@ -10,7 +10,7 @@
             <strong>Date:</strong> {{ reservation.Date | date }}<br>
             <strong>Time:</strong> {{ reservation.Time }}<br>
           </p>
-          <button class="btn btn-dark mt-auto" (click)="openReservationDetails(reservation, reservationDetails)">View Details</button>
+          <button class="btn btn-light mt-auto" (click)="openReservationDetails(reservation, reservationDetails)"><strong>View Details</strong></button>
         </div>
       </div>
     </div>
@@ -35,6 +35,6 @@
     <button type="button" id="cancel"  class="btn btn-danger" (click)="deleteReservation(selectedReservation?.ResID, modal)">Cancel Reservation</button>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
   </div>
 </ng-template>
