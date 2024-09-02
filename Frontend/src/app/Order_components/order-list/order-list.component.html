@@ -8,7 +8,7 @@
         <li class="list-group-item">
           <div class="row mb-3">
             <div class="col-6 col-md-3 mb-2 mb-md-0">
-              <button class="btn w-100" style="height: 45px;"><i class="lni lni-circle-plus"></i> New order</button>
+              <button class="btn w-100" style="height: 45px;" [routerLink]="['/side-with-content/new-order']"><i class="lni lni-circle-plus"></i> New order</button>
             </div>
 
             <div class="col-6 col-md-3 mb-2 mb-md-0">
@@ -102,7 +102,7 @@
                       <td>{{ order.status }}</td>
                       <td>
                         <div class="action-buttons">
-                          <button class="btn btn-sm me-2" [routerLink]="['/order-detail', order.order_id]" title="View Order Details">
+                          <button class="btn btn-sm me-2" [routerLink]="['/side-with-content/order-detail', order.order_id]" title="View Order Details">
                             <i class="lni lni-eye"></i>
                           </button>
                           <button class="btn btn-sm me-2" title="Edit Order">

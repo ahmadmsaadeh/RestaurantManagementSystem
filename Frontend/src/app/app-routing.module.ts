@@ -47,6 +47,7 @@ const routes: Routes = [
       { path: 'roles-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
+
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'createstaffaccount', component: CreatestaffComponent },
       { path: 'user-list', component: UserlistComponent },

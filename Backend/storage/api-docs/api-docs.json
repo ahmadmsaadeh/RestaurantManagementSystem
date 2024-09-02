@@ -2278,6 +2278,40 @@
                 }
             }
         },
+        "/api/reports/feedback-monthly": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Get Monthly Feedback Averages",
+                "description": "Get Monthly Feedback Averages",
+                "operationId": "8f0381e7537266e1868fd5e2045fe658",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "month": {
+                                                "type": "string"
+                                            },
+                                            "averageScore": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/reservations/{id}": {
             "get": {
                 "tags": [

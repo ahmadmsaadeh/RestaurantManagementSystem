@@ -48,8 +48,10 @@
             <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">Orders List</a>
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/order-items']" class="sidebar-link">Orders' Items</a>
-
+            <a [routerLink]="['/side-with-content/order-items']" class="sidebar-link">Orders' Items</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Create new order</a>
           </li>
         </ul>
       </li>
@@ -71,6 +73,16 @@
 
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/tables-management']" class="sidebar-link">Manage Tables</a>
+
+          </li>
+
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/view-reservations']" class="sidebar-link">For Customer</a>
+
+          </li>
+
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/user-reserve']" class="sidebar-link">For Customer2</a>
 
           </li>
         </ul>
@@ -98,21 +110,24 @@
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+           data-bs-target="#reports" aria-expanded="false" aria-controls="reports">
           <i class="bi bi-bar-chart"></i>
           <span>Charts</span>
         </a>
+        
         <ul id="Reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/reports']" class="sidebar-link">Charts</a>
 
-            <a [routerLink]="['/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
-
+          </li>
+          <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
           </li>
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
 
           </li>
+
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/monthly-sales']" class="sidebar-link">Monthly sales</a>
 
@@ -120,6 +135,19 @@
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
 
+          </li>
+      
+        </ul>
+      </li>
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+          <i class="bi bi-chat-left-dots"></i> <!-- Updated icon -->
+          <span>Feedback</span> <!-- Updated text -->
+        </a>
+        <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Feedback</a>
           </li>
         </ul>
       </li>
