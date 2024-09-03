@@ -59,21 +59,25 @@
       <p>{{ selectedItem.description }}</p>
 
       <!-- Star  -->
-      <span class="rating-stars">
-        <i class="fa fa-star"
-           *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-           [ngClass]="getStarClass(selectedItem, i + 1)"
-           (click)="selectRating(selectedItem, i + 1, $event)"></i>
-      </span>
+     
 
-     <!-- star end-->
+  <!-- Display average rating  -->
+  <div class="average-rating">
+    <span class="rating-stars">
+      <i class="fa fa-star" *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+         [ngClass]="getStarClass(averageRating, i + 1)"></i>
+    </span>
+    <p>Average Rating: {{ averageRating | number: '1.1-1' }} / 5</p>
+  </div>
 
-      <span>${{ selectedItem.price }}</span>
-      <!-- Commentttt -->
-      <div class="comment-section">
-        <textarea [(ngModel)]="commentText" placeholder="Write your comment here..."></textarea>
-      </div>
- <!-- comment end -->
+  <!-- Display comments -->
+  <div class="comment-section" *ngIf="comments.length">
+    <h3>Comments:</h3>
+    <ul>
+      <li *ngFor="let comment of comments">{{ comment }}</li>
+    </ul>
+  </div>
+ <!-- comment end-->
 
       <button class="order-now" (click)="orderNow(selectedItem)">Order Now</button>
     </div>

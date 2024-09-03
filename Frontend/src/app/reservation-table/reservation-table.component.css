@@ -22,6 +22,8 @@
   align-items: center;
   text-align: center;
   height: 40vh; /* Ensures the card content is vertically centered */
+  /*background: rgba(222, 98, 98, 0.80);*/
+  border-radius: 5px;
 }
 
 .btn:hover{

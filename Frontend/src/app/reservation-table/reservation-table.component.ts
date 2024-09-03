@@ -30,7 +30,7 @@ export class ReservationTableComponent implements OnInit {
       // For each reservation, fetch the username
       this.reservations.forEach(reservation => {
         this.reservationService.getUsername(reservation.UserID).subscribe(username => {
-          reservation.username = username;  // Store the username in the reservation object
+          reservation.username = username;
         });
       });
     }, error => {

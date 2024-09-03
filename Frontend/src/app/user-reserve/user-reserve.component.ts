@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {GetUserReservationService} from "../user-reservation/get-user-reservation/get-user-reservation.service";
+import {LoginService} from "../login/service/LoginService";
 import flatpickr from "flatpickr";
 import {english} from "flatpickr/dist/l10n/default";
 
@@ -15,10 +16,14 @@ export class UserReserveComponent implements AfterViewInit {
 
   users: any[] = [];
   selectedUserId: number = 1;  // Default selected user ID
+  userId:number | null = 1;
 
   constructor(
     private reservationService: GetUserReservationService,
+    private loginService: LoginService,
   ) {
+    this.userId=loginService.getUserId();
+    console.log(this.userId);
   }
   ngAfterViewInit(): void {
     flatpickr(this.dateTimePicker.nativeElement, {
@@ -42,12 +47,11 @@ export class UserReserveComponent implements AfterViewInit {
     const numOfCustomers = this.numberOfCustomers.nativeElement.value;
     const reservationType = this.reservationType.nativeElement.value;
     const [date, time] = dateTime.split(' ');
-
-    this.reservationService.createReservation(this.selectedUserId, date, time, numOfCustomers, reservationType)
+    this.reservationService.createReservation(this.userId!, date, time, numOfCustomers, reservationType)
       .subscribe(response => {
-        console.log('Reservation created successfully', response);
+        window.alert("Reservation created successfully");
       }, error => {
-        console.error('Error creating reservation', error);
+        window.alert("Error creating reservation");
       });
   }
 }

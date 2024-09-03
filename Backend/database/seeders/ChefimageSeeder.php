@@ -15,20 +15,20 @@ class ChefimageSeeder extends Seeder
     {
         $data = [
             [
-                'chef_image_url' => 'C:\xampp\htdocs\project\Backend\chef_images\chef1.jpg',
+                'chef_image_url' => 'chef1.jpg',
                 'user_id' => 4,
             ],
             [
-                'chef_image_url' => 'C:\xampp\htdocs\project\Backend\chef_images\chef2.png',
+                'chef_image_url' => 'chef2.jpg',
                 'user_id' => 5,
             ],
             [
-                'chef_image_url' => 'C:\xampp\htdocs\project\Backend\chef_images\chef3.png',
+                'chef_image_url' => 'chef3.jpg',
                 'user_id' => 6,
             ],
         ];
 
         // Insert data into the chefs_image table
-        DB::table('chefs_image')->insert($data);
+        DB::table('chefimages')->insert($data);
     }
 }
