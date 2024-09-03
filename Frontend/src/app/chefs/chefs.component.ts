@@ -13,6 +13,7 @@ export class ChefsComponent implements OnInit {
   private apiUrl = 'http://localhost:8000/api/chef';
   ngOnInit(): void {
     this.fetchChefs();
+    console.log(this.users);
   }
 
   fetchChefs(): void {
