@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {OrderListComponent} from "./Order_components/order-list/order-list.component";
 import {OrderDetailsComponent} from "./Order_components/order-details/order-details.component";
-import {Router, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {SignupComponent} from "./signup/signup.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
@@ -11,7 +11,7 @@ import { MenuEditComponent } from './menu-edit/menu-edit.component';  //
 
 import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {SideWithContentComponent} from "./Order_components/side-with-content/side-with-content.component";
-import {CommonModule} from "@angular/common";
+
 import {ReservationTableComponent} from "./reservation-table/reservation-table.component";
 import {UserReservationComponent} from "./user-reservation/user-reservation.component";
 import {ReservationUserManagementComponent} from "./reservation-user-managment/reservation-user-management.component";
@@ -21,7 +21,6 @@ import { YearlySalesComponent } from './ReportsComponents/yearly-sales/yearly-sa
 import { MenuItemOrdersComponent } from './ReportsComponents/menu-item-orders/menu-item-orders.component';
 import { FeedbackTrackingComponent } from './ReportsComponents/feedback-tracking/feedback-tracking.component';
 import {RoleslistComponent} from "./roleslist/roleslist.component";
-import {AppComponent} from "./app.component";
 
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
@@ -69,8 +68,6 @@ const routes: Routes = [
       { path: 'reports', component: ReportsComponent},
     ]
   },
-
-  // Redirect to AppComponent if no matching route is found
 
 
 
