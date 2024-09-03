@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation-table/reservation-table-service/reservation.service';
+import {LoginService} from "../login/service/LoginService";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,19 +11,23 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ReservationUserManagementComponent implements OnInit {
   reservations: any[] = [];
   selectedReservation: any = null;
-  userId: number = 1; // This should correspond to the logged-in user
+  userId:number | null = 1;
 
   constructor(
     private reservationService: ReservationService,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    private loginService: LoginService,
+  ) {
+    this.userId=loginService.getUserId();
+    console.log(this.userId);
+  }
 
   ngOnInit(): void {
     this.loadUserReservations();
   }
 
   loadUserReservations(): void {
-    this.reservationService.getUserReservations(this.userId).subscribe(
+    this.reservationService.getUserReservations(this.userId!).subscribe(
       (reservations: any[]) => {
         this.reservations = reservations;
       },
