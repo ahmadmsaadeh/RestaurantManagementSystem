@@ -26,6 +26,8 @@ import {AppComponent} from "./app.component";
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+import {ItemsComponent} from "./Order_components/items/items.component";
+import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
 
 
 
@@ -42,6 +44,9 @@ const routes: Routes = [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
       { path: 'new-order', component: AddOrderComponent },
+      { path: 'orders-items', component: ItemsComponent },
+      { path: 'edit-order/:orderId', component: EditOrderComponent },
+
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
@@ -58,7 +63,7 @@ const routes: Routes = [
       { path: 'roles-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
-      
+
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
     ]

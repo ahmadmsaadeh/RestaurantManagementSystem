@@ -105,15 +105,13 @@
                           <button class="btn btn-sm me-2" [routerLink]="['/side-with-content/order-detail', order.order_id]" title="View Order Details">
                             <i class="lni lni-eye"></i>
                           </button>
-                          <button class="btn btn-sm me-2" title="Edit Order">
+                          <button class="btn btn-sm me-2" [routerLink]="['/side-with-content/edit-order', order.order_id]" title="Edit Order">
                             <i class="lni lni-pencil-alt"></i>
                           </button>
-                          <button class="btn btn-sm" title="Delete Order">
+                          <button class="btn btn-sm me-2" (click)="deleteOrder(order.order_id)"  title="Delete Order">
                             <i class="lni lni-trash-can"></i>
                           </button>
-                          <button class="btn btn-sm" title="Print Order">
-                            <i class="lni lni-printer"></i>
-                          </button>
+
                         </div>
                       </td>
                     </tr>

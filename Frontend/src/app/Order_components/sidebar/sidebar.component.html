@@ -39,7 +39,7 @@
             <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">Orders List</a>
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/order-items']" class="sidebar-link">Orders' Items</a>
+            <a [routerLink]="['/side-with-content/orders-items']" class="sidebar-link">Orders' Items</a>
           </li>
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Create new order</a>
@@ -103,7 +103,7 @@
             <a [routerLink]="['/side-with-content/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
 
           </li>
-        
+
           <li class="sidebar-item">
             <a [routerLink]="['/side-with-content/monthly-sales']" class="sidebar-link">Monthly sales</a>
 
@@ -129,34 +129,29 @@
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-          <i class="lni lni-layout"></i>
-          <span>Multi Level</span>
+           data-bs-target="#notification" aria-expanded="false" aria-controls="notification">
+          <i class="lni lni-popup"></i>
+          <span>Notifications</span>
         </a>
-        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+        <ul id="notification" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-               data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-              Two Links
-            </a>
-            <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">Link 1</a>
-              </li>
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">Link 2</a>
-              </li>
-            </ul>
+            <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">New orders</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/order-items']" class="sidebar-link">Pending orders</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Status of items</a>
           </li>
         </ul>
       </li>
 
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">
-          <i class="lni lni-popup"></i>
-          <span>Notification</span>
-        </a>
-      </li>
+<!--      <li class="sidebar-item">-->
+<!--        <a href="#" class="sidebar-link">-->
+<!--          <i class="lni lni-popup"></i>-->
+<!--          <span>Notification</span>-->
+<!--        </a>-->
+<!--      </li>-->
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link">

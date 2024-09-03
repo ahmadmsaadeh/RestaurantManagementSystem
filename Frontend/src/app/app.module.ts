@@ -45,6 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
 import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { ItemsComponent } from './Order_components/items/items.component';
+import { EditOrderComponent } from './Order_components/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -75,9 +77,12 @@ import { FeedbackComponent } from './feedback/feedback.component';
     AddOrderComponent,
    TablesManagementComponent,
    FullscreenBackgroundComponent,
+   ItemsComponent,
+   EditOrderComponent,
 
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
