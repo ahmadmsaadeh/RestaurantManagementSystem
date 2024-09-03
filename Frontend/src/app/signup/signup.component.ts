@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void { }
 
   submitSignup(registrationForm: NgForm) {
-    console.log('Form data before submit:', this.form); // Log form data to check its content
+    console.log('Form data before submit:', this.form);
     return this.SignupService.signUp(this.form).subscribe(
       data => this.handleResponse(data, registrationForm),
       error => this.handleError(error)
@@ -33,10 +33,10 @@ export class SignupComponent implements OnInit {
   }
 
   handleResponse(data: any, registrationForm: NgForm) {
-    alert('Registration Success! Please click here to log in.'); // Corrected string
+    alert('Registration Success! Please click here to log in.');
     registrationForm.resetForm();
-    window.location.href = '/login'; // Redirect to login page
-    console.log('Response data:', data); // Log data to check its structure
+    window.location.href = '/login';
+    console.log('Response data:', data);
     if (data.statusCode === 200) {
       registrationForm.resetForm();
     }
@@ -44,7 +44,8 @@ export class SignupComponent implements OnInit {
 
 
   handleError(error: any) {
-    console.error('Error response:', error); // Log the complete error response
+    console.error('Error response:', error);
+    alert(error.error.message);
     this.error = error.error.errors;
   }
 
