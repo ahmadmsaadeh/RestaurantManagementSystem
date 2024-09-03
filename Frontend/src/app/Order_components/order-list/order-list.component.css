@@ -7,12 +7,28 @@
     padding: 10px;
   }
   .table th, .table td {
-    font-size: 12px; /* Adjust font size for smaller screens */
+    font-size: 10px; /* Adjust font size for smaller screens */
   }
 }
 
+.action-buttons .btn.btn-sm.me-2 {
+  background-color: #E36262;
+  color: #fff;
+  font-size: 14px; /* Smaller font size */
+  /*padding: 4px 8px; !* Reduce padding to make the button smaller *!*/
+  border-radius: 10px; /* Optionally adjust border radius for a smaller look */
+}
+
+
+.action-buttons .btn.btn-sm.me-2 i {
+  padding-top: 2px;
+  font-size: 18px;
+}
+
+
+
 .btn {
-  background-color: #d62300; /* Initial background color */
+  background-color: #E36262; /* Initial background color */
   color: white; /* Initial text color */
   border: none; /* Remove default border */
   padding: 10px 20px; /* Add padding */
@@ -48,14 +64,15 @@
     padding: 0.5rem; /* Adjust padding for smaller screens */
   }
   .table {
+    width: 10%;
     font-size: 0.75rem; /* Adjust table font size */
   }
 }
 
- table {
-   width: 100%;
-   border-collapse: collapse;
- }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 th, td {
   text-align: center;
   vertical-align: middle;

@@ -614,7 +614,8 @@ class OrdersController extends Controller
             'status' => 'required|string|in:Open,Served,Closed',
         ]);
 
-
+        $order->status = $validatedData['status'];
+        $order->save();
 
         return response()->json(['Message' => 'Order status updated successfully'], 200);
 
@@ -1208,6 +1209,7 @@ class OrdersController extends Controller
         $formattedItems = $orderItems->map(function ($item) {
             return [
                 'item_name' => $item->menuItem->name_item, // Assuming MenuItem model has a 'name_item' attribute
+                'item_id' => $item->menuItem->menu_item_id ,
                 'price' => $item->menuItem->price,
                 'image' => $item->menuItem->image,
                 'quantity' => $item->quantity,

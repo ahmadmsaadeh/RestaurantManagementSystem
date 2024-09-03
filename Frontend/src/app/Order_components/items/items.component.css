@@ -1,0 +1,154 @@
+.order-items-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px; /* Space between filter buttons and search container */
+}
+
+.filter-buttons button {
+  padding: 12px 20px; /* Increase padding for bigger buttons */
+  background-color: #DE6262;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px; /* Increase font size */
+}
+
+.filter-buttons button:hover {
+  background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-end; /* Align search container to the right */
+  gap: 5px;
+}
+
+.search-container input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+  width: 200px; /* Adjust width */
+}
+
+.search-container button {
+  padding: 10px 20px; /* Adjust padding */
+  background-color: #DE6262;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-container button:hover {
+  background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.card-body .item-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-body .price, .quantity, .subtotal, .order-id, .reservation-id, .status {
+  margin: 5px 0;
+}
+
+.card-footer {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.card-footer .btn-details {
+  padding: 5px 15px;
+  background-color: #DE6262;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.card-footer .btn-details:hover {
+  background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.no-items {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+.status-select {
+  padding: 5px; /* Reduced padding for a smaller appearance */
+  border: 1px solid #ddd;
+  border-radius: 15px; /* Slightly smaller border radius */
+  background-color: #fff;
+  font-size: 16px; /* Smaller font size */
+  width: 120px; /* Adjust width to be more compact */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.status-select:hover,
+.status-select:focus {
+  border-color: #DE6262;
+  background-color: #f9f9f9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px; /* Space between search and filter buttons */
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px; /* Space between filter buttons and search container */
+  }
+
+  .filter-buttons button {
+    margin: 5px 0;
+  }
+
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

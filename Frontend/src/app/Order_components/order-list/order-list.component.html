@@ -47,15 +47,15 @@
             <!---->
             <div class="col-6 col-md-3 mb-2 mb-md-0">
               <div class="input-group" style="height: 45px;">
-              <input type="text" class="form-control" [(ngModel)]="searchUserId" placeholder="Search by User ID">
-              <button class="btn" (click)="applyUserIdFilter()"><i class="lni lni-search-alt"></i></button>
+                <input type="text" class="form-control" [(ngModel)]="searchUserId" placeholder="Search by User ID">
+                <button class="btn" (click)="applyUserIdFilter()"><i class="lni lni-search-alt"></i></button>
               </div>
             </div>
 
             <div class="col-6 col-md-3 mb-2 mb-md-0">
               <div class="input-group" style="height: 45px;">
                 <input type="text" class="form-control" [(ngModel)]="searchReservationId" placeholder="Search by Reservation ID">
-              <button class="btn " (click)="applyReservationIdFilter()"><i class="lni lni-search-alt"></i></button>
+                <button class="btn " (click)="applyReservationIdFilter()"><i class="lni lni-search-alt"></i></button>
               </div>
             </div>
 
@@ -105,15 +105,13 @@
                           <button class="btn btn-sm me-2" [routerLink]="['/side-with-content/order-detail', order.order_id]" title="View Order Details">
                             <i class="lni lni-eye"></i>
                           </button>
-                          <button class="btn btn-sm me-2" title="Edit Order">
+                          <button class="btn btn-sm me-2" [routerLink]="['/side-with-content/edit-order', order.order_id]" title="Edit Order">
                             <i class="lni lni-pencil-alt"></i>
                           </button>
-                          <button class="btn btn-sm" title="Delete Order">
+                          <button class="btn btn-sm me-2" (click)="deleteOrder(order.order_id)"  title="Delete Order">
                             <i class="lni lni-trash-can"></i>
                           </button>
-                          <button class="btn btn-sm" title="Print Order">
-                            <i class="lni lni-printer"></i>
-                          </button>
+
                         </div>
                       </td>
                     </tr>
