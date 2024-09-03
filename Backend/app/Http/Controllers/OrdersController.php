@@ -8,9 +8,11 @@ use App\Models\Order;
 use App\Models\Order_item;
 use App\Models\Reservation;
 use App\Models\User;
+use App\Notifications\NewOrderNotification;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -253,6 +255,8 @@ class OrdersController extends Controller
             }),
             'total' => $order->total,
         ];
+
+
 
         return response()->json([
             'message' => 'Order created successfully',
@@ -605,16 +609,18 @@ class OrdersController extends Controller
     {
 
         $request->headers->set('Accept', 'application/json');
-        $order=Order::find($orderId);
+        $order = Order::find($orderId);
 
-        if(!$order){
+        if (!$order) {
             return response()->json(['error' => 'Order not found'], 404);
         }
+
         $validatedData = $request->validate([
             'status' => 'required|string|in:Open,Served,Closed',
         ]);
 
-
+        $order->status = $validatedData['status'];
+        $order->save();
 
         return response()->json(['Message' => 'Order status updated successfully'], 200);
 
@@ -1208,6 +1214,7 @@ class OrdersController extends Controller
         $formattedItems = $orderItems->map(function ($item) {
             return [
                 'item_name' => $item->menuItem->name_item, // Assuming MenuItem model has a 'name_item' attribute
+                'menu_item_id'=> $item->menuItem->menu_item_id,
                 'price' => $item->menuItem->price,
                 'image' => $item->menuItem->image,
                 'quantity' => $item->quantity,
@@ -1534,6 +1541,16 @@ class OrdersController extends Controller
             'order_details' => $response,
         ], 200);
     } // delete
+
+
+    public function getAllOrderItems()
+    {
+        $orderItems = Order_item::with('order')->get();
+        return response()->json($orderItems);
+    }
+
+
+
 
     private function calculateSubtotal(float $price, int $quantity): float
     {

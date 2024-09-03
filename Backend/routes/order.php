@@ -27,7 +27,6 @@ Route::get('/orders/filter', [OrdersController::class, 'getFilteredOrders']);
 Route::get('/orders/items/status/{status}', [OrdersController::class, 'getOrderItemsByStatus']);
 Route::get('/orders/{orderId}/items', [OrdersController::class, 'getOrderItems']);
 
-
 Route::delete('/orders/{orderId}', [OrdersController::class, 'deleteOrder']);
 Route::delete('/orders/{orderId}/items/{itemId}', [OrdersController::class, 'removeMenuItemFromOrder']);
 

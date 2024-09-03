@@ -24,6 +24,10 @@ import {RoleslistComponent} from "./roleslist/roleslist.component";
 
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
+
+import {ItemsComponent} from "./Order_components/items/items.component";
+import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
+
 import { FeedbackComponent } from './FeedbackComponents/feedback/feedback.component';
 
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
@@ -51,6 +55,9 @@ const routes: Routes = [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
       { path: 'new-order', component: AddOrderComponent },
+      { path: 'orders-items', component: ItemsComponent },
+      { path: 'edit-order/:orderId', component: EditOrderComponent },
+
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
@@ -71,6 +78,7 @@ const routes: Routes = [
       { path: 'users-list', component: UserlistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
+
       { path: 'profile', component: ProfileComponent },
 
       { path: 'yearly-sales', component: YearlySalesComponent },
