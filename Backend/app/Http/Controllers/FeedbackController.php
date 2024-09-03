@@ -24,37 +24,53 @@ use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
-    /**
-     * @OA\Get(
-     *     path="/api/feedbacks",
-     *     summary="Get list of feedbacks",
-     *     tags={"Feedbacks"},
-     *     @OA\Response(
-     *         response=200,
-     *         description="Successful operation",
-     *     )
-     * )
-     */
-    public function getAllFeedback()
-    {
-        return Feedback::all();
-    }
+/**
+ * @OA\Get(
+ *     path="/api/feedbacks",
+ *     summary="Get list of all feedbacks with customer and menu item details",
+ *     description="Fetches all feedback entries with related customer username and menu item name. The customer username and menu item name are included if available.",
+ *     tags={"Feedbacks"},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(
+ *                 @OA\Property(property="feedback_id", type="integer", example=1),
+ *                 @OA\Property(property="order_id", type="integer", example=101),
+ *                 @OA\Property(property="customer_name", type="string", example="John Doe"),
+ *                 @OA\Property(property="menu_item_name", type="string", example="Cheeseburger"),
+ *                 @OA\Property(property="rating", type="integer", example=5),
+ *                 @OA\Property(property="comments", type="string", example="Delicious!"),
+ *                 @OA\Property(property="date_submitted", type="string", format="date-time", example="2024-09-01 12:00:00")
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="Internal server error"
+ *     )
+ * )
+ */
+public function getAllFeedback()
+{
+    $feedbacks = Feedback::with(['customer', 'menuItem'])
+        ->get()
+        ->map(function ($feedback) {
+            return [
+                'feedback_id' => $feedback->feedback_id,
+                'order_id' => $feedback->order_id,
+                'customer_name' => optional($feedback->customer)->username, // Fetching username from related User model
+                'menu_item_name' => optional($feedback->menuItem)->name_item, // Fetching item name from related MenuItem model
+                'rating' => $feedback->rating,
+                'comments' => $feedback->comments,
+                'date_submitted' => $feedback->date_submitted,
+            ];
+        });
 
-    /**
-     * @OA\Post(
-     *     path="/api/feedbacks",
-     *     summary="Create a new feedback",
-     *     tags={"Feedbacks"},
-     *     @OA\RequestBody(
-     *         required=true,
-     *         @OA\JsonContent(ref="#/components/schemas/Feedback")
-     *     ),
-     *     @OA\Response(
-     *         response=201,
-     *         description="Feedback created successfully",
-     *     )
-     * )
-     */
+    return response()->json($feedbacks);
+}
+
     public function addFeedback(Request $request)
     {
         $feedback = Feedback::create($request->all());
@@ -186,16 +202,16 @@ class FeedbackController extends Controller
  */
 public function getItemFeedback($menu_item_id)
 {
-    // Fetch all feedbacks for the menu item
+
     $feedbacks = Feedback::where('menu_item_id', $menu_item_id)->get();
 
-    // Calculate the average rating
+
     $averageRating = $feedbacks->avg('rating');
 
-    // Return the average rating and the feedback comments
+
     return response()->json([
         'average_rating' => $averageRating,
-        'comments' => $feedbacks->pluck('comments') // Only return comments
+        'comments' => $feedbacks->pluck('comments')
     ]);
 }
 

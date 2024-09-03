@@ -49,6 +49,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
 
 import { UserReserveComponent } from './user-reserve/user-reserve.component';
+import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { UserReserveComponent } from './user-reserve/user-reserve.component';
    ReportsComponent,
 
    UserReserveComponent,
+     ShowFeedbackComponent,
 
 
   ],

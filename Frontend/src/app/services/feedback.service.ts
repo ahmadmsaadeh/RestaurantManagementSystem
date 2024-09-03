@@ -25,4 +25,7 @@ export class FeedbackService {
   getItemFeedback(menuItemId: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/feedbacks/item/${menuItemId}`);
   }
+  getFeedbacks(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/feedbacks`);
+  }
 }
