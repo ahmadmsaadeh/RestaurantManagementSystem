@@ -1,7 +1,6 @@
 // app.component.ts
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "./LoginService";
-
+import {LoginService} from "./login/service/LoginService";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

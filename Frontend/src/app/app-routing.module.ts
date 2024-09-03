@@ -61,6 +61,7 @@ const routes: Routes = [
       { path: 'monthly-sales', component: MonthlySalesComponent},
       { path: 'yearly-sales', component: YearlySalesComponent},
       { path: 'roles-list', component: RoleslistComponent},
+      { path: 'users-list', component: RoleslistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
 
