@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {UserlistService} from "../userlist/service/userlist.service";
 import {LoginService} from "../login/service/LoginService";
+import {FormsModule} from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    NgIf
+  ],
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {

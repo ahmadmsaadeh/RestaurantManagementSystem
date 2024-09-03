@@ -30,6 +30,8 @@ import { ReportsComponent } from './ReportsComponents/reports/reports.component'
 
 import {UserReserveComponent} from "./user-reserve/user-reserve.component";
 import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
+import {ProfileComponent} from "./profile/profile.component";
+import {UserlistComponent} from "./userlist/userlist.component";
 
 
 
@@ -61,9 +63,10 @@ const routes: Routes = [
       { path: 'monthly-sales', component: MonthlySalesComponent},
       { path: 'yearly-sales', component: YearlySalesComponent},
       { path: 'roles-list', component: RoleslistComponent},
-      { path: 'users-list', component: RoleslistComponent},
+      { path: 'users-list', component: UserlistComponent},
       { path: 'menu-item-orders', component: MenuItemOrdersComponent },
       { path: 'monthly-sales', component: MonthlySalesComponent },
+      { path: 'profile', component: ProfileComponent },
 
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },

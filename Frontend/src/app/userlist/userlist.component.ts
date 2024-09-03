@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {UserlistService} from "./service/userlist.service";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
+  standalone: true,
+  imports: [
+    FormsModule
+  ],
   styleUrls: ['./userlist.component.css']
 })
 export class UserlistComponent implements OnInit {
