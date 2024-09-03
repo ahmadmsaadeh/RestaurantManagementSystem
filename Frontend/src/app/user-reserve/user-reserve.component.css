@@ -8,10 +8,9 @@
 }
 
 .btn{
-  color: white;
-  background-color:#DE6262;
+  background-color: #FF8C76;
 }
 
 .btn:hover{
-  background-color: #bd1313;
+  transform: scale(1.1);
 }

@@ -1,3 +1,4 @@
+<app-fullscreen-background></app-fullscreen-background>
 <section id="AddTable">
   <form (ngSubmit)="onsubmit()">
     <div class="container-fluid mt-5">
@@ -12,7 +13,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-1"></div>
         <div class="col-md-6 d-flex justify-content-center">
-          <button type="submit" class="btn btn-secondary mt-3">Add New Table</button>
+          <button type="submit" class="btn mt-3">Add New Table</button>
         </div>
         <div class="col-md-3 col-sm-1"></div>
       </div>
@@ -28,7 +29,7 @@
           <div class="card-body">
             <h5 class="card-title">Table ID: {{ table.TableID }}</h5>
             <p class="card-text">Chairs: {{ table.NumberOfChairs }}</p>
-            <button class="btn btn-danger" (click)="deleteTable(table.TableID)">Delete Table</button>
+            <button id="cancel" class="btn btn-danger" (click)="deleteTable(table.TableID)">Delete Table</button>
           </div>
         </div>
       </div>
