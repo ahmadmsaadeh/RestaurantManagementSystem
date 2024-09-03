@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {UserlistService} from "./service/userlist.service";
 import {FormsModule} from "@angular/forms";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf,
+    NgForOf
   ],
   styleUrls: ['./userlist.component.css']
 })
