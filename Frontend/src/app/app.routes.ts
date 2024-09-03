@@ -4,10 +4,10 @@ import {SignupComponent} from "./signup/signup.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {MenuPageComponent} from "./menu-page/menu-page.component";
 
-import { MonthlySalesComponent } from './ReportsComponents/monthly-sales/monthly-sales.component';
-import { YearlySalesComponent } from './ReportsComponents/yearly-sales/yearly-sales.component';
-import { MenuItemOrdersComponent } from './ReportsComponents/menu-item-orders/menu-item-orders.component';
-import { FeedbackTrackingComponent } from './ReportsComponents/feedback-tracking/feedback-tracking.component';
+import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 
 
 export const routes: Routes = [

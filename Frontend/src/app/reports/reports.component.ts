@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
-import { ReportingService } from '../../services/reporting.service';
+import { ReportingService } from '../reporting.service';
 
 @Component({
   selector: 'app-reports',
