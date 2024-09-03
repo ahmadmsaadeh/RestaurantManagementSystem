@@ -102,7 +102,7 @@
         </ul>
       </li>
 
-      <li class="sidebar-item">
+      <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin'" >
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            data-bs-target="#reports" aria-expanded="false" aria-controls="reports">
           <i class="bi bi-bar-chart"></i>
@@ -140,10 +140,10 @@
           <span>Feedback</span> <!-- Updated text -->
         </a>
         <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
+          <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Customer'">
             <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Add Feedback</a>
           </li>
-          <li class="sidebar-item">
+          <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin'" >
             <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
           </li>
         </ul>

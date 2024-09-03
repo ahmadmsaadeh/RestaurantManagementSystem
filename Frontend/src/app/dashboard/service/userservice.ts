@@ -10,6 +10,7 @@ export class UserService {
     this.userType = type;
   }
   getUserType(): string {
+    console.log( this.userType)
     return this.userType;
   }
   setUseremail(type: string) {
