@@ -24,7 +24,7 @@ import {RoleslistComponent} from "./roleslist/roleslist.component";
 
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
-import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackComponent } from './FeedbackComponents/feedback/feedback.component';
 
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
 
@@ -34,6 +34,9 @@ import {ProfileComponent} from "./profile/profile.component";
 import {UserlistComponent} from "./userlist/userlist.component";
 
 import { EditlistComponent } from './editlist/editlist.component';
+
+import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
+
 
 const routes: Routes = [
 
@@ -73,7 +76,9 @@ const routes: Routes = [
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
       { path: 'reports', component: ReportsComponent},
+    
       { path: 'showFeedbacks', component:  ShowFeedbackComponent},
+      { path: 'update-delete-feedbacks', component:    UpdateDeleteFeedbackComponent},
     ]
   },
 
