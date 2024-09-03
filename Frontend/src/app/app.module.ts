@@ -49,7 +49,11 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
 
 import { UserReserveComponent } from './user-reserve/user-reserve.component';
+
+import { EditlistComponent } from './editlist/editlist.component';
+
 import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
+
 
 
 @NgModule({
@@ -83,9 +87,10 @@ import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-f
    FullscreenBackgroundComponent,
 
    ReportsComponent,
-
    UserReserveComponent,
+     EditlistComponent,
      ShowFeedbackComponent,
+
 
 
   ],

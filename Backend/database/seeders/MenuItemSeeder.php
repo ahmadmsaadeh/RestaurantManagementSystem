@@ -82,5 +82,14 @@ class MenuItemSeeder extends Seeder
             'image' => 'Ice Cream Sundaee.jpg',
             'category_id' => 3, // Desserts
         ]);
+
+        MenuItem::create([
+            'name_item' => 'Tiramisu',
+            'description' => 'Italian dessert made with coffee, mascarpone, and cocoa.',
+            'price' => 7.49,
+            'availability' => true,
+            'image' => 'Tiramisu.jpg',
+            'category_id' => 3, // Desserts
+        ]);
     }
 }
