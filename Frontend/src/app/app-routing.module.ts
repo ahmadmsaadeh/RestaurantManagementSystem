@@ -16,10 +16,10 @@ import {ReservationTableComponent} from "./reservation-table/reservation-table.c
 import {UserReservationComponent} from "./user-reservation/user-reservation.component";
 import {ReservationUserManagementComponent} from "./reservation-user-managment/reservation-user-management.component";
 
-import { MonthlySalesComponent } from './ReportsComponents/monthly-sales/monthly-sales.component';
-import { YearlySalesComponent } from './ReportsComponents/yearly-sales/yearly-sales.component';
-import { MenuItemOrdersComponent } from './ReportsComponents/menu-item-orders/menu-item-orders.component';
-import { FeedbackTrackingComponent } from './ReportsComponents/feedback-tracking/feedback-tracking.component';
+import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
 import {RoleslistComponent} from "./roleslist/roleslist.component";
 import {AppComponent} from "./app.component";
 
@@ -27,7 +27,7 @@ import {AddOrderComponent} from "./Order_components/add-order/add-order.componen
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
 import { FeedbackComponent } from './feedback/feedback.component';
 
-import { ReportsComponent } from './ReportsComponents/reports/reports.component';
+import { ReportsComponent } from './reports/reports.component';
 
 import {UserReserveComponent} from "./user-reserve/user-reserve.component";
 
