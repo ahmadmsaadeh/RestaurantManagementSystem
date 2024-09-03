@@ -1,32 +1,88 @@
 <!-- app.component.html -->
-<nav *ngIf="showNavbar" class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/menu">Menu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Chefs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact us</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <a class="btn btn-outline-success me-2" href="/login">LogIn</a>
-        <a class="btn btn-outline-success" href="/signup">SignUp</a>
-      </form>
+<div *ngIf="showNavbar" class="HomePage">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Home">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Chefs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contactUs">Contact us</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <a class="btn btn-outline-success me-2" href="/login">LogIn</a>
+          <a class="btn btn-outline-success" href="/signup">SignUp</a>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  <section id="Home">
+    <app-slider-home>
+    </app-slider-home>
+  </section>
+  <section id="menu">
+    <app-menu-page></app-menu-page>
+  </section>
+
+  <footer id="contactUs" class="bg-light py-4 text-dark">
+    <div class="container-fluid">
+      <div class="row m-5 pe-5 ps-5 pb-5">
+        <div class="col-md-3">
+          <h3 class="h4 mb-4">SOCIÉTÉ</h3>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">- Moodle Partner officiel</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Contact</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Presse</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Recrutements</h6></a>
+        </div>
+        <div class="col-md-3">
+          <h3 class="h4 mb-4">Solutions</h3>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Plateformes d'apprentissage</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Fonctionnalités</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Mask</h6></a>
+        </div>
+        <div class="col-md-3">
+          <h3 class="h4 mb-4">Offres</h3>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Académiques</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Organismes de formations</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Entreprise</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Formations Moodle</h6></a>
+        </div>
+        <div class="col-md-3">
+          <h3 class="h4 mb-4">PARTENAIRES</h3>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Intelliboard</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Moodle & Microsoft</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">MoodleRooms</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Classe virtuelle - Collaborate</h6></a>
+          <a href="#" class="text-decoration-none text-dark"><h6 class="h6 fw-light">Rosetta Stone</h6></a>
+        </div>
+      </div>
+      <div class="row text-end mt-5 me-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <h6 class="h6 fw-light text-nowrap">Copyright © 2018 E~something~. All rights reserved. Worldwide.</h6>
+        </div>
+        <h6 class="h6 fw-light text-nowrap">
+          <a href="#" class="text-decoration-none text-dark">Contact Us |</a>
+          <a href="#" class="text-decoration-none text-dark">Sitemap |</a>
+          <a href="#" class="text-decoration-none text-dark h6 fw-light text-nowrap">Legal disclaimer</a>
+        </h6>
+      </div>
+    </div>
+  </footer>
+</div>
+
 <router-outlet></router-outlet>
