@@ -1,10 +1,16 @@
-
-
 .modal-backdrop {
   filter: blur(5px);
 }
 
-
+.modal-header{
+  background-color: rgba(247, 241, 227, 0.5);
+}
+.modal-body{
+  background-color: rgba(247, 241, 227, 0.5);
+}
+.modal-footer{
+  background-color: rgba(247, 241, 227, 0.5);
+}
 
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -16,14 +22,18 @@
 }
 
 .card-body {
+  color: #8D6E63;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 40vh; /* Ensures the card content is vertically centered */
-  /*background: rgba(222, 98, 98, 0.80);*/
   border-radius: 5px;
+}
+
+.btn{
+  background-color: #FF8C76;
 }
 
 .btn:hover{
@@ -32,5 +42,5 @@
 
 #cancel{
   color: white;
-  /*background-color: #830707;*/
+  background-color: #d9534f;
 }
