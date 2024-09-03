@@ -33,7 +33,7 @@ import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-f
 import {ProfileComponent} from "./profile/profile.component";
 import {UserlistComponent} from "./userlist/userlist.component";
 
-
+import { EditlistComponent } from './editlist/editlist.component';
 
 const routes: Routes = [
 
@@ -51,6 +51,8 @@ const routes: Routes = [
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
+      { path: 'menu/editlist', component: EditlistComponent },
+
 
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
