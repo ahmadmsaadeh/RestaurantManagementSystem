@@ -24,8 +24,8 @@
           </li>
         </ul>
         <form class="d-flex">
-          <a class="btn btn-outline-success me-2" href="/login">LogIn</a>
-          <a class="btn btn-outline-success" href="/signup">SignUp</a>
+          <a href="#login"><button type="button" class="btn btn-outline-success me-2" (click)="toggleSection('login')">LogIn</button></a>
+          <a href="#signup"><button type="button" class="btn btn-outline-success" (click)="toggleSection('signup')">SignUp</button></a>
         </form>
       </div>
     </div>
@@ -40,6 +40,12 @@
 
   <section id="chefs">
     <app-chefs></app-chefs>
+  </section>
+  <section id="login" *ngIf="showLogin">
+    <app-login></app-login>
+  </section>
+  <section id="signup" *ngIf="!showLogin">
+    <app-signup></app-signup>
   </section>
   <footer id="contactUs" class="bg-light py-4 text-dark">
     <app-footer></app-footer>
