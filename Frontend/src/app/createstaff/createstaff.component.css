@@ -1,0 +1,36 @@
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+.signup-block{
+  background: #DE6262;
+  background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+  background: linear-gradient(to bottom, #FFB88C, #DE6262);
+  float:left;
+  width:100%;
+  padding : 50px 0;
+}
+.banner-sec{background: no-repeat left bottom; background-size:cover;border-radius: 0 10px 10px 0; padding:0;}
+.container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+.carousel-inner{border-radius:0 10px 10px 0;}
+.carousel-caption{text-align:left; left:5%;}
+.signup-sec{padding: 50px 30px; position:relative;}
+.signup-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+.signup-sec .copy-text i{color:#FEB58A;}
+.signup-sec .copy-text a{color:#E36262;}
+.signup-sec h2{margin-bottom:10px; font-weight:800; font-size:30px; color: #DE6262;}
+.signup-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-signup{background: #DE6262; color:#fff; font-weight:600;}
+.btn-signup-submit{background: #DE6262; color:#fff; font-weight:600;--bs-btn-active-border-color: #DE6262;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(30, 18, 18, 0.12);--bs-btn-border-color: #DE6262;--bs-btn-hover-border-color: #DE6262;}
+.banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
+.banner-text h2{color:#fff; font-weight:600;}
+.banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; margin-top:20px; border-radius:3px;}
+.banner-text p{color:#fff;}
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  max-height: 590px; /* Adjust as needed */
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .carousel-inner img {
+    max-height: 300px;}}
+

@@ -12,8 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class MenuEditComponent{
   form: FormGroup;
   categories = [
-    { id: 1, name: 'main' },
-    { id: 2, name: 'dessert' }
+    { id: 1, name: 'main' },  // main
+    { id: 2, name: 'dessert' }     // dessert
   ];
   selectedCategoryId: number | undefined;
   selectedFile: File | undefined;

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Feedback Table</h5>
+
+          <div class="row" *ngFor="let feedback of feedbacks; let i = index">
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 col-md-1">
+                      <strong>#{{ i + 1 }}</strong>
+                    </div>
+                    <div class="col-12 col-md-2">
+                      <strong>Customer Name:</strong> {{ feedback.customer_name }}
+                    </div>
+                    <div class="col-12 col-md-2">
+                      <strong>Menu Item:</strong>
+                      <ng-container *ngIf="feedback.menu_item_name; else wholeOrder">
+                        {{ feedback.menu_item_name }}
+                      </ng-container>
+                      <ng-template #wholeOrder>
+                        {{ feedback.order ? (feedback.order | json) : 'All the service' }}
+                      </ng-template>
+                    </div>
+                    <div class="col-12 col-md-2">
+                      <strong>Rating:</strong> {{ feedback.rating }}
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <strong>Comments:</strong> {{ feedback.comments }}
+                    </div>
+                    <div class="col-12 col-md-2">
+                      <strong>Date Submitted:</strong> {{ feedback.date_submitted | date }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

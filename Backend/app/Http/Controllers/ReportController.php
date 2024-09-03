@@ -113,8 +113,60 @@ class ReportController extends Controller
      */
     public function getFeedbackAverage()
     {
-        $feedbacks = Feedback::selectRaw('MONTH(date_submitted) as month, AVG(rating) as averageScore')
+        // Get all feedbacks
+        $feedbacks = Feedback::all();
+
+        // Classify feedbacks into categories
+        $classifiedFeedbacks = $feedbacks->map(function ($feedback) {
+            if ($feedback->rating >= 4) {
+                return 'Positive';
+            } elseif ($feedback->rating >= 2) {
+                return 'Neutral';
+            } else {
+                return 'Negative';
+            }
+        });
+
+        // Count occurrences of each category
+        $feedbackCounts = $classifiedFeedbacks->countBy();
+
+        // Convert to format suitable for the frontend
+        $result = $feedbackCounts->map(function ($count, $category) {
+            return [
+                'category' => $category,
+                'count' => $count
+            ];
+        })->values();
+
+        return response()->json($result);
+    }
+
+
+    /**
+     * Get Monthly Feedback Averages
+     *
+     * @OA\Get(
+     *     path="/api/reports/feedback-monthly",
+     *     summary="Get Monthly Feedback Averages",
+     *     tags={"Reports"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 @OA\Property(property="month", type="string"),
+     *                 @OA\Property(property="averageScore", type="number", format="float")
+     *             )
+     *         )
+     *     )
+     * )
+     */
+    public function getMonthlyFeedback()
+    {
+        $feedbacks = Feedback::selectRaw('DATE_FORMAT(date_submitted, "%Y-%m") as month, AVG(rating) as averageScore')
             ->groupBy('month')
+            ->orderBy('month')
             ->get();
         return response()->json($feedbacks);
     }

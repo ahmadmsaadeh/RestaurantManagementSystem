@@ -1,173 +1,151 @@
-
-<div class="wrapper">
-  <aside id="sidebar">
-    <div class="d-flex">
-      <button class="toggle-btn" type="button">
-        <i class="lni lni-grid-alt"></i>
-      </button>
-      <div class="sidebar-logo">
-        <a href="#"></a>
+<div *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff' || userService.getUserType() === 'Customer'">
+  <div class="wrapper">
+    <aside id="sidebar">
+      <div class="d-flex">
+        <button class="toggle-btn" type="button">
+          <i class="lni lni-grid-alt"></i>
+        </button>
+        <div class="sidebar-logo">
+          <a href="#"></a>
+        </div>
       </div>
-    </div>
 
-    <ul class="sidebar-nav">
+      <ul class="sidebar-nav">
 
-      <li class="sidebar-item">
-        <a href="" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#order" aria-expanded="false" aria-controls="order">
-          <i class="bi bi-menu-app"></i>
-          <span>Manage Roles and Users</span>
-        </a>
-        <ul id="roleslist" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/roles-list']" class="sidebar-link">Roles List</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/roles-list']" class="sidebar-link">Users List</a>
-          </li>
-        </ul>
-      </li>
+        <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#roleslist" aria-expanded="false" aria-controls="roleslist">
+            <i class="bi bi-menu-app"></i>
+            <span>Manage Roles and Users</span>
+          </a>
+          <ul id="roleslist" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/roles-list']" class="sidebar-link">Roles List</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/users-list']" class="sidebar-link">User List</a>
+            </li>
+          </ul>
+        </li>
 
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#order" aria-expanded="false" aria-controls="order">
-        <i class="bi bi-table"></i>
-          <span>Manage Orders</span>
-        </a>
-        <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">Orders List</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/orders-items']" class="sidebar-link">Orders' Items</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Create new order</a>
-          </li>
-        </ul>
-      </li>
+        <li class="sidebar-item">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#order" aria-expanded="false" aria-controls="order">
+            <i class="bi bi-table"></i>
+            <span>Manage Orders</span>
+          </a>
+          <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">Orders List</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/order-items']" class="sidebar-link">Orders' Items</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Create new order</a>
+            </li>
+          </ul>
+        </li>
 
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#reservation" aria-expanded="false" aria-controls="reservation">
-          <i class="bi bi-collection"></i>
-          <span>Manage Reservations</span>
-        </a>
-        <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/reservation']" class="sidebar-link">View Reservations</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/add-reservation']" class="sidebar-link">Add Reservation</a>
+        <li class="sidebar-item">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#reservation" aria-expanded="false" aria-controls="reservation">
+            <i class="bi bi-collection"></i>
+            <span>Manage Reservations</span>
+          </a>
+          <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+              <a [routerLink]="['/side-with-content/reservation']" class="sidebar-link">View Reservations</a>
+            </li>
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+              <a [routerLink]="['/side-with-content/add-reservation']" class="sidebar-link">Add Reservation</a>
+            </li>
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+              <a [routerLink]="['/side-with-content/tables-management']" class="sidebar-link">Manage Tables</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/view-reservations']" class="sidebar-link">View My Reservations</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/user-reserve']" class="sidebar-link">Reserve Now To Enjoy Our Food!</a>
+            </li>
+          </ul>
+        </li>
 
-          </li>
+        <li class="sidebar-item">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#menu" aria-expanded="false" aria-controls="menu">
+            <i class="bi bi-calendar2-check-fill"></i>
+            <span>Menu</span>
+          </a>
+          <ul id="menu" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item"  *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
+              <a [routerLink]="['/side-with-content/menu']" class="sidebar-link">Show menu</a>
+            </li>
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+              <a [routerLink]="['/side-with-content/menu/edit']" class="sidebar-link">Add Menu</a>
+            </li>
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+              <a [routerLink]="['/side-with-content/menu/editlist']" class="sidebar-link">Edit Menu List</a>
+            </li>
+          </ul>
+        </li>
 
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/tables-management']" class="sidebar-link">Manage Tables</a>
+        <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#reports" aria-expanded="false" aria-controls="reports">
+            <i class="bi bi-bar-chart"></i>
+            <span>Charts</span>
+          </a>
+          <ul id="reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/reports']" class="sidebar-link">Charts</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/monthly-sales']" class="sidebar-link">Monthly sales</a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
+            </li>
+          </ul>
+        </li>
 
-          </li>
-        </ul>
-      </li>
+        <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+            <i class="bi bi-chat-left-dots"></i>
+            <span>Feedback</span>
+          </a>
+          <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Add Feedback</a>
+            </li>
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+              <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
+            </li>
+          </ul>
+        </li>
 
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-          <i class="bi bi-calendar2-check-fill"></i>
-          <span>Menu</span>
-        </a>
-        <ul id="" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/menu']" class="sidebar-link">Show menu</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/menu/edit']" class="sidebar-link">Edit Menu</a>
-          </li>
-          <li class="sidebar-item">
-            <a href="#" class="sidebar-link">Register</a>
-          </li>
+        <li class="sidebar-item">
+          <a href="#" class="sidebar-link">
+            <i class="lni lni-cog"></i>
+            <span>Settings</span>
+          </a>
+        </li>
 
-        </ul>
-      </li>
-
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
-          <i class="bi bi-bar-chart"></i>
-          <span>Charts</span>
-        </a>
-        <ul id="Reports" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/feedback-tracking']" class="sidebar-link">Feedback tracking</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/menu-item-orders']" class="sidebar-link">Menu item orders counts</a>
-
-          </li>
-
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/monthly-sales']" class="sidebar-link">Monthly sales</a>
-
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/yearly-sales']" class="sidebar-link">Yearly sales</a>
-
-          </li>
-        </ul>
-      </li>
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
-          <i class="bi bi-chat-left-dots"></i> <!-- Updated icon -->
-          <span>Feedback</span> <!-- Updated text -->
-        </a>
-        <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Feedback</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#notification" aria-expanded="false" aria-controls="notification">
-          <i class="lni lni-popup"></i>
-          <span>Notifications</span>
-        </a>
-        <ul id="notification" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">New orders</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/order-items']" class="sidebar-link">Pending orders</a>
-          </li>
-          <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Status of items</a>
-          </li>
-        </ul>
-      </li>
-
-<!--      <li class="sidebar-item">-->
-<!--        <a href="#" class="sidebar-link">-->
-<!--          <i class="lni lni-popup"></i>-->
-<!--          <span>Notification</span>-->
-<!--        </a>-->
-<!--      </li>-->
-
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">
-          <i class="lni lni-cog"></i>
-          <span>Setting</span>
-        </a>
-      </li>
-
-      <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
-          <i class="lni lni-exit"></i>
-          <span>Logout</span>
-        </a>
-      </div>
-    </ul>
-
-  </aside>
-
+        <div class="sidebar-footer">
+          <a href="#" class="sidebar-link">
+            <i class="lni lni-exit"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </ul>
+    </aside>
+  </div>
 </div>

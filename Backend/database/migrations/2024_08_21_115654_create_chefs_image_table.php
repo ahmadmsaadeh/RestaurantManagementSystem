@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chefs_image', function (Blueprint $table) {
+        Schema::create('chefimages', function (Blueprint $table) {
             $table->id('chef_image_id');
             $table->string('chef_image_url');
             $table->foreignId('user_id')->constrained('users', 'user_id')->onDelete('cascade');
@@ -26,7 +26,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('chefs_image');
 
-        Schema::table('chefs_image', function (Blueprint $table) {
+        Schema::table('chefimages', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
         });
     }
