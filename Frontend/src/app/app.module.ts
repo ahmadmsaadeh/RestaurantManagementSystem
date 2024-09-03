@@ -44,8 +44,10 @@ import { AddOrderComponent } from './Order_components/add-order/add-order.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
 import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
+
 import { ItemsComponent } from './Order_components/items/items.component';
 import { EditOrderComponent } from './Order_components/edit-order/edit-order.component';
+
 import { FeedbackComponent } from './FeedbackComponents/feedback/feedback.component';
 
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
@@ -93,8 +95,6 @@ import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delet
     AddOrderComponent,
    TablesManagementComponent,
    FullscreenBackgroundComponent,
-   ItemsComponent,
-   EditOrderComponent,
 
    ReportsComponent,
    UserReserveComponent,

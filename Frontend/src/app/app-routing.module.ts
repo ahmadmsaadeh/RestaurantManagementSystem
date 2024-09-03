@@ -54,9 +54,6 @@ const routes: Routes = [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
       { path: 'new-order', component: AddOrderComponent },
-      { path: 'orders-items', component: ItemsComponent },
-      { path: 'edit-order/:orderId', component: EditOrderComponent },
-
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
