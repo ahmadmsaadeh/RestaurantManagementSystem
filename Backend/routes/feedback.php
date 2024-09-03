@@ -13,6 +13,7 @@ use App\Http\Controllers\FeedbackController;
     Route::put('/feedbacks/{id}', [FeedbackController::class, 'updateFeedback']);
     Route::delete('/feedbacks/{id}', [FeedbackController::class, 'deleteFeedback']);
     Route::get('feedbacks/item/{menu_item_id}', [FeedbackController::class, 'getItemFeedback']);
+    Route::get('/feedbacks/user/{userId}', [FeedbackController::class, 'getFeedbacksByUser']);
 
 
     

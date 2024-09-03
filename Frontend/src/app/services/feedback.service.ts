@@ -28,4 +28,16 @@ export class FeedbackService {
   getFeedbacks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/feedbacks`);
   }
+  getFeedbacksByUser(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/feedbacks/user/${userId}`);
+  }
+
+
+  updateFeedback(id: number, feedback: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/feedbacks/${id}`, feedback);
+  }
+
+  deleteFeedback(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/feedbacks/${id}`);
+  }
 }
