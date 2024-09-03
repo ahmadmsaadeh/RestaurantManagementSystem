@@ -55,6 +55,7 @@ import { EditlistComponent } from './editlist/editlist.component';
 import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
 import { SliderHomeComponent } from './slider-home/slider-home.component';
 import {ChefsComponent} from "./chefs/chefs.component";
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -94,6 +95,7 @@ import {ChefsComponent} from "./chefs/chefs.component";
      ShowFeedbackComponent,
      SliderHomeComponent,
     ChefsComponent,
+    FooterComponent,
 
 
   ],
