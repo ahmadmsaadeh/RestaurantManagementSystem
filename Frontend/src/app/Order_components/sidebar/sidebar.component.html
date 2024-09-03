@@ -10,7 +10,9 @@
         </div>
       </div>
 
-      <ul class="sidebar-nav">
+      <ul class="sidebar-nav"  *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff' || userService.getUserType() === 'Customer'">
+
+
              <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
            aria-expanded="false">
