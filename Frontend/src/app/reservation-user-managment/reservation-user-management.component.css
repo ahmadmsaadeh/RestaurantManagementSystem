@@ -2,6 +2,16 @@
   filter: blur(5px);
 }
 
+.modal-header{
+  background-color: rgba(247, 241, 227, 0.5);
+}
+.modal-body{
+  background-color: rgba(247, 241, 227, 0.5);
+}
+.modal-footer{
+  background-color: rgba(247, 241, 227, 0.5);
+}
+
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -12,6 +22,7 @@
 }
 
 .card-body {
+  color: #8D6E63;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,10 +31,13 @@
   height: 40vh; /* Ensures the card content is vertically centered */
 }
 
-/*.btn{*/
-/*  color: white;*/
-/*  background-color: #885133;*/
-/*}*/
+.btn{
+  background-color: #FF8C76;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+}
 
 #cancel{
   color: white;

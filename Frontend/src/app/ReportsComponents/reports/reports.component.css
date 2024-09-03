@@ -1,0 +1,12 @@
+.chart-container {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .chart-container h4 {
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    color: #333;
+  }

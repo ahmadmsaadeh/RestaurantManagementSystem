@@ -102,8 +102,8 @@ export class ReservationService {
   }
 
   getUsername(UserID: any): Observable<string> {
-    return (this.http.get<any>(`${this.userApiUrl}${UserID}`)).pipe(
-      map( user =>user.username)
+    return this.http.get<any>(`${this.userApiUrl}${UserID}`).pipe(
+      map(response => response.user?.username || 'Unknown') // Access the username inside the user object
     );
   }
 

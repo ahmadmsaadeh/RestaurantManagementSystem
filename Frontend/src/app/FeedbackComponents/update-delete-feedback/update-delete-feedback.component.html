@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h5 class="mb-4 text-center">Your Feedbacks</h5>
+        <div class="row" *ngFor="let feedback of feedbacks; let i = index">
+          <div class="col-12 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-12 col-md-2">
+                    <strong>Customer Name:</strong> {{ feedback.customer_name }}
+                  </div>
+                  <div class="col-12 col-md-2">
+                    <strong>Menu Item:</strong> {{ feedback.menu_item_name || feedback.order | json }}
+                  </div>
+                  <div class="col-12 col-md-2">
+                    <strong>Rating:</strong> {{ feedback.rating }}
+                  </div>
+                  <div class="col-12 col-md-3">
+                    <strong>Comments:</strong> {{ feedback.comments }}
+                  </div>
+                  <div class="col-12 col-md-2">
+                    <strong>Date Submitted:</strong> {{ feedback.date_submitted | date }}
+                  </div>
+                  <div class="col-12 col-md-1 d-flex justify-content-between">
+                    <button (click)="openUpdateModal(feedback, content)" class="btn btn-sm" style="background-color: #DE6262; color: white;">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button (click)="deleteFeedback(feedback.feedback_id)" class="btn btn-sm" style="background-color: #DE6262; color: white;">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Update Feedback</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <input [(ngModel)]="selectedFeedback.rating" name="rating" type="number" class="form-control" min="1" max="5">
+            <div *ngIf="selectedFeedback.rating < 1 || selectedFeedback.rating > 5" class="text-danger">
+              Rating must be between 1 and 5.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="comments">Comments</label>
+            <textarea [(ngModel)]="selectedFeedback.comments" name="comments" class="form-control"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="modal.close('save')" style="background-color: #DE6262; color: white;">Save changes</button>
+      </div>
+    </ng-template>
+  </div>
+  
