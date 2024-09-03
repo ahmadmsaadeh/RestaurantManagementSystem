@@ -6,7 +6,7 @@
   height: 100%;
   z-index: -1; /* Place the image behind the content */
   overflow: hidden; /* Ensure the image covers the whole screen */
-  background: #ffffff;
+  background: #F7F1E3;
   /*background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  !* Chrome 10-25, Safari 5.1-6 *!*/
   /*background: linear-gradient(to bottom, #FFB88C, #DE6262); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 

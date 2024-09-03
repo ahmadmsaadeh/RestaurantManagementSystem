@@ -24,7 +24,6 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('monthlySalesChart')!;
       const myChart = echarts.init(chartDom);
       const option = {
-       
         tooltip: {
           trigger: 'axis'
         },
@@ -50,7 +49,6 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('yearlySalesChart')!;
       const myChart = echarts.init(chartDom);
       const option = {
-       
         tooltip: {
           trigger: 'axis'
         },
@@ -76,7 +74,6 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('pieChartE')!;
       const myChart = echarts.init(chartDom);
       const option = {
-      
         tooltip: {
           trigger: 'item'
         },
@@ -96,13 +93,32 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('barChartE')!;
       const myChart = echarts.init(chartDom);
       const option = {
-     
         tooltip: {
           trigger: 'axis'
         },
         xAxis: {
           type: 'category',
-          data: data.map(d => d.name)
+          data: data.map(d => d.name),
+          axisLabel: {
+            color: '#333',              // Text color
+            fontSize: 12,               // Font size
+            fontFamily: 'Arial',        // Font family
+            rotate: 45,                 // Rotate labels to avoid overlap
+            margin: 15,                 // Space between labels and axis
+            formatter: (value: string) => value.length > 10 ? value.substring(0, 10) + '...' : value // Truncate long labels
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#000',            // Axis line color
+              width: 2                  // Axis line width
+            }
+          },
+          axisTick: {
+            lineStyle: {
+              color: '#000',            // Tick line color
+              width: 2                  // Tick line width
+            }
+          }
         },
         yAxis: {
           type: 'value'
@@ -121,13 +137,32 @@ export class ReportsComponent implements OnInit {
       const chartDom = document.getElementById('monthlyFeedbackChart')!;
       const myChart = echarts.init(chartDom);
       const option = {
-     
         tooltip: {
           trigger: 'axis'
         },
         xAxis: {
           type: 'category',
-          data: data.map((d: { month: any; }) => d.month)
+          data: data.map((d: { month: any; }) => d.month),
+          axisLabel: {
+            color: '#333',
+            fontSize: 12,
+            fontFamily: 'Arial',
+            rotate: 45,
+            margin: 15,
+            formatter: (value: string) => value.length > 10 ? value.substring(0, 10) + '...' : value
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#000',
+              width: 2
+            }
+          },
+          axisTick: {
+            lineStyle: {
+              color: '#000',
+              width: 2
+            }
+          }
         },
         yAxis: {
           type: 'value'
