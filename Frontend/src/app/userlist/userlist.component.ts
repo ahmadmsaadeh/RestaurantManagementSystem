@@ -59,7 +59,8 @@ export class UserlistComponent implements OnInit {
         user.email.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         user.firstname.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         user.lastname.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        user.phonenumber.includes(this.searchQuery)
+        user.phonenumber.includes(this.searchQuery) ||
+        this.role_name.includes(this.searchQuery.toLowerCase())
       );
     } else {
       this.filteredUsers = this.users;
