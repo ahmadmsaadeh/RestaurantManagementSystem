@@ -7,8 +7,8 @@
 
     <!-- Order Details Section -->
     <div class="col-md-5 col-12">
-      <div class="order-details p-3">
-        <!-- Reservation ID and User ID Fields Side by Side -->
+      <div class="order-details p-3 ">
+        <!-- Reservation ID and Table ID Fields Side by Side -->
         <div class="row mb-3">
           <div class="col-md-6">
             <div class="form-group">
@@ -21,9 +21,19 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="userId">User ID</label>
-              <input type="text" id="userId" class="form-control" [value]="fetchedUserId" readonly>
+              <label for="tableId">Select Table</label>
+              <select id="tableId" class="form-select" [(ngModel)]="selectedTableId" name="tableId">
+                <option *ngFor="let tableid of tableIds" [value]="tableid">{{ tableid }}</option>
+              </select>
             </div>
+          </div>
+        </div>
+
+        <!-- Fetched User ID Display -->
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" class="form-control" [value]="fetchedUserId" readonly>
           </div>
         </div>
 
@@ -46,7 +56,7 @@
               <td>
                 <div class="input-group quantity-selector">
                   <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity(i)">-</button>
-                  <input type="number" class="form-control text-center" [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange(i, $event)" />
+                  <input type="number" class="form-control text-center" [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange(i, $event)"   />
                   <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity(i)">+</button>
                 </div>
               </td>

@@ -18,7 +18,7 @@ export class AddOrderComponent implements OnInit{
 
   constructor(
     private reservationService: ReservationService,
-    private ordersService: OrdersService,
+    private ordersService: OrdersService
   ) {}
 
   ngOnInit(): void {
