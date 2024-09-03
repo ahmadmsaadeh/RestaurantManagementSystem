@@ -10,9 +10,24 @@
         </div>
       </div>
 
-      <ul class="sidebar-nav">
+      <ul class="sidebar-nav"  *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff' || userService.getUserType() === 'Customer'">
 
-        <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+
+             <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           aria-expanded="false">
+          <i class="lni lni-user"></i>
+          <span>{{Useeremail}}</span>
+        </a>
+        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/profile']" class="sidebar-link">User profile</a>
+          </li>
+        </ul>
+      </li>
+
+
+        <li class="sidebar-item "  *ngIf="userService.getUserType() === 'Admin'">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
              data-bs-target="#roleslist" aria-expanded="false" aria-controls="roleslist">
             <i class="bi bi-menu-app"></i>
@@ -54,23 +69,31 @@
             <span>Manage Reservations</span>
           </a>
           <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management' || this.userService.getUserType() === 'Kitchen Staff'">
               <a [routerLink]="['/side-with-content/reservation']" class="sidebar-link">View Reservations</a>
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management' || this.userService.getUserType() === 'Kitchen Staff'">
               <a [routerLink]="['/side-with-content/add-reservation']" class="sidebar-link">Add Reservation</a>
+
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management' || this.userService.getUserType() === 'Kitchen Staff'">
               <a [routerLink]="['/side-with-content/tables-management']" class="sidebar-link">Manage Tables</a>
+
             </li>
+
             <li class="sidebar-item">
               <a [routerLink]="['/side-with-content/view-reservations']" class="sidebar-link">View My Reservations</a>
+
             </li>
+
             <li class="sidebar-item">
               <a [routerLink]="['/side-with-content/user-reserve']" class="sidebar-link">Reserve Now To Enjoy Our Food!</a>
+
             </li>
           </ul>
         </li>
+
 
         <li class="sidebar-item">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
@@ -79,14 +102,19 @@
             <span>Menu</span>
           </a>
           <ul id="menu" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item"  *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
+            <li class="sidebar-item"  *ngIf="this.userService.getUserType() === 'Customer'  || this.userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/menu']" class="sidebar-link">Show menu</a>
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+            <li class="sidebar-item"  *ngIf="this.userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/menu/edit']" class="sidebar-link">Add Menu</a>
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
-              <a [routerLink]="['/side-with-content/menu/editlist']" class="sidebar-link">Edit Menu List</a>
+
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin'">
+              <a [routerLink]="['/side-with-content/menu/editlist']" class="sidebar-link">Edit Menu List</a> <!-- New link -->
+
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Register</a>
             </li>
           </ul>
         </li>
@@ -116,27 +144,23 @@
           </ul>
         </li>
 
-        <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
+        <li class="sidebar-item">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
              data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
             <i class="bi bi-chat-left-dots"></i>
             <span>Feedback</span>
           </a>
           <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item">
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Add Feedback</a>
             </li>
             <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
             </li>
+          <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'|| userService.getUserType() === 'Admin'">
+            <a [routerLink]="['/side-with-content/update-delete-feedbacks']" class="sidebar-link">Update or delete feedbacks</a>
+          </li>
           </ul>
-        </li>
-
-        <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
-            <i class="lni lni-cog"></i>
-            <span>Settings</span>
-          </a>
         </li>
 
         <div class="sidebar-footer">
@@ -145,7 +169,9 @@
             <span>Logout</span>
           </a>
         </div>
+
       </ul>
+
     </aside>
   </div>
 </div>

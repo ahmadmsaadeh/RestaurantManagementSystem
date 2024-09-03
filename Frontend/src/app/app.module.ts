@@ -44,11 +44,6 @@ import { AddOrderComponent } from './Order_components/add-order/add-order.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablesManagementComponent } from './tables-managment/tables-management.component';
 import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
-<<<<<<< Frontend/src/app/app.module.ts
-import { FeedbackComponent } from './feedback/feedback.component';
-import { ItemsComponent } from './Order_components/items/items.component';
-import { EditOrderComponent } from './Order_components/edit-order/edit-order.component';
-=======
 import { FeedbackComponent } from './FeedbackComponents/feedback/feedback.component';
 
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
@@ -66,7 +61,6 @@ import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delet
 
 
 
->>>>>>> Frontend/src/app/app.module.ts
 
 @NgModule({
   declarations: [
@@ -97,8 +91,6 @@ import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delet
     AddOrderComponent,
    TablesManagementComponent,
    FullscreenBackgroundComponent,
-   ItemsComponent,
-   EditOrderComponent,
 
    ReportsComponent,
    UserReserveComponent,
@@ -114,30 +106,28 @@ import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delet
 
 
   ],
-
-  imports: [
-
-      BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatIconModule,
-    SidebarComponent,
-    MatSelectModule,
-    MatTableModule,
-    ReactiveFormsModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatIconModule,
+        SidebarComponent,
+        MatSelectModule,
+        MatTableModule,
+        ReactiveFormsModule,
         NgOptimizedImage
 
     ],

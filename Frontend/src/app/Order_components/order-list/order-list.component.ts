@@ -4,9 +4,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {FormsModule} from "@angular/forms";
 import {CurrencyPipe, NgForOf} from "@angular/common";
 import {RouterLink} from "@angular/router";
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-import autoTable from "jspdf-autotable";
+
+
 
 @Component({
   selector: 'app-order-list',
@@ -134,52 +133,6 @@ export class OrderListComponent implements OnInit{
     this.getOrders(); // Reset filters and fetch all orders
   }
 
-  deleteOrder(orderId: string): void {
-    this.ordersService.deleteOrder(orderId).subscribe(
-      () => {
-        // Remove the deleted order from the local list
-        this.orders = this.orders.filter((order: any) => order.order_id !== orderId);
-        this.showNotification('Order deleted successfully');
-      },
-      error => {
-        this.showNotification('Failed to delete order');
-      }
-    );
-  }
-
-  generatePDF() {
-    // Create a new PDF document.
-    const doc = new jsPDF();
-
-    // Add content to the PDF.
-    doc.setFontSize(16);
-    doc.text('My Angular PDF Generator', 20, 10);
-    doc.setFontSize(12);
-    doc.text(
-      'This is a comprehensive guide on generating PDFs with Angular.',
-      10,
-      20,
-    );
-
-    // Create a table using `jspdf-autotable`.
-    const headers = [['Name', 'Email', 'Country']];
-    const data = [
-      ['David', 'david@example.com', 'Sweden'],
-      ['Castille', 'castille@example.com', 'Spain'],
-      // ...
-    ];
-
-    autoTable(doc, {
-      head: headers,
-      body: data,
-      startY: 30, // Adjust the `startY` position as needed.
-    });
-
-    // Save the PDF.
-    doc.save('table.pdf');
-  }
-
-
   showNotification(message: string): void {
     this.snackBar.open(message, 'Close', {
       duration: 4000, // Duration in milliseconds
@@ -188,6 +141,5 @@ export class OrderListComponent implements OnInit{
   ngOnInit(): void {
     this.getOrders();
   }
-
 
 }

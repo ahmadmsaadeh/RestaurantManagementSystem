@@ -37,31 +37,4 @@ export class OrdersService {
   createOrder(orderData: any): Observable<any> {
     return this.http.post<any>(`http://localhost:8000/api/orders/createOrder`,orderData);
   }
-  deleteOrder(orderId: string): Observable<any>{
-    return this.http.delete<any>(`http://localhost:8000/api/orders/${orderId}`);
-
-  }
-
-  getOrderItemsByStatus(status: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:8000/api/orders/items/status/${status}`);
-  }
-
-  getOrderItemsByOrderId(orderId: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:8000/api/orders/${orderId}/items`);
-  }
-
-  addMenuItemToOrder(orderId: string, itemData: { menu_item_id: number; quantity: number }): Observable<any> {
-    return this.http.put<any>(`http://localhost:8000/api/orders/${orderId}/addItem`, itemData);
-  }
-
-  removeMenuItemFromOrder(orderId: string, itemId: string): Observable<any> {
-    return this.http.delete<any>(`http://localhost:8000/api/orders/${orderId}/items/${itemId}`);
-  }
-  updateOrderStatus(orderId: string, status: string): Observable<any> {
-    return this.http.patch<any>(`http://localhost:8000/api/orders/${orderId}/status`, {status});
-  }
-
-  updateOrderItemStatus(orderId: string, itemId: string, status: string): Observable<any> {
-    return this.http.patch<any>(`http://localhost:8000/api/orders/${orderId}/items/${itemId}/status`, { status });
-  }
 }
