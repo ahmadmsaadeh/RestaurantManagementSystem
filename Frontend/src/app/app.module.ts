@@ -14,7 +14,7 @@ import { MenuItemOrdersComponent } from './ReportsComponents/menu-item-orders/me
 import { FeedbackTrackingComponent } from './ReportsComponents/feedback-tracking/feedback-tracking.component';
 import { RoleslistComponent } from './roleslist/roleslist.component';
 import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import { HeaderComponent } from './Order_components/header/header.component';
 import { OrderListComponent } from './Order_components/order-list/order-list.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
@@ -53,6 +53,7 @@ import { UserReserveComponent } from './user-reserve/user-reserve.component';
 import { EditlistComponent } from './editlist/editlist.component';
 
 import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
+import { SliderHomeComponent } from './slider-home/slider-home.component';
 
 
 
@@ -90,32 +91,34 @@ import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-f
    UserReserveComponent,
      EditlistComponent,
      ShowFeedbackComponent,
+     SliderHomeComponent,
 
 
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatIconModule,
-    SidebarComponent,
-    MatSelectModule,
-    MatTableModule,
-    ReactiveFormsModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatIconModule,
+        SidebarComponent,
+        MatSelectModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        NgOptimizedImage
 
     ],
   providers: [OrdersService],
