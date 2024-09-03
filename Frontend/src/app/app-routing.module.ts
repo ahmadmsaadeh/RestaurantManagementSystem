@@ -21,15 +21,12 @@ import { YearlySalesComponent } from './ReportsComponents/yearly-sales/yearly-sa
 import { MenuItemOrdersComponent } from './ReportsComponents/menu-item-orders/menu-item-orders.component';
 import { FeedbackTrackingComponent } from './ReportsComponents/feedback-tracking/feedback-tracking.component';
 import {RoleslistComponent} from "./roleslist/roleslist.component";
-import {AppComponent} from "./app.component";
 
 import {AddOrderComponent} from "./Order_components/add-order/add-order.component";
 import {TablesManagementComponent} from "./tables-managment/tables-management.component";
 import { FeedbackComponent } from './FeedbackComponents/feedback/feedback.component';
 
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
-import {ItemsComponent} from "./Order_components/items/items.component";
-import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
 
 import {UserReserveComponent} from "./user-reserve/user-reserve.component";
 import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
@@ -76,11 +73,10 @@ const routes: Routes = [
       { path: 'monthly-sales', component: MonthlySalesComponent },
       { path: 'profile', component: ProfileComponent },
 
-
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
       { path: 'reports', component: ReportsComponent},
-
+    
       { path: 'showFeedbacks', component:  ShowFeedbackComponent},
       { path: 'update-delete-feedbacks', component:    UpdateDeleteFeedbackComponent},
     ]
