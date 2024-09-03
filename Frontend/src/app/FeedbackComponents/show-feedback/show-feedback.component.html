@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Feedback Table</h5>
+
+          <!-- Responsive Feedback Table -->
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Customer Name</th>
+                  <th>Menu Item</th>
+                  <th>Rating</th>
+                  <th>Comments</th>
+                  <th>Date Submitted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let feedback of feedbacks; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ feedback.customer_name }}</td>
+                  <td>
+                    <!-- Display the menu item name if it's available, otherwise display the whole order -->
+                    <ng-container *ngIf="feedback.menu_item_name; else wholeOrder">
+                      {{ feedback.menu_item_name }}
+                    </ng-container>
+                    <ng-template #wholeOrder>
+                      <!-- Adjust this part to fit your order structure -->
+                      {{ feedback.order ? (feedback.order | json) : 'All the serivce' }}
+                    </ng-template>
+                  </td>
+                  <td>{{ feedback.rating }}</td>
+                  <td>{{ feedback.comments }}</td>
+                  <td>{{ feedback.date_submitted | date }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,6 +29,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ReportsComponent } from './ReportsComponents/reports/reports.component';
 
 import {UserReserveComponent} from "./user-reserve/user-reserve.component";
+import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
 
 
 
@@ -66,6 +67,7 @@ const routes: Routes = [
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
       { path: 'reports', component: ReportsComponent},
+      { path: 'showFeedbacks', component:  ShowFeedbackComponent},
     ]
   },
 

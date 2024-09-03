@@ -185,33 +185,56 @@
                 "tags": [
                     "Feedbacks"
                 ],
-                "summary": "Get list of feedbacks",
+                "summary": "Get list of all feedbacks with customer and menu item details",
+                "description": "Fetches all feedback entries with related customer username and menu item name. The customer username and menu item name are included if available.",
                 "operationId": "009ecd6bf889a3389c53dbaf0d26e11b",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Feedbacks"
-                ],
-                "summary": "Create a new feedback",
-                "operationId": "09015a7adb8b797713242561011a7d9a",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Feedback"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "feedback_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "order_id": {
+                                                "type": "integer",
+                                                "example": 101
+                                            },
+                                            "customer_name": {
+                                                "type": "string",
+                                                "example": "John Doe"
+                                            },
+                                            "menu_item_name": {
+                                                "type": "string",
+                                                "example": "Cheeseburger"
+                                            },
+                                            "rating": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "comments": {
+                                                "type": "string",
+                                                "example": "Delicious!"
+                                            },
+                                            "date_submitted": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2024-09-01 12:00:00"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
                             }
                         }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Feedback created successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
                     }
                 }
             }
