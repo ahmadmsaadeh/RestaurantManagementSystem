@@ -87,13 +87,13 @@
             <span>Menu</span>
           </a>
           <ul id="menu" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item">
+            <li class="sidebar-item"  *ngIf="this.userService.getUserType() === 'Customer'  || this.userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/menu']" class="sidebar-link">Show menu</a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item"  *ngIf="this.userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/menu/edit']" class="sidebar-link">Add Menu</a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/menu/editlist']" class="sidebar-link">Edit Menu List</a> <!-- New link -->
             </li>
             <li class="sidebar-item">
