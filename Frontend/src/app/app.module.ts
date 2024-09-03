@@ -58,6 +58,8 @@ import {ChefsComponent} from "./chefs/chefs.component";
 import { FooterComponent } from './footer/footer.component';
 
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
+import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
+import {ItemsComponent} from "./Order_components/items/items.component";
 
 
 
@@ -82,13 +84,13 @@ import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delet
     ReservationUserManagementComponent,
     MenuEditComponent,
 
+
     TablesManagementComponent,
     FeedbackComponent,
 
 
     AddOrderComponent,
 
-    AddOrderComponent,
    TablesManagementComponent,
    FullscreenBackgroundComponent,
 
@@ -105,32 +107,39 @@ import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delet
 
 
 
-  ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        CommonModule,
-        FormsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        MatSnackBarModule,
-        BrowserAnimationsModule,
-        MatDatepickerModule,
-        MatInputModule,
-        MatNativeDateModule,
-        MatButtonModule,
-        MatIconModule,
-        SidebarComponent,
-        MatSelectModule,
-        MatTableModule,
-        ReactiveFormsModule,
-        NgOptimizedImage
 
-    ],
+
+
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatIconModule,
+    SidebarComponent,
+    MatSelectModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    OrderListComponent,
+    OrderDetailsComponent,
+    EditOrderComponent,
+    ItemsComponent
+
+  ],
   providers: [OrdersService],
   bootstrap: [AppComponent]
 })

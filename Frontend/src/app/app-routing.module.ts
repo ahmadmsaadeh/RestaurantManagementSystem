@@ -36,6 +36,8 @@ import {UserlistComponent} from "./userlist/userlist.component";
 import { EditlistComponent } from './editlist/editlist.component';
 
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
+import {ItemsComponent} from "./Order_components/items/items.component";
+import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
 
 
 const routes: Routes = [
@@ -51,6 +53,9 @@ const routes: Routes = [
       { path: 'orders', component: OrderListComponent },
       { path: 'order-detail/:id', component: OrderDetailsComponent },
       { path: 'new-order', component: AddOrderComponent },
+      { path: 'order-items', component: ItemsComponent },
+      { path: 'edit-order/:id', component: EditOrderComponent },
+
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
@@ -76,7 +81,7 @@ const routes: Routes = [
       { path: 'yearly-sales', component: YearlySalesComponent },
       { path: 'feedback', component: FeedbackComponent },
       { path: 'reports', component: ReportsComponent},
-    
+
       { path: 'showFeedbacks', component:  ShowFeedbackComponent},
       { path: 'update-delete-feedbacks', component:    UpdateDeleteFeedbackComponent},
     ]

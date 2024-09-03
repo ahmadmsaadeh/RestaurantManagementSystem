@@ -1,0 +1,50 @@
+.order-details, .billing-info {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  height: 100%;
+}
+
+.order-text, .billing-text, .item-text {
+  font-size: 1.2rem;
+}
+
+.order-items-title {
+  font-size: 1.3rem;
+}
+
+.badge {
+  margin: 0.25rem;
+}
+
+.bi-pencil-square {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  padding: 1rem;
+}
+
+.dropdown-menu .form-select {
+  font-size: 1rem;
+}
+
+.dropdown-menu .btn {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+.badge{
+  background-color: #E36262;
+}
+.card-header{
+  background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: black;
+}
+.btn{
+  background-color: #FFB88CFF;
+}
+.order-details, .billing-info{
+  color: black;
+}

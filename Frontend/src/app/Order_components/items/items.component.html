@@ -1,0 +1,44 @@
+<div class="order-items-container">
+  <div class="filter-buttons">
+    <button (click)="filterItems('Pending')">Pending</button>
+    <button (click)="filterItems('In-progress')">In Progress</button>
+    <button (click)="filterItems('Completed')">Completed</button>
+    <button (click)="filterItems('Served')">Served</button>
+  </div>
+
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchOrderId" placeholder="Enter Order ID" />
+    <button (click)="searchItemsByOrderId()">Search</button>
+  </div>
+
+  <div *ngIf="items.length === 0" class="no-items">No items found.</div>
+
+  <div class="cards-container">
+    <div *ngFor="let item of items" class="card">
+      <div class="card-body">
+
+        <h3 class="item-name">{{ item.item_name }}</h3>
+        <p class="price"><span>id:</span> {{ item.item_id }}</p>
+
+        <p class="price"><span>Price:</span> ${{ item.price }}</p>
+        <p class="quantity"><span>Quantity:</span> {{ item.quantity }}</p>
+        <p class="subtotal"><span>Subtotal:</span> ${{ item.subtotal }}</p>
+        <p class="order-id"><span>Order ID:</span> {{ item.order_id }}</p>
+        <p class="reservation-id"><span>Reservation ID:</span> {{ item.reservation_id }}</p>
+        <p class="status">
+          <span>Status:</span>
+          <select [(ngModel)]="item.status" (change)="updateStatus(item.order_id, item.item_id, item.status)" class="status-select">
+            <option value="Pending">Pending</option>
+            <option value="In-progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Served">Served</option>
+          </select>
+        </p>
+
+      </div>
+      <div class="card-footer">
+        <button class="btn-details">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

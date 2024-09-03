@@ -1,0 +1,72 @@
+<div class="edit-order-container">
+  <h2>Edit Order</h2>
+
+  <!-- Order Details Card -->
+  <div class="card order-details-card">
+    <h3>Order Details</h3>
+    <p><strong>Order ID:</strong>  {{ order.order_id }}</p>
+    <p><strong>Order ID:</strong>  {{ order.order_id }}</p>
+    <p><strong>Reservation ID:</strong> {{ order.reservation_no }}</p>
+    <p><strong>Status:</strong>
+      <span *ngIf="!isEditingStatus">{{ order.status }}</span>
+      <span *ngIf="isEditingStatus">
+        <select [(ngModel)]="selectedStatus">
+          <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+        </select>
+      </span>
+      <button *ngIf="!isEditingStatus" (click)="editStatus()">
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <button *ngIf="isEditingStatus" (click)="saveStatus()">Save</button>
+      <button *ngIf="isEditingStatus" (click)="cancelEditStatus()">Cancel</button>
+    </p>
+
+    <!-- Add other details if needed -->
+  </div>
+
+  <!-- Order Items Card -->
+  <div class="card order-items-card">
+    <h3>Order Items</h3>
+    <div *ngIf="orderItems.length === 0" class="no-items">No items found.</div>
+    <div *ngFor="let item of orderItems" class="card item-card">
+      <div class="item-details">
+        <p><strong>Item id:</strong> {{ item.menu_item_id }}</p>
+        <p><strong>Item Name:</strong> {{ item.item_name }}</p>
+        <p><strong>Price:</strong> ${{ item.price }}</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+        <p><strong>Subtotal:</strong> ${{ item.subtotal }}</p>
+      </div>
+      <div class="card-footer">
+        <button (click)="confirmRemoveMenuItem(item.menu_item_id)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Item Form Card -->
+  <div class="card add-item-form-card">
+    <h4>Add Menu Item</h4>
+    <form (ngSubmit)="addMenuItem()">
+      <label for="menuItem">Menu Item ID:</label>
+      <input id="menuItem" [(ngModel)]="newMenuItemId" name="menuItem" required />
+
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" type="number" [(ngModel)]="newQuantity" name="quantity" min="1" required />
+
+      <button type="submit">Add Item</button>
+    </form>
+  </div>
+
+  <!-- Cancel Button -->
+  <div class="cancel-button">
+    <button (click)="cancel()">Cancel</button>
+  </div>
+
+  <!-- Confirmation Dialog -->
+  <div *ngIf="showConfirmation" class="confirmation-dialog">
+    <div class="dialog-content">
+      <p>Are you sure you want to remove this item?</p>
+      <button (click)="removeMenuItem(selectedItemId)">Yes</button>
+      <button (click)="cancelConfirmation()">No</button>
+    </div>
+  </div>
+</div>
