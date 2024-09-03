@@ -1,6 +1,6 @@
 import {Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
 import { MenuService } from '../menu.service';
-import { FeedbackService } from '../feedback.service';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'app-menu-page',
