@@ -376,6 +376,80 @@
                 }
             }
         },
+        "/api/feedbacks/user/{userId}": {
+            "get": {
+                "tags": [
+                    "Feedbacks"
+                ],
+                "summary": "Get feedbacks by user ID",
+                "description": "Fetches all feedback entries related to a specific user based on their user ID. The feedback includes details such as order ID, customer name, menu item name, rating, comments, and date submitted.",
+                "operationId": "38b56521887f67f00ea150e9bc748dd6",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID of the user to retrieve feedback for",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "feedback_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "order_id": {
+                                                "type": "integer",
+                                                "example": 101
+                                            },
+                                            "customer_name": {
+                                                "type": "string",
+                                                "example": "John Doe"
+                                            },
+                                            "menu_item_name": {
+                                                "type": "string",
+                                                "example": "Cheeseburger"
+                                            },
+                                            "rating": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "comments": {
+                                                "type": "string",
+                                                "example": "Delicious!"
+                                            },
+                                            "date_submitted": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2024-09-01 12:00:00"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
         "/api/auth/login": {
             "post": {
                 "tags": [

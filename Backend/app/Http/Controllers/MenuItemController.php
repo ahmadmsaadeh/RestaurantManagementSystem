@@ -176,23 +176,38 @@ class MenuItemController extends Controller
                 'category_id' => 'required|exists:categories,category_id', // Ensure the category exists
             ]);
 //
+
+
+
             $imageName = null;
 
+            // Handle image file upload
             if ($request->hasFile('image')) {
-             //   $imagePath = $request->file('image')->store('images', 'public');//
-              //  $imageName = basename($imagePath);
-               // $validatedData['image'] = $imageName;
-               // $validatedData['image'] = $imagePath;
-              //  $imageName = basename($imagePath); //
-              //  $validatedData['image'] = $imageName;//
-               // $imagePath = $request->file('image')->store('images', 'public');
-                //$imageName = basename($imagePath);
-
-
-                $imagePath = $request->file('image')->store('images', 'public');
-                $imageName = $request->file('image')->getClientOriginalName();
+                $file = $request->file('image');
+                $imageName = $file->getClientOriginalName(); // Unique image name
+                $file->move(public_path('images'), $imageName); // Move image to the public/images directory
             }
-            $validatedData['image'] = $imageName;
+
+            // Save the image name or path to the validated data
+            $validatedData['image'] = $imageName ? $imageName : null;
+
+            /*  $imageName = null;
+
+              if ($request->hasFile('image')) {
+               //   $imagePath = $request->file('image')->store('images', 'public');//
+                //  $imageName = basename($imagePath);
+                 // $validatedData['image'] = $imageName;
+                 // $validatedData['image'] = $imagePath;
+                //  $imageName = basename($imagePath); //
+                //  $validatedData['image'] = $imageName;//
+                 // $imagePath = $request->file('image')->store('images', 'public');
+                  //$imageName = basename($imagePath);
+
+
+                  $imagePath = $request->file('image')->store('images', 'public');
+                  $imageName = $request->file('image')->getClientOriginalName();
+              }
+              $validatedData['image'] = $imageName; */
 
 
             //
