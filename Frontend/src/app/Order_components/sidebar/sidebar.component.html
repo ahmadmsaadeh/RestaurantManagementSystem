@@ -54,23 +54,31 @@
             <span>Manage Reservations</span>
           </a>
           <ul id="reservation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management' || this.userService.getUserType() === 'Kitchen Staff'">
               <a [routerLink]="['/side-with-content/reservation']" class="sidebar-link">View Reservations</a>
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management' || this.userService.getUserType() === 'Kitchen Staff'">
               <a [routerLink]="['/side-with-content/add-reservation']" class="sidebar-link">Add Reservation</a>
+
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff'">
+
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management' || this.userService.getUserType() === 'Kitchen Staff'">
               <a [routerLink]="['/side-with-content/tables-management']" class="sidebar-link">Manage Tables</a>
+
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'">
+
+            <li class="sidebar-item">
               <a [routerLink]="['/side-with-content/view-reservations']" class="sidebar-link">View My Reservations</a>
+
             </li>
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'">
+
+            <li class="sidebar-item">
               <a [routerLink]="['/side-with-content/user-reserve']" class="sidebar-link">Reserve Now To Enjoy Our Food!</a>
+
             </li>
           </ul>
         </li>
+
 
         <li class="sidebar-item">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
