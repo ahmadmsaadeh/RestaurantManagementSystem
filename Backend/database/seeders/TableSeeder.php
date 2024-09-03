@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Table;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TableSeeder extends Seeder
 {
@@ -13,8 +12,12 @@ class TableSeeder extends Seeder
      */
     public function run(): void
     {
-       Table::create([ 'NumberOfChairs' => 4]);
-       Table::create([ 'NumberOfChairs' => 2]);
-       Table::create([ 'NumberOfChairs' => 3]);
+        DB::table('tables')->insert([
+            ['TableID' => 1, 'NumberOfChairs' => 4],
+            ['TableID' => 2, 'NumberOfChairs' => 2],
+            ['TableID' => 3, 'NumberOfChairs' => 6],
+            ['TableID' => 4, 'NumberOfChairs' => 3],
+            ['TableID' => 5, 'NumberOfChairs' => 5],
+        ]);
     }
 }
