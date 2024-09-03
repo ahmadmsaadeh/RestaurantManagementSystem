@@ -11,6 +11,19 @@
       </div>
 
       <ul class="sidebar-nav">
+             <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           aria-expanded="false">
+          <i class="lni lni-user"></i>
+          <span>{{Useeremail}}</span>
+        </a>
+        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/profile']" class="sidebar-link">User profile</a>
+          </li>
+        </ul>
+      </li>
+
 
         <li class="sidebar-item "  *ngIf="userService.getUserType() === 'Admin'">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
