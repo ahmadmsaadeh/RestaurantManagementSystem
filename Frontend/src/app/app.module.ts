@@ -8,10 +8,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserReservationComponent } from './user-reservation/user-reservation.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { ReservationTableComponent } from './reservation-table/reservation-table.component';
-import { MonthlySalesComponent } from './monthly-sales/monthly-sales.component';
-import { YearlySalesComponent } from './yearly-sales/yearly-sales.component';
-import { MenuItemOrdersComponent } from './menu-item-orders/menu-item-orders.component';
-import { FeedbackTrackingComponent } from './feedback-tracking/feedback-tracking.component';
+import { MonthlySalesComponent } from './ReportsComponents/monthly-sales/monthly-sales.component';
+import { YearlySalesComponent } from './ReportsComponents/yearly-sales/yearly-sales.component';
+import { MenuItemOrdersComponent } from './ReportsComponents/menu-item-orders/menu-item-orders.component';
+import { FeedbackTrackingComponent } from './ReportsComponents/feedback-tracking/feedback-tracking.component';
 import { RoleslistComponent } from './roleslist/roleslist.component';
 import {SidebarComponent} from "./Order_components/sidebar/sidebar.component";
 import {CommonModule} from "@angular/common";
@@ -46,10 +46,14 @@ import { TablesManagementComponent } from './tables-managment/tables-management.
 import { FullscreenBackgroundComponent } from './fullscreen-background/fullscreen-background.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
-import { ReportsComponent } from './reports/reports.component';
+import { ReportsComponent } from './ReportsComponents/reports/reports.component';
 
 import { UserReserveComponent } from './user-reserve/user-reserve.component';
+
 import { EditlistComponent } from './editlist/editlist.component';
+
+import { ShowFeedbackComponent } from './FeedbackComponents/show-feedback/show-feedback.component';
+
 
 
 @NgModule({
@@ -83,9 +87,10 @@ import { EditlistComponent } from './editlist/editlist.component';
    FullscreenBackgroundComponent,
 
    ReportsComponent,
-
    UserReserveComponent,
      EditlistComponent,
+     ShowFeedbackComponent,
+
 
 
   ],

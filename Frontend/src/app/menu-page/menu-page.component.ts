@@ -1,5 +1,6 @@
 import {Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
 import { MenuService } from '../menu.service';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'app-menu-page',
@@ -15,9 +16,11 @@ export class MenuPageComponent implements OnInit{
   categories: any[] = [];
   selectedItemrating: any ; // rating
 
-  commentText: string = ''; // comment
-
+  selectedItemFeedback: any;
+  averageRating: number = 0;
+  comments: string[] = [];
   //constructor(private menuService: MenuService) { }
+  private feedbackService=inject( FeedbackService)
   private menuService = inject(MenuService);  // Use inject to get MenuService
   @Output() itemAdded = new EventEmitter<any>();
   ngOnInit(): void {
@@ -162,7 +165,12 @@ export class MenuPageComponent implements OnInit{
   //
   showDetails(item: any): void {
     this.selectedItem = item;
-    this.commentText = '';
+    //Tala
+    this.feedbackService.getItemFeedback(item.menu_item_id).subscribe((response) => {
+      console.log(response.average_rating);
+      this.averageRating = response.average_rating;
+      this.comments = response.comments;
+    });
   }
 
   closeDetails(): void {
@@ -180,10 +188,15 @@ export class MenuPageComponent implements OnInit{
     return Array(5).fill(0).map((_, i) => i < rating ? 1 : 0);
   }
 
-
-  // commit and rating
-  getStarClass(item: any, index: number): string {
-    return item.rating >= index ? 'fa-star text-warning' : 'fa-star text-muted';
+// By Tala
+  getStarClass(rating: number, index: number): string {
+    if (rating >= index) {
+      return 'fa-star text-warning';
+    } else if (rating >= index - 0.5) {
+      return 'fa-star-half-alt text-warning';
+    } else {
+      return 'fa-star text-muted';
+    }
   }
 
   selectRating(item: any, rating: number, event: any) {

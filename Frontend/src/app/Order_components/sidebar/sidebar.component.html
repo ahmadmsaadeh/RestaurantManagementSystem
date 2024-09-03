@@ -13,8 +13,21 @@
     <ul class="sidebar-nav">
 
       <li class="sidebar-item">
-        <a href="" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-           data-bs-target="#order" aria-expanded="false" aria-controls="order">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           aria-expanded="false">
+          <i class="lni lni-user"></i>
+          <span>{{Useeremail}}</span>
+        </a>
+        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/profile']" class="sidebar-link">User profile</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+           data-bs-target="#roleslist" aria-expanded="false" aria-controls="roleslist">
           <i class="bi bi-menu-app"></i>
           <span>Manage Roles and Users</span>
         </a>
@@ -23,10 +36,11 @@
             <a [routerLink]="['/side-with-content/roles-list']" class="sidebar-link">Roles List</a>
           </li>
           <li class="sidebar-item">
-            <a [routerLink]="['/roles-list']" class="sidebar-link">Users List</a>
+            <a [routerLink]="['/side-with-content/users-list']" class="sidebar-link">User List</a>
           </li>
         </ul>
       </li>
+
 
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
@@ -141,7 +155,10 @@
         </a>
         <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
-            <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Feedback</a>
+            <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Add Feedback</a>
+          </li>
+          <li class="sidebar-item">
+            <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
           </li>
         </ul>
       </li>

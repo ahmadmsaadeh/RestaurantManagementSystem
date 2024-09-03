@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FeedbackService } from '../feedback.service'; // Adjust the path as necessary
+import { FeedbackService } from '../services/feedback.service'; 
 
 @Component({
   selector: 'app-feedback',
@@ -8,7 +8,7 @@ import { FeedbackService } from '../feedback.service'; // Adjust the path as nec
 })
 export class FeedbackComponent implements OnInit {
   step: number = 1;
-  progress: number = 50; // Initial progress value
+  progress: number = 50; 
   orders: any[] = [];
   selectedOrder: any = null;
   selectedItem: any = null;
@@ -30,12 +30,10 @@ export class FeedbackComponent implements OnInit {
     this.loadOrders();
   }
 
-  // Load orders based on user ID
   loadOrders() {
     this.feedbackService.getOrdersByUserId(this.userId).subscribe(
       (response: any[]) => {
         this.orders = response;
-        // Attach items to each order
         this.orders.forEach(order => this.fetchOrderItems(order.order_id));
       },
       (error: any) => {
@@ -44,7 +42,6 @@ export class FeedbackComponent implements OnInit {
     );
   }
 
-  // Fetch order items for a specific order and attach to the order
   fetchOrderItems(orderId: number) {
     this.feedbackService.getOrderItems(orderId).subscribe(
       (response: any) => {
@@ -59,49 +56,44 @@ export class FeedbackComponent implements OnInit {
     );
   }
 
-  // Handle order selection
   selectOrder(order: any) {
     this.selectedOrder = order;
-    this.selectedItem = null; // Reset selected item
+    this.selectedItem = null; 
     this.step = 2;
   }
 
-  // Handle item selection
+
   selectItem(item: any) {
     this.selectedItem = item;
-    console.log('Selected Item:', this.selectedItem); // Debugging line
+    console.log('Selected Item:', this.selectedItem); 
   }
 
-  // Handle rating selection
   selectRating(rating: any) {
     this.selectedRating = rating.value;
   }
 
-  // Submit feedback and handle the submission progress
   submitFeedback() {
     const now = new Date();
     const dateSubmitted = now.toISOString().slice(0, 19).replace('T', ' ');
   
-    // Construct the feedback object
     const feedback = {
       order_id: this.selectedOrder ? this.selectedOrder.order_id : null,
-      menu_item_id: this.selectedItem ? this.selectedItem.menu_item_id : null, // Ensure this is correctly set
+      menu_item_id: this.selectedItem ? this.selectedItem.menu_item_id : null, 
       customer_id: this.userId,
       rating: this.selectedRating,
       comments: this.feedbackText,
       date_submitted: dateSubmitted
     };
   
-    console.log('Feedback Object:', feedback); // Debugging line
+    console.log('Feedback Object:', feedback);
   
     this.feedbackService.submitFeedback(feedback).subscribe(
       (response: any) => {
         console.log('Feedback submitted:', response);
-        // Update progress and change step
         this.progress = 100;
         setTimeout(() => {
-          this.step = 3; // Move to thank you step after submission
-        }, 500); // Adjust delay as needed
+          this.step = 3; 
+        }, 500); 
       },
       (error: any) => {
         console.error('Error submitting feedback:', error);
@@ -109,15 +101,14 @@ export class FeedbackComponent implements OnInit {
     );
   }
 
-  // Go back to the previous step
   goBack() {
     this.step = 1;
   }
 
-  // Reset form to initial state
+
   resetForm() {
     this.step = 1;
-    this.progress = 50; // Reset progress bar
+    this.progress = 50; 
     this.selectedOrder = null;
     this.selectedItem = null;
     this.selectedRating = null;

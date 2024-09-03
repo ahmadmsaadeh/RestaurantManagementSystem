@@ -60,9 +60,9 @@ export class UserReservationComponent implements AfterViewInit, OnInit {
 
     this.reservationService.createReservation(userId, date, time, numOfCustomers, reservationType)
       .subscribe(response => {
-        console.log('Reservation created successfully', response);
+        window.alert("Reservation created successfully");
       }, error => {
-        console.error('Error creating reservation', error);
+        window.alert("Error creating reservation");
       });
   }
 }
