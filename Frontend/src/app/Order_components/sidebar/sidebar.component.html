@@ -132,6 +132,9 @@
             <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
             </li>
+          <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'">
+            <a [routerLink]="['/side-with-content/update-delete-feedbacks']" class="sidebar-link">Update or delete feedbacks</a>
+          </li>
           </ul>
         </li>
 
