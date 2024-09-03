@@ -43,7 +43,7 @@ export class LoginComponent {
                   const UserType = response.role_name;
                   this.userService.setUserType(UserType);
                   this.userService.setUseremail(this.email);
-                  this.router.navigate(['/side-with-content/reports']);
+                  this.router.navigate(['/side-with-content/menu']);
                   if (response.role_name === "Admin") {
                   } else if (response.role_name === "Management") {
 
