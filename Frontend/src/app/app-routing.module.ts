@@ -31,7 +31,7 @@ import { ReportsComponent } from './reports/reports.component';
 
 import {UserReserveComponent} from "./user-reserve/user-reserve.component";
 
-
+import { EditlistComponent } from './editlist/editlist.component';
 
 const routes: Routes = [
 
@@ -49,6 +49,8 @@ const routes: Routes = [
 
       { path: 'menu', component: MenuPageComponent },
       { path: 'menu/edit', component: MenuEditComponent }, //
+      { path: 'menu/editlist', component: EditlistComponent },
+
 
       { path: 'reservation', component: ReservationTableComponent },
       { path: 'add-reservation', component: UserReservationComponent },
