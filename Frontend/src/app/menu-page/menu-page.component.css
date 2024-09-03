@@ -314,3 +314,16 @@
     flex-basis: 100%;
   }
 }
+
+
+@media (max-width: 1400px) {
+  .menu-item img {
+    max-height: 370px;
+  }
+
+  .menu-details {
+    padding: 10px;
+  }
+}
+
+

@@ -12,6 +12,8 @@ export class ReservationUserManagementComponent implements OnInit {
   reservations: any[] = [];
   selectedReservation: any = null;
   userId:number | null = 1;
+  username: string | null = null;
+
 
   constructor(
     private reservationService: ReservationService,
@@ -20,6 +22,12 @@ export class ReservationUserManagementComponent implements OnInit {
   ) {
     this.userId=loginService.getUserId();
     console.log(this.userId);
+    if (this.userId) {
+      this.reservationService.getUsername(this.userId).subscribe(username => {
+        this.username = username;
+        console.log("Username:", this.username);
+      });
+    }
   }
 
   ngOnInit(): void {
