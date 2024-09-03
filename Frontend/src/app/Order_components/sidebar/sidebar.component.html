@@ -12,7 +12,7 @@
 
       <ul class="sidebar-nav">
 
-        <li class="sidebar-item">
+        <li class="sidebar-item "  *ngIf="userService.getUserType() === 'Admin'">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
              data-bs-target="#roleslist" aria-expanded="false" aria-controls="roleslist">
             <i class="bi bi-menu-app"></i>
@@ -126,13 +126,13 @@
             <span>Feedback</span>
           </a>
           <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'">
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Add Feedback</a>
             </li>
             <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
             </li>
-          <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'">
+          <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'|| userService.getUserType() === 'Admin'">
             <a [routerLink]="['/side-with-content/update-delete-feedbacks']" class="sidebar-link">Update or delete feedbacks</a>
           </li>
           </ul>
