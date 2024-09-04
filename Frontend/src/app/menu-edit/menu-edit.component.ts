@@ -3,6 +3,7 @@ import { MenuService } from '../menu.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, catchError, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-edit',
@@ -18,7 +19,7 @@ export class MenuEditComponent{
   selectedCategoryId: number | undefined;
   selectedFile: File | undefined;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient ,  private router: Router) {
     this.form = this.fb.group({
       itemName: ['', Validators.required],
       itemDescription: [''],
@@ -115,7 +116,26 @@ export class MenuEditComponent{
       })
     ).subscribe(response => {
       console.log('Menu item added successfully:', response);
+      alert('Menu item added successfully!');
+
+
+      this.form.reset();
+
+
+      this.selectedFile = undefined;
+      this.selectedCategoryId = undefined;
+
+
     });
+
+
+      //  window.location.reload();
+    //  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //    this.router.navigate([this.router.url]);
+    //  });
+
+
+ //   });
 
   /*  this.menuService.addMenuItem(formData).pipe(
       catchError(error => {
