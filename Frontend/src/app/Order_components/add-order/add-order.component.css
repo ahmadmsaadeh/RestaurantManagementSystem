@@ -1,31 +1,38 @@
-
-/* Hide arrows for number input in WebKit browsers (Chrome, Safari) */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Hide arrows for number input in Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
 .quantity-selector {
   display: flex;
   align-items: center;
 }
 
-.quantity-selector .btn {
-  /*flex: 0 0 auto; !* Ensure buttons don't stretch *!*/
-  padding-left: 7px; /* Adjust this value to move content to the left */
-  width: 10px; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
-  font-size: 18px; /* Adjust font size as needed */
+.quantity-selector .form-control {
+  flex: 1; /* Allow input field to grow */
+  text-align: center;
+  height: 30px; /* Reduced height */
+  font-size: 14px; /* Smaller font size */
+  max-width: 60px; /* Limit the width */
+  padding: 0; /* Remove padding for a more compact look */
 }
 
-.quantity-selector .form-control {
-  text-align: center;
-  width: 50px; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
-  font-size: 18px; /* Adjust font size as needed */
+@media (max-width: 576px) {
+  .quantity-selector .form-control {
+    height: 25px; /* Further reduce for small screens */
+    font-size: 12px; /* Smaller font size for small screens */
+    max-width: 50px; /* Smaller width for small screens */
+  }
+}
+.btn-place-order {
+  background-color: #DE6262;
+  color: white;
+}
+
+.btn-cancel-order {
+  background-color: #7a7a52;
+  color: white;
+}
+
+.btn-place-order:hover {
+  background-color: #DE6262;
+}
+
+.btn-cancel-order:hover {
+  background-color:#7a7a52;
 }

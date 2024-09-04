@@ -135,6 +135,6 @@ export class EditOrderComponent implements OnInit{
   }
 
   cancel(): void {
-    this.router.navigate(['/orders']);
+    this.router.navigate(['/side-with-content/orders']);
   }
 }

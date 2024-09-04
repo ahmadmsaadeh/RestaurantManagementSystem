@@ -50,14 +50,20 @@
             <span>Manage Orders</span>
           </a>
           <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management'">
               <a [routerLink]="['/side-with-content/orders']" class="sidebar-link">Orders List</a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management'">
               <a [routerLink]="['/side-with-content/order-items']" class="sidebar-link">Orders' Items</a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Admin' || this.userService.getUserType() === 'Management'" >
               <a [routerLink]="['/side-with-content/new-order']" class="sidebar-link">Create new order</a>
+            </li>
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Kitchen Staff'" >
+              <a [routerLink]="['/side-with-content/kitchen-orders']" class="sidebar-link">Kitchen orders</a>
+            </li>
+            <li class="sidebar-item" *ngIf="this.userService.getUserType() === 'Customer'" >
+              <a [routerLink]="['/side-with-content/customer-orders']" class="sidebar-link">View My Orders</a>
             </li>
           </ul>
         </li>

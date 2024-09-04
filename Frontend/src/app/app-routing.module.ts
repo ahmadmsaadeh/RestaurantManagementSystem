@@ -38,6 +38,8 @@ import { EditlistComponent } from './editlist/editlist.component';
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
 import {ItemsComponent} from "./Order_components/items/items.component";
 import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
+import {KitchenOrdersComponent} from "./Order_components/kitchen-orders/kitchen-orders.component";
+import {CustomerOrdersComponent} from "./Order_components/customer-orders/customer-orders.component";
 
 
 const routes: Routes = [
@@ -55,6 +57,8 @@ const routes: Routes = [
       { path: 'new-order', component: AddOrderComponent },
       { path: 'order-items', component: ItemsComponent },
       { path: 'edit-order/:id', component: EditOrderComponent },
+      { path: 'kitchen-orders', component: KitchenOrdersComponent },
+      { path: 'customer-orders', component: CustomerOrdersComponent },
 
 
       { path: 'menu', component: MenuPageComponent },

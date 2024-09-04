@@ -152,14 +152,3 @@
     width: 100%;
   }
 }
-.status-text{
-
-
-  display: inline-block;
-  padding: 5px 15px; /* Adjust padding for the desired size and shape */
-  border: 2px solid #DE6262; /* Border color and thickness */
-  color: #DE6262; /* Text color matching the border */
-  border-radius: 25px; /* Creates the oval shape */
-  font-weight: bold; /* Optional: Make the text bold */
-  font-size: 14px; /* Adjust font size as needed */
-}

@@ -3,6 +3,7 @@
     <!-- Menu Section -->
     <div class="col-md-7 col-12">
       <app-menu-page (itemAdded)="addItemToOrder($event)"></app-menu-page>
+<!--      <app-menu-edit></app-menu-edit>-->
     </div>
 
     <!-- Order Details Section -->
@@ -44,14 +45,12 @@
               <td>{{item.menu_item_id}}</td>
               <td>{{ item.name_item }}</td>
               <td>
-                <div class="input-group quantity-selector">
-                  <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity(i)">-</button>
+                <div class="quantity-selector">
                   <input type="number" class="form-control text-center" [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange(i, $event)" />
-                  <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity(i)">+</button>
                 </div>
               </td>
               <td>${{ item.price }}</td>
-              <td>${{ item.price * item.quantity }}</td>
+              <td>${{ (item.price * item.quantity) | number: '1.2-3' }}</td>
             </tr>
             </tbody>
           </table>
@@ -59,12 +58,12 @@
 
         <!-- Total Amount Display -->
         <div class="total-amount mt-4">
-          <h5>Total: ${{ getTotalAmount() }}</h5>
+          <h5>Total: ${{ getTotalAmount() | number: '1.2-3'}}</h5>
         </div>
 
         <div class="action-buttons mt-4 d-flex justify-content-between">
-          <button type="button" class="btn btn-primary" (click)="placeOrder()">Place Order</button>
-          <button type="button" class="btn btn-danger" (click)="cancelOrder()">Cancel</button>
+          <button type="button" class="btn btn-place-order" (click)="placeOrder()">Place Order</button>
+          <button type="button" class="btn btn-cancel-order" (click)="cancelOrder()">Cancel</button>
         </div>
       </div>
     </div>

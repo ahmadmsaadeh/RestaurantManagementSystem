@@ -4,8 +4,7 @@
   <!-- Order Details Card -->
   <div class="card order-details-card">
     <h3>Order Details</h3>
-    <p><strong>Order ID:</strong>  {{ order.order_id }}</p>
-    <p><strong>Order ID:</strong>  {{ order.order_id }}</p>
+    <p><strong>Order ID:</strong> {{ order.order_id }}</p>
     <p><strong>Reservation ID:</strong> {{ order.reservation_no }}</p>
     <p><strong>Status:</strong>
       <span *ngIf="!isEditingStatus">{{ order.status }}</span>
@@ -14,14 +13,12 @@
           <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
         </select>
       </span>
-      <button *ngIf="!isEditingStatus" (click)="editStatus()">
+      <button *ngIf="!isEditingStatus" (click)="editStatus()" class="edit-icon">
         <i class="bi bi-pencil-fill"></i>
       </button>
-      <button *ngIf="isEditingStatus" (click)="saveStatus()">Save</button>
-      <button *ngIf="isEditingStatus" (click)="cancelEditStatus()">Cancel</button>
+      <button *ngIf="isEditingStatus" (click)="saveStatus()" class="btn btn-primary">Save</button>
+      <button *ngIf="isEditingStatus" (click)="cancelEditStatus()" class="btn btn-secondary">Cancel</button>
     </p>
-
-    <!-- Add other details if needed -->
   </div>
 
   <!-- Order Items Card -->
@@ -30,14 +27,14 @@
     <div *ngIf="orderItems.length === 0" class="no-items">No items found.</div>
     <div *ngFor="let item of orderItems" class="card item-card">
       <div class="item-details">
-        <p><strong>Item id:</strong> {{ item.menu_item_id }}</p>
+        <p><strong>Item ID:</strong> {{ item.menu_item_id }}</p>
         <p><strong>Item Name:</strong> {{ item.item_name }}</p>
         <p><strong>Price:</strong> ${{ item.price }}</p>
         <p><strong>Quantity:</strong> {{ item.quantity }}</p>
         <p><strong>Subtotal:</strong> ${{ item.subtotal }}</p>
       </div>
       <div class="card-footer">
-        <button (click)="confirmRemoveMenuItem(item.menu_item_id)">Remove</button>
+        <button (click)="confirmRemoveMenuItem(item.menu_item_id)" class="btn btn-danger">Remove</button>
       </div>
     </div>
   </div>
@@ -52,21 +49,21 @@
       <label for="quantity">Quantity:</label>
       <input id="quantity" type="number" [(ngModel)]="newQuantity" name="quantity" min="1" required />
 
-      <button type="submit">Add Item</button>
+      <button type="submit" class="btn btn-primary">Add Item</button>
     </form>
   </div>
 
   <!-- Cancel Button -->
   <div class="cancel-button">
-    <button (click)="cancel()">Cancel</button>
+    <button (click)="cancel()" class="btn btn-secondary">Cancel</button>
   </div>
 
   <!-- Confirmation Dialog -->
   <div *ngIf="showConfirmation" class="confirmation-dialog">
     <div class="dialog-content">
       <p>Are you sure you want to remove this item?</p>
-      <button (click)="removeMenuItem(selectedItemId)">Yes</button>
-      <button (click)="cancelConfirmation()">No</button>
+      <button (click)="removeMenuItem(selectedItemId)" class="btn btn-danger">Yes</button>
+      <button (click)="cancelConfirmation()" class="btn btn-secondary">No</button>
     </div>
   </div>
 </div>
