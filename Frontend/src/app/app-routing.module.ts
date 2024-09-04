@@ -38,12 +38,15 @@ import { EditlistComponent } from './editlist/editlist.component';
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
 import {ItemsComponent} from "./Order_components/items/items.component";
 import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
+
 import {KitchenOrdersComponent} from "./Order_components/kitchen-orders/kitchen-orders.component";
 import {CustomerOrdersComponent} from "./Order_components/customer-orders/customer-orders.component";
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 const routes: Routes = [
 
+  {path:'',component:  HomePageComponent},
   {path:'adminDashboard',component:SidebarComponent},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

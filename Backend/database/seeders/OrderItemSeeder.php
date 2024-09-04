@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Order_item;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class OrderItemSeeder extends Seeder
 {
@@ -13,35 +14,20 @@ class OrderItemSeeder extends Seeder
      */
     public function run(): void
     {
-     Order_item::create([
-         'order_id' => 1, // Reference to the first existing order
-         'menu_item_id' => 1, // Cheeseburger
-         'quantity' => 2,
-         'subtotal' => 19.98, // 2 x $9.99
-         'item_status' => 'Pending',
-     ]);
-     Order_item::create([
-         'order_id' => 1, // Reference to the first existing order
-         'menu_item_id' => 3, // Caesar Salad
-         'quantity' => 1,
-         'subtotal' => 7.99, // 1 x $7.99
-         'item_status' => 'In-progress',
-     ]);
-     Order_item::create([
-            'order_id' => 2, // Reference to the second existing order
-            'menu_item_id' => 2, // Margherita Pizza
-            'quantity' => 1,
-            'subtotal' => 12.99, // 1 x $12.99
-            'item_status' => 'Completed',
-        ]);
-        Order_item::create([
-            'order_id' => 2, // Reference to the second existing order
-            'menu_item_id' => 4, // Fries
-            'quantity' => 3,
-            'subtotal' => 11.97, // 3 x $3.99
-            'item_status' => 'Pending',
-        ]);
+        // Retrieve all menu item IDs and order IDs
+        $menuItemIds = DB::table('menu_items')->pluck('menu_item_id')->toArray(); // Convert to array
+        $orderIds = DB::table('orders')->pluck('order_id')->toArray(); // Convert to array
 
-
+        foreach ($orderIds as $orderId) {
+            foreach (range(1, 4) as $itemNum) {
+                Order_item::create([
+                    'order_id' => $orderId,
+                    'menu_item_id' => $menuItemIds[array_rand($menuItemIds)], // Use array_rand() on array
+                    'quantity' => rand(1, 3),
+                    'subtotal' => rand(5, 20),
+                    'item_status' => ['Pending', 'In-progress', 'Completed'][array_rand(['Pending', 'In-progress', 'Completed'])],
+                ]);
+            }
+        }
     }
 }

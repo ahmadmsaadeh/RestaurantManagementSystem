@@ -16,15 +16,15 @@ class ChefimageSeeder extends Seeder
         $data = [
             [
                 'chef_image_url' => 'chef1.jpg',
-                'user_id' => 4,
+                'user_id' => 10,
             ],
             [
                 'chef_image_url' => 'chef2.jpg',
-                'user_id' => 5,
+                'user_id' => 11,
             ],
             [
                 'chef_image_url' => 'chef3.jpg',
-                'user_id' => 6,
+                'user_id' => 12,
             ],
         ];
 

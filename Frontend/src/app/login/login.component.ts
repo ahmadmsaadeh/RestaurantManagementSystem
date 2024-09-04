@@ -1,18 +1,27 @@
-import {Component, Input} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
-import {LoginService} from "./service/LoginService";
-import {UserService} from "../dashboard/service/userservice";
-
+import { LoginService } from './service/LoginService';
+import { UserService } from '../dashboard/service/userservice';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, AfterViewInit {
+  email: string = '';
+  password: string = '';
 
-  constructor( private userService: UserService , private router: Router, private loginService: LoginService) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private loginService: LoginService
+  ) {}
+
+  ngOnInit(): void {
+    // Initialize logic if needed
+  }
 
   ngAfterViewInit() {
     const carouselElement = document.querySelector('#carouselExampleIndicators');
@@ -21,41 +30,23 @@ export class LoginComponent {
     }
   }
 
-  email: string = '';
-  password: string = '';
-  @Input() UserType: String = '';
-  @Input() Useremail: String = '';
-
   onSubmit() {
     this.loginService.checklogin(this.email, this.password).subscribe(
       result => {
         if (result.success) {
-
           console.log('Login successful');
-          //alert('Login successful');
           if (result.role_id !== undefined) {
             this.loginService.usertype(result.role_id).subscribe(
               response => {
                 console.log('Role retrieval response:', response);
                 if (response.success) {
                   console.log('Role name:', response.role_name);
-                  alert('Login successful, Welcome ' +response.role_name + '!');
-                  const UserType = response.role_name;
-                  this.userService.setUserType(UserType);
+                  alert('Login successful, Welcome ' + response.role_name + '!');
+                  const userType = response.role_name;
+                  this.userService.setUserType(userType);
                   this.userService.setUseremail(this.email);
-                  this.router.navigate(['/side-with-content/reports']);
-                  if (response.role_name === "Admin") {
-                  } else if (response.role_name === "Management") {
-
-                  } else if (response.role_name === "Customer") {
-
-                  } else if (response.role_name === "Kitchen Staff") {
-
-                  } else if (response.role_name === "Cashier Staff") {
-
-                  } else {
-                  }
-
+                  this.userService.setUserId(result.user_id ?? 0); // Set userId here
+                  this.router.navigate(['/side-with-content/menu']);
                 } else {
                   console.log('Role name retrieval failed');
                 }
@@ -74,7 +65,6 @@ export class LoginComponent {
           } else {
             console.log('User email is undefined');
           }
-
         } else {
           console.log('Login not successful');
           alert('Login not successful');
@@ -86,9 +76,4 @@ export class LoginComponent {
       }
     );
   }
-
-  ngOnInit(): void {
-    this.onSubmit();
-  }
-
 }
