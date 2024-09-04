@@ -60,6 +60,10 @@ import { FooterComponent } from './footer/footer.component';
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
 import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
 import {ItemsComponent} from "./Order_components/items/items.component";
+
+import { KitchenOrdersComponent } from './Order_components/kitchen-orders/kitchen-orders.component';
+import { CustomerOrdersComponent } from './Order_components/customer-orders/customer-orders.component';
+
 import { HomePageComponent } from './home-page/home-page.component';
 
 
@@ -105,7 +109,12 @@ import { HomePageComponent } from './home-page/home-page.component';
      SliderHomeComponent,
     ChefsComponent,
     FooterComponent,
+
+    KitchenOrdersComponent,
+    CustomerOrdersComponent,
+
     HomePageComponent,
+
 
 
 

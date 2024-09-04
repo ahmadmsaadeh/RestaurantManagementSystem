@@ -19,15 +19,16 @@
 
         <h3 class="item-name">{{ item.item_name }}</h3>
         <p class="id"><span>Item id:</span> {{ item.menu_item_id }}</p>
-
-        <p class="price"><span>Price:</span> ${{ item.price }}</p>
         <p class="quantity"><span>Quantity:</span> {{ item.quantity }}</p>
-        <p class="subtotal"><span>Subtotal:</span> ${{ item.subtotal }}</p>
         <p class="order-id"><span>Order ID:</span> {{ item.order_id }}</p>
-        <p class="reservation-id"><span>Reservation ID:</span> {{ item.reservation_id }}</p>
         <p class="status">
-          <span>Status: </span>
-          <span class="status-text">{{ item.status }}</span>
+          <span>Status:</span>
+          <select [(ngModel)]="item.status" (change)="updateStatus(item.order_id, item.menu_item_id, item.status)" class="status-select">
+            <option value="Pending">Pending</option>
+            <option value="In-progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Served">Served</option>
+          </select>
         </p>
 
       </div>

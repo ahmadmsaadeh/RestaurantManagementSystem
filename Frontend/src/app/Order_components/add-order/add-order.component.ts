@@ -51,17 +51,6 @@ export class AddOrderComponent implements OnInit{
     }
   }
 
-  increaseQuantity(index: number): void {
-    this.orderItems[index].quantity += 1;
-  }
-
-  decreaseQuantity(index: number): void {
-    if (this.orderItems[index].quantity > 1) {
-      this.orderItems[index].quantity -= 1;
-    } else {
-      this.removeItem(index);
-    }
-  }
 
   onQuantityChange(index: number, newValue: number): void {
     const quantity = Number(newValue);
@@ -94,7 +83,7 @@ export class AddOrderComponent implements OnInit{
 
           this.ordersService.createOrder(orderData).subscribe(response => {
             alert('Order placed successfully!');
-            // Optionally handle the response or redirect the user
+
           }, error => {
             console.error('Error placing order', error);
             alert('Failed to place order.');
