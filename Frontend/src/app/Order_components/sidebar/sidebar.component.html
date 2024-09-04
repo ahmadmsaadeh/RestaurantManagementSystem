@@ -147,20 +147,20 @@
           </ul>
         </li>
 
-        <li class="sidebar-item">
+        <li class="sidebar-item" *ngIf="userService.getUserType() !== 'Kitchen Staff'">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-             data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+             data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback" >
             <i class="bi bi-chat-left-dots"></i>
             <span>Feedback</span>
           </a>
           <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer' || userService.getUserType() === 'Admin'">
+            <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer' ">
               <a [routerLink]="['/side-with-content/feedback']" class="sidebar-link">Add Feedback</a>
             </li>
             <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
               <a [routerLink]="['/side-with-content/showFeedbacks']" class="sidebar-link">Show Feedbacks</a>
             </li>
-          <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'|| userService.getUserType() === 'Admin'">
+          <li class="sidebar-item" *ngIf="userService.getUserType() === 'Customer'">
             <a [routerLink]="['/side-with-content/update-delete-feedbacks']" class="sidebar-link">Update or delete feedbacks</a>
           </li>
           </ul>
