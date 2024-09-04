@@ -60,6 +60,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
 import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
 import {ItemsComponent} from "./Order_components/items/items.component";
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 
@@ -104,6 +105,7 @@ import {ItemsComponent} from "./Order_components/items/items.component";
      SliderHomeComponent,
     ChefsComponent,
     FooterComponent,
+    HomePageComponent,
 
 
 

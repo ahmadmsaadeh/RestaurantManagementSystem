@@ -38,10 +38,11 @@ import { EditlistComponent } from './editlist/editlist.component';
 import { UpdateDeleteFeedbackComponent } from './FeedbackComponents/update-delete-feedback/update-delete-feedback.component';
 import {ItemsComponent} from "./Order_components/items/items.component";
 import {EditOrderComponent} from "./Order_components/edit-order/edit-order.component";
-
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
 
+  {path:'',component:  HomePageComponent},
   {path:'adminDashboard',component:SidebarComponent},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
