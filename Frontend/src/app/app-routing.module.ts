@@ -42,7 +42,7 @@ import {EditOrderComponent} from "./Order_components/edit-order/edit-order.compo
 import {KitchenOrdersComponent} from "./Order_components/kitchen-orders/kitchen-orders.component";
 import {CustomerOrdersComponent} from "./Order_components/customer-orders/customer-orders.component";
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { CreatestaffComponent } from './createstaff/createstaff.component';
 
 const routes: Routes = [
 
@@ -91,6 +91,8 @@ const routes: Routes = [
 
       { path: 'showFeedbacks', component:  ShowFeedbackComponent},
       { path: 'update-delete-feedbacks', component:    UpdateDeleteFeedbackComponent},
+      { path: 'createstaff', component:   CreatestaffComponent},
+      
     ]
   },
 

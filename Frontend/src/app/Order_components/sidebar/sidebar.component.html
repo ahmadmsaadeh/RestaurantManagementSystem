@@ -1,4 +1,3 @@
-<div *ngIf="userService.getUserType() === 'Admin' || userService.getUserType() === 'Management' || userService.getUserType() === 'Kitchen Staff' || userService.getUserType() === 'Customer'">
   <div class="wrapper">
     <aside id="sidebar">
       <div class="d-flex">
@@ -42,7 +41,18 @@
             </li>
           </ul>
         </li>
-
+        <li class="sidebar-item" *ngIf="userService.getUserType() === 'Admin'">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+             data-bs-target="#roleslist" aria-expanded="false" aria-controls="createstaff">
+            <i class="bi bi-person-plus"></i>
+            <span>Create staff</span>
+          </a>
+          <ul class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="sidebar-item">
+              <a [routerLink]="['/side-with-content/createstaff']" class="sidebar-link">Create Staff</a>
+            </li>
+          </ul>
+        </li>
         <li class="sidebar-item">
           <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
              data-bs-target="#order" aria-expanded="false" aria-controls="order">
@@ -177,4 +187,4 @@
 
     </aside>
   </div>
-</div>
+
