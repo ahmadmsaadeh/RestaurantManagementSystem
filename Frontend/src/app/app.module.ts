@@ -66,7 +66,7 @@ import { CustomerOrdersComponent } from './Order_components/customer-orders/cust
 
 import { HomePageComponent } from './home-page/home-page.component';
 
-
+import { CreatestaffComponent } from './createstaff/createstaff.component';
 
 
 @NgModule({
@@ -114,6 +114,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     CustomerOrdersComponent,
 
     HomePageComponent,
+    CreatestaffComponent ,
 
 
 
